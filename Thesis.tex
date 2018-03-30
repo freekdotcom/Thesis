@@ -1,0 +1,203 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template: Project Titlepage
+%
+% Source: http://www.howtotex.com
+% Date: April 2011
+% 
+% This is a title page template which be used for articles & reports.
+% 
+% Feel free to distribute this example, but please keep the referral
+% to howtotex.com
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% --------------------------------------------------------------------
+% Preamble
+% --------------------------------------------------------------------
+\documentclass[paper=a4, fontsize=11pt,twoside]{scrartcl}	% KOMA
+
+\usepackage[a4paper,pdftex]{geometry}	% A4paper margins
+\setlength{\oddsidemargin}{5mm}			% Remove 'twosided' indentation
+\setlength{\evensidemargin}{5mm}
+
+\usepackage[english]{babel}
+\usepackage[protrusion=true,expansion=true]{microtype}	
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{enumitem}
+
+% --------------------------------------------------------------------
+% Definitions (do not change this)
+% --------------------------------------------------------------------
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+
+\makeatletter							% Title
+\def\printtitle{%						
+    {\centering \@title\par}}
+\makeatother									
+
+\makeatletter							% Author
+\def\printauthor{%					
+    {\centering \large \@author}}				
+\makeatother							
+
+\title{Logbooking Software for Science}
+
+\author{
+		F.P. van der Meulen, 500713781, (tel)+31 6 17506168\\
+		Amsterdam, 2nd of March 2018\\	
+		Amsterdam University of Applied Sciences\\
+		HBO-ICT, Game Development\\
+		C.J. Rijsenbrij\\	
+		Software for Science\\
+		Marten Teitsma\\
+		February Semester, 2017-2018\\
+}
+
+			
+
+
+\begin{document}
+% ------------------------------------------------------------------------------
+% Maketitle
+% ------------------------------------------------------------------------------
+\thispagestyle{empty}		% Remove page numbering on this page
+
+%\printtitle
+%\printauthor				% Print the author data as defined above
+
+\printtitle
+Software for Science\\
+F.P. van der Meulen \\
+Dr. Marten Teitsma\\
+Heiko van der Heijden
+
+\newpage 
+\printtitle
+\printauthor
+
+\newpage
+
+\section{Preface}
+The preface of the research paper
+
+\newpage
+\tableofcontents
+
+\newpage
+
+
+\section{Abstraction}
+The part where we talk in short about the report
+\newpage
+\section{Introduction}
+Since 2017, the University of Applied Sciences of Amsterdam collaborates with CERN, Conseil Européen pour la Recherche Nucléaire, by doing research for ALICE(A Large Ion Collider Experiment). ALICE detects the collisions with Ions such as lead resulting in quark-gluon plasma which is believed to have existed just a few milliseconds after the Big Bang. After the quark-gluon plasma is resolved an enormous number of particles is emitted and detected by ALICE. The  detection  is  transformed  into  data  which  has  to  be  processed  and  made available for physicists doing research on the smallest particles imaginable.\\
+\subsection{Defining the problem}
+The current logbooking software is outdated on both the front-end and back-end side. For example, there are multiple databases for the log-book system. ALICE is currently under maintenance at CERN and therefore the opportunity has risen to 
+\subsection{Research questions}
+The main research question + subquestions.
+\subsubsection{Main research question}
+Which Requierments can be implemented into the logbook system prototype for ALICE and what are the concequences for developing?
+% Vraag is te vaag.
+% Scope: Scope is te breed, verkleinen.
+% Te beschrijvend, leesbare text voor geintereseerden.
+% Wat willen de mensen opgelost zien?
+% Vraag interessanter.
+% Niet IK / SIMPEL(wel engels)
+% H1 Waarom gevraagd wat jullie doen zijn.
+% Beschrijvende / verklarende vragen
+% H2 opdracht / onderzoek/ project/. Hoofdvraag + deelvragen
+% 
+% H3 methode: Hoe ga je het aanpakken / werken en uitgelegd.
+%
+% H4 resultaat: Laat voorbeelden code snippet zien(alleen belangrijke, rest bijlage), hoe getest, wat voor testen en waarom deze testen? Unit testen performance / security / etc. Zonder conclusie te trekken. Met tabel en grafiek
+%
+% H5: Conclusie / aanbevelingen: trek conclusie en discussie(kritisch kijken naar je werk, wat kon beter etc)
+% 
+% H6: bronnenlijst APA / IEEE(kijk naar richtlijnen)
+% 
+% Willem Brouwer stelt gemene vragen
+% 
+
+
+\subsubsection{Sub research questions}
+\begin{enumerate}
+\item How to analyse requirements?
+\item Analyzing the requirements
+\item CERN reaction.
+\item What are the consequences for developping?
+
+\end{enumerate}
+
+
+
+\newpage
+\section{Methods and techniques}
+Discussing what will be needed to complete the research question.
+\subsection{Software stack}
+For the creation of the back-end for the logbook system, CERN has given requierments for the software stack. These are:
+\begin{enumerate}
+\item The logbook must be written in Javascript.
+\item The existing CERN frameworks for OAUTH and any other custom CERN frameworks are used as much as possible
+\item The used frameworks are open source.
+\item The code is stylised according to the Google JavaScript Style Guide with the following changes:
+\begin{enumerate}
+\item Allow 100 characters line length with the exception of lines with require statements.
+\item Indentation is two.
+\item Using the var keyword is forbidden.
+\item Binding this is forbidden.
+\end{enumerate}
+\end{enumerate}
+With applying the requierments to the Logbook system software stack, the project uses the following software stack:
+\begin{enumerate}
+\item Expressjs as the JavaScript framework
+\item WebGui from CERN as the REST-API
+\item Mocha as the unit testing framework
+\item npm as the package manager
+\end{enumerate}
+\newpage
+\section{Results}
+Discussing the results from the methods.
+\newpage
+\section{Conclusion}
+Concluding the report with a conclusion.
+\newpage
+\section{Recommendations}
+Recommendations for future use of the server.
+\newpage
+
+\section{Subface}
+\newpage
+
+\section{Resource List}
+\bibliographystyle{plain}
+\bibliography{mybib}
+\newpage
+
+\section{Attachments}
+
+
+
+%"http://www.nispinc.com/yahoo_site_admin/assets/docs/NIST_Special_Publication_800-123.8854633.pdf" \\
+
+%"http://westminsterresearch.wmin.ac.uk/7167/1/Ghosheh_Black_Qaddour_2008_as_published.pdf"\\
+%"https://pdfs.semanticscholar.org/f587/44fc0c816608ada54923ce4d6f02bc41aa44.pdf"\\
+
+
+\end{document}

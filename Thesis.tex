@@ -22,7 +22,6 @@
 % styles using the files menu.
 %
 % If you're new to LaTeX, the wikibook is a great place to start:
-% http://en.wikibooks.org/wiki/LaTeX
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -95,7 +94,6 @@ Heiko van der Heijden
 \newpage
 
 \section{Preface}
-The preface of the research paper
 
 \newpage
 \tableofcontents
@@ -104,15 +102,18 @@ The preface of the research paper
 
 
 \section{Abstraction}
-The part where we talk in short about the report
+The abstraction of the report.
 \newpage
 \section{Introduction}
-Since 2017, the University of Applied Sciences of Amsterdam collaborates with CERN, Conseil Européen pour la Recherche Nucléaire, by doing research for ALICE(A Large Ion Collider Experiment). ALICE detects the collisions with Ions such as lead resulting in quark-gluon plasma which is believed to have existed just a few milliseconds after the Big Bang. After the quark-gluon plasma is resolved an enormous number of particles is emitted and detected by ALICE. The  detection  is  transformed  into  data  which  has  to  be  processed  and  made available for physicists doing research on the smallest particles imaginable.\\
+Since 2017, the University of Applied Sciences of Amsterdam collaborates with CERN, Conseil Européen pour la Recherche Nucléaire, by doing research for ALICE(A Large Ion Collider Experiment). ALICE detects the collisions with Ions such as lead resulting in quark-gluon plasma which is believed to have existed just a few milliseconds after the Big Bang. After the quark-gluon plasma is resolved an enormous number of particles is emitted and detected by ALICE. The  detection  is  transformed  into  data  which  has  to  be  processed  and  made available for physicists doing research on the smallest particles imaginable.  
 \subsection{Defining the problem}
-The current logbooking software is outdated on both the front-end and back-end side. For example, there are multiple databases for the log-book system. ALICE is currently under maintenance at CERN and therefore the opportunity has risen to 
+ALICE will receive a major upgrade in 2019/2020. During this period, the new O² computer system will be implemented. This gives an opportunity to upgrade the bookkeeping system currently in use. The bookkeeping system consists of two systems: the electronic logbook and Alimonitor. These systems have been in development since 2009 and evolved during the years. Due to this development process, the applications are a bit confusing, not efficient and overall candidates for improvement. \\
+Software for Science has received the task to handle the improved bookkeeping ssytem from CERN. At first, a demo will be made to give an expression to CERN about the new system. Th demo is focused on the Electronic Logbook part of the new system. This demo takes place in June 2018. In order to deliver the demo, a requirements document is made with all the ideas and wishes from the CERN development team. Not every requirement from CERN can be implemented due to the time constraints and the sizable requirements. Therefore, an analysis of the requirements must be made in order to ease the development of the new system and add the important features into the prototype to demo for CERN.
+
 \subsection{Research questions}
-The main research question + subquestions.
+
 \subsubsection{Main research question}
+
 Which Requierments can be implemented into the logbook system prototype for ALICE and what are the concequences for developing?
 % Vraag is te vaag.
 % Scope: Scope is te breed, verkleinen.
@@ -137,40 +138,36 @@ Which Requierments can be implemented into the logbook system prototype for ALIC
 
 
 \subsubsection{Sub research questions}
+To solve the problem that has been defined, it is important to divide the report different sections. Based upon the problem, it is possible to divide the research question in four different sub research sections. These sub sections can be written as questions. 
 \begin{enumerate}
 \item How to analyse requirements?
 \item Analyzing the requirements
 \item CERN reaction.
 \item What are the consequences for developping?
-
 \end{enumerate}
 
 
 
 \newpage
 \section{Methods and techniques}
-Discussing what will be needed to complete the research question.
-\subsection{Software stack}
-For the creation of the back-end for the logbook system, CERN has given requierments for the software stack. These are:
-\begin{enumerate}
-\item The logbook must be written in Javascript.
-\item The existing CERN frameworks for OAUTH and any other custom CERN frameworks are used as much as possible
-\item The used frameworks are open source.
-\item The code is stylised according to the Google JavaScript Style Guide with the following changes:
-\begin{enumerate}
-\item Allow 100 characters line length with the exception of lines with require statements.
-\item Indentation is two.
-\item Using the var keyword is forbidden.
-\item Binding this is forbidden.
-\end{enumerate}
-\end{enumerate}
-With applying the requierments to the Logbook system software stack, the project uses the following software stack:
-\begin{enumerate}
-\item Expressjs as the JavaScript framework
-\item WebGui from CERN as the REST-API
-\item Mocha as the unit testing framework
-\item npm as the package manager
-\end{enumerate}
+ 
+The first step is to define criteria so that the analysis will go smoothly. 
+The second step is the analysis itself. With the criteria set from the previous step, the analysis of the requirements can start. 
+The third step will be about different possible demo's based upon the results of the requirements analysis. 
+The fourth and final step will discuss the consequences for the development process with the possible demo requirements.
+
+\subsection{ criteria for analysing the requirements}
+To limit the scope and create a structure for the requirements analysis, different kinds of criteria are needed to make sure that the requirments analysis will go throughly and clear at the same time. 
+
+\subsection{Analyzing the requirements}
+After the criteria's are defined, it will be time to analyse them. The criteria will be (Resultaat van vraag 1 hier).
+
+\subsection{The possible demo's}
+With the completion of the analysis, it will be possible to create different demo's based upon the results of the requirement analysis.
+
+\subsection{Consequences for the development process}
+
+
 \newpage
 \section{Results}
 Discussing the results from the methods.
@@ -191,6 +188,9 @@ Recommendations for future use of the server.
 \newpage
 
 \section{Attachments}
+\subsection{Word list}
+
+\subsection{Requirements document}
 
 
 

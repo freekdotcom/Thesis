@@ -93,28 +93,44 @@ Heiko van der Heijden
 
 \newpage
 
-\section{Preface}
+
 
 \newpage
 \tableofcontents
 
 \newpage
-
+\section{Preface}
 
 \section{Abstraction}
 The abstraction of the report.
 \newpage
 \section{Introduction}
+This chapter will describe the background of the research, it will describe the companies that are involved with this, the risen problem will be discussed and based on that a research question will be formulated and finally the structure of the research report will be explained and why there was chosen for this kind of structure. \\
+
 Since 2017, the University of Applied Sciences of Amsterdam collaborates with CERN, Conseil Européen pour la Recherche Nucléaire, by doing research for ALICE(A Large Ion Collider Experiment). ALICE detects the collisions with Ions such as lead resulting in quark-gluon plasma which is believed to have existed just a few milliseconds after the Big Bang. After the quark-gluon plasma is resolved an enormous number of particles is emitted and detected by ALICE. The  detection  is  transformed  into  data  which  has  to  be  processed  and  made available for physicists doing research on the smallest particles imaginable.  
-\subsection{Defining the problem}
+\subsection{The problem}
 ALICE will receive a major upgrade in 2019/2020. During this period, the new O² computer system will be implemented. This gives an opportunity to upgrade the bookkeeping system currently in use. The bookkeeping system consists of two systems: the electronic logbook and Alimonitor. These systems have been in development since 2009 and evolved during the years. Due to this development process, the applications are a bit confusing, not efficient and overall candidates for improvement. \\
 Software for Science has received the task to handle the improved bookkeeping ssytem from CERN. At first, a demo will be made to give an expression to CERN about the new system. Th demo is focused on the Electronic Logbook part of the new system. This demo takes place in June 2018. In order to deliver the demo, a requirements document is made with all the ideas and wishes from the CERN development team. Not every requirement from CERN can be implemented due to the time constraints and the sizable requirements. Therefore, an analysis of the requirements must be made in order to ease the development of the new system and add the important features into the prototype to demo for CERN.
 
-\subsection{Research questions}
+\subsection{The goal}
+The goal of this resarch paper will be: \\
 
-\subsubsection{Main research question}
+A prototype of the logbooking software for ALICE which will have the analyzed requirements, combined with recommendations for the future of the development process for the logbooking software. \\
+
+This goal is created based upon the development proces of the logbook prototype. Furthermore, Dave, maak meer text hier 
+
+\subsection{Research questions}
+Before doing the research, one compromising research question is drawn up. This research question is further worked out in sub research questions. The compromising research question will be asked like this: 
 
 Which Requierments can be implemented into the logbook system prototype for ALICE and what are the concequences for developing?
+\subsubsection{Sub research questions}
+To solve the problem that has been defined, it is important to divide the report different sections. Based upon the problem, it is possible to divide the research question in four different sub research sections. These sub sections can be written as the following research questions:  
+\begin{enumerate}
+\item How to analyse requirements?
+\item Analyzing the requirements
+\item CERN reaction.
+\item What are the consequences for developping?
+\end{enumerate}
 % Vraag is te vaag.
 % Scope: Scope is te breed, verkleinen.
 % Te beschrijvend, leesbare text voor geintereseerden.
@@ -135,42 +151,54 @@ Which Requierments can be implemented into the logbook system prototype for ALIC
 % 
 % Willem Brouwer stelt gemene vragen
 % 
+\newpage
+\section{Glossary}
+This section of the report will explain terms that will be used during the report. At first, the term framework will be explained, followed by the term requirement. More terms to be added.
 
+ 
 
-\subsubsection{Sub research questions}
-To solve the problem that has been defined, it is important to divide the report different sections. Based upon the problem, it is possible to divide the research question in four different sub research sections. These sub sections can be written as questions. 
-\begin{enumerate}
-\item How to analyse requirements?
-\item Analyzing the requirements
-\item CERN reaction.
-\item What are the consequences for developping?
-\end{enumerate}
-
-
-
+%\newpage
 \newpage
 \section{Methods and techniques}
- 
-The first step is to define criteria so that the analysis will go smoothly. 
-The second step is the analysis itself. With the criteria set from the previous step, the analysis of the requirements can start. 
-The third step will be about different possible demo's based upon the results of the requirements analysis. 
-The fourth and final step will discuss the consequences for the development process with the possible demo requirements.
+This chapter will talk about the used methods and techniques during the internship. These techniques will be the programming languages and programming frameworks that are used to create the prototype.
 
-\subsection{ criteria for analysing the requirements}
-To limit the scope and create a structure for the requirements analysis, different kinds of criteria are needed to make sure that the requirments analysis will go throughly and clear at the same time. 
+\subsection{Javascript}
+The main programming language for this research is Javascript. Javascript was one of the hard requirements set by CERN.
 
-\subsection{Analyzing the requirements}
-After the criteria's are defined, it will be time to analyse them. The criteria will be (Resultaat van vraag 1 hier).
+\subsection{AliceO2/WebUi framework}
+The preference of CERN is to use CERN's own developed frameworks as much as it is possible to do so. The WebUi framework is a framework to handle HTTP requests made by the client, in this case, the front-end. The base of this framework is the ExpressJs framework. \\
+The ExpressJs framework is a lightweight framework for handling HTTP calls. CERN has expanded this framework with features such as Json Web token support, debug logger systems and support for CERN's own authentication system,
 
-\subsection{The possible demo's}
-With the completion of the analysis, it will be possible to create different demo's based upon the results of the requirement analysis.
+\subsection{Postgresql}
+The main database that will be used for the prototype is a Postgres database. 
 
-\subsection{Consequences for the development process}
+\subsection{Mocha}
+The testing framework that has been chosen is the Mocha testing framework.
+
+\subsection{Sublime text 3}
+The development enviroment for developing the prototype is Sublime Text 3.
+%The first step is to define criteria so that the analysis will go smoothly. 
+%The second step is the analysis itself. With the criteria set from the previous step, the analysis of the requirements can start. 
+%The third step will be about different possible demo's based upon the results of the requirements analysis. 
+%The fourth and final step will discuss the consequences for the development process with the possible demo requirements.
+
 
 
 \newpage
 \section{Results}
-Discussing the results from the methods.
+This section of the report will talk about the results of the research. It will answer the previous set-up sub research questions. With these answers, it will be possible to formulate an answer with recommendations for the future.
+\subsection{Setting the criteria for analysing the requirements}
+Before the requirement analysis is started, it is important to have some criteria to use for the software requirement analysis. Without these criteria, possible problems like (risico hier)(bronvermelding hier) could take place. These criteria's can also be used to create a structure for the requirements analysis to go smoothly. Finally, these criteria are usefull to limit the scope of the analysis. By defining a pre-established amount of criteria, requirements can be crossed against each other.
+\\
+One of the software requirements analysis techniques to pioritize requirements is the Analytic Hierarchy Process technique.(bron van pakistaanse artikel die dit voor het eerst beschrijft). "In AHP,   initially whole requirements are recognized and then criteria under which these requirements will be preferred. In AHP we pair wise analyzing  between  the  probable  pairs  of  the  hierarchy. 
+Now users can recognize the possible relationship between 
+the hierarchies. We then pair wise analyze them and users can select its preferences from the scale which ranges from 
+1 to 9."(Bron van Pakistaanse artikel). One of the main advantages of using this technique is that ""(Bron pakistaanse artikel). This advantage is usefull for analysing the requirements for the ALICE logbooking prototype,  because it ""(citaat bron Pakistaanse artikel). 
+\\
+The second software requirements analysis technique that will be used for the software is the Hierachy Analytic Hierachy Process technique(bron van artikel die dit voor het eerst beschrijft). HAHP is a technique that creates so called planes of requirements in order to simplify the requirement analysis process. A plane is a group of requirements that are grouped together if they share a similarity. These planes can, for example, align to a user of the system or a feature that will be implemented into the final product. For this requirement analysis, the planes will consists of features since this will be more important for the prototype than the users themselfs.
+
+
+
 \newpage
 \section{Conclusion}
 Concluding the report with a conclusion.
@@ -188,7 +216,6 @@ Recommendations for future use of the server.
 \newpage
 
 \section{Attachments}
-\subsection{Word list}
 
 \subsection{Requirements document}
 

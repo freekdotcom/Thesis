@@ -8,23 +8,6 @@
 % 
 % Feel free to distribute this example, but please keep the referral
 % to howtotex.com
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% How to use writeLaTeX: 
-%
-% You edit the source code here on the left, and the preview on the
-% right shows you the result within a few seconds.
-%
-% Bookmark this page and share the URL with your co-authors. They can
-% edit at the same time!
-%
-% You can upload figures, bibliographies, custom classes and
-% styles using the files menu.
-%
-% If you're new to LaTeX, the wikibook is a great place to start:
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
 % --------------------------------------------------------------------
 % Preamble
 % --------------------------------------------------------------------
@@ -40,6 +23,8 @@
 \usepackage{graphicx}
 \usepackage{blindtext}
 \usepackage{enumitem}
+\usepackage{longtable}
+
 
 % --------------------------------------------------------------------
 % Definitions (do not change this)
@@ -102,68 +87,19 @@
 The abstraction of the report.
 \newpage
 \section{Introduction}
-This chapter will describe the background of the research, it will describe the companies that are involved with this, the risen problem will be discussed and based on that a research question will be formulated and finally the structure of the research report will be explained and why there was chosen for this kind of structure. \\
-
-\subsection{The companies involved}
-This thesis features two companies: Software for Sciences and CERN, Conseil Européen pour la Recherche Nucléaire. 
-\subsubsection{Software for Science}
-To be added later
-\subsubsection{CERN}
-To be added later
-
-
-Since 2017, the University of Applied Sciences of Amsterdam collaborates with CERN, Conseil Européen pour la Recherche Nucléaire, by doing research for ALICE(A Large Ion Collider Experiment). ALICE detects the collisions with Ions such as lead resulting in quark-gluon plasma which is believed to have existed just a few milliseconds after the Big Bang. After the quark-gluon plasma is resolved an enormous number of particles is emitted and detected by ALICE. The  detection  is  transformed  into  data  which  has  to  be  processed  and  made available for physicists doing research on the smallest particles imaginable.  
-\subsection{The problem}
-ALICE will receive a major upgrade in 2019/2020. During this period, the new O² computer system will be implemented. This gives an opportunity to upgrade the bookkeeping system currently in use. The bookkeeping system consists of two systems: the electronic logbook and Alimonitor. These systems have been in development since 2009 and evolved during the years. Due to this development process, the applications are a bit confusing, not efficient and overall candidates for improvement. \\
-Software for Science has received the task to handle the improved bookkeeping ssytem from CERN. At first, a prototype of the new system will be made to give an expression to CERN about the new system. This prototype is focused on the Electronic Logbook part of the new system. The demonstration for this prototype takes place in June 2018. In order to deliver the demo, a requirements document is made with all the ideas and wishes from the CERN development team. Not every requirement from CERN can be implemented in to the prototype due to time constraints and the scale of the requirements. Therefore, an analysis of the requirements must be made in order to ease the development of the new system and add the important features into the prototype to demo for CERN. 
-
-\subsection{The goal}
-The goal of this resarch paper will be: \\
-
-A prototype of the logbooking software for ALICE which will have the analyzed requirements, combined with recommendations for the future of the development process for the logbooking software. \\
-
-This goal is created based upon the development proces of the logbook prototype. Furthermore, Dave, maak meer text hier 
-
-\subsection{Research questions}
-Before doing the research, one compromising research question is drawn up. This research question is further worked out in sub research questions. The compromising research question will be asked like this: 
-
-Which Requierments can be implemented into the logbook system prototype for ALICE and what are the concequences for developing?
-\subsubsection{Sub research questions}
-To solve the problem that has been defined, it is important to divide the report different sections. Based upon the problem, it is possible to divide the research question in four different sub research sections. These sub sections can be written as the following research questions:  
-\begin{enumerate}
-\item How to analyse requirements?
-\item Analyzing the requirements
-\item CERN reaction.
-\item What are the consequences for developping?
-\end{enumerate}
-% Vraag is te vaag.
-% Scope: Scope is te breed, verkleinen.
-% Te beschrijvend, leesbare text voor geintereseerden.
-% Wat willen de mensen opgelost zien?
-% Vraag interessanter.
-% Niet IK / SIMPEL(wel engels)
-% H1 Waarom gevraagd wat jullie doen zijn.
-% Beschrijvende / verklarende vragen
-% H2 opdracht / onderzoek/ project/. Hoofdvraag + deelvragen
-% 
-% H3 methode: Hoe ga je het aanpakken / werken en uitgelegd.
-%
-% H4 resultaat: Laat voorbeelden code snippet zien(alleen belangrijke, rest bijlage), hoe getest, wat voor testen en waarom deze testen? Unit testen performance / security / etc. Zonder conclusie te trekken. Met tabel en grafiek
-%
-% H5: Conclusie / aanbevelingen: trek conclusie en discussie(kritisch kijken naar je werk, wat kon beter etc)
-% 
-% H6: bronnenlijst APA / IEEE(kijk naar richtlijnen)
-% 
-% Willem Brouwer stelt gemene vragen
-% 
-
+This is a student thesis from the Amsterdam University of Applied Sciences from the HBO-ICT-Game Development study course. This student thesis is made for the organization Software for Sciences. \\
+Software for Science is an organization, at the moment lead by Dr. Marten Teitsma, that combines software with science. The organization works with Astron, eScience center and CERN to create software for their scientific experiments. \\
+Conseil Européen pour la Recherche Nucléaire, CERN, is a science research center in Geneve, focused on researching nuclear energy. This happends mostly with particle research, eg, shooting particles against each other in order to find out what energy comes free from one of those runs. CERN achieves this with the help of particle colliders. One of those particle colliders is ALICE. \\
+ALICE, A Large Ion Collider Experiment, has its own bookkeeping system. This system makes sure that the runs ALICE makes are recorded into the bookkeeping system so that researchers, collaborators and other people can look back upon the runs.  \\
+At the moment, ALICE is under maintenance. Subsystems and parts are being renewed. During maintenance, the desire of a new bookeeping system exists. There are three reasons for this. The first reason is that the new system must combine the bookeeping system with AliMonitor, a monitoring system. The second reason is that there are multiple desired functions that are not added to the current system, such as automated report making. The third reason is that most of the technologies and frameworks used to develop the system is outdated due to the fact that development started around 2009.\\
+In order to make the new bookeeping system, the back-end and the front-end are seperated from each other. This was done due to the fact that the scope of the project would become to big. Another reason was that the front-end and back-end of the application will run differently. While the back-end will run on a server, the front-end must run on every computer at CERN. This thesis handles the back-end of the new logbooking system. The front-end will be developed by Naomi Nazar. 
+ 
 
  
 
-%\newpage
 \newpage
-\section{Methods and techniques}
-This chapter will talk about the used methods and techniques during the internship. These techniques will be the programming languages and programming frameworks that are used to create the prototype.
+\section{Techniques}
+This chapter will talk about the techniques used to create the prototype.
 
 \subsection{Javascript}
 The main programming language for this research is Javascript. Javascript was one of the hard requirements set by CERN.
@@ -180,39 +116,73 @@ The testing framework that has been chosen is the Mocha testing framework.
 
 \subsection{Sublime text 3}
 The development enviroment for developing the prototype is Sublime Text 3.
-%The first step is to define criteria so that the analysis will go smoothly. 
-%The second step is the analysis itself. With the criteria set from the previous step, the analysis of the requirements can start. 
-%The third step will be about different possible demo's based upon the results of the requirements analysis. 
-%The fourth and final step will discuss the consequences for the development process with the possible demo requirements.
+
+\newpage
 
 
+\section{Methods}
+This chapter discusses the methods used to solve the research questions.
+\subsection{Database}
+In this section, different kinds of databases will be compared with each other in order to find out which database would be the best choice for the logbook prototype. \\
+What is also important, is the design of the databasej
+The main cirteria for choosing the database is that the database needs to be open-source. Since the logbooking prototype is open-source, using a database that isn't open-source would make the prototype not open-source anymore. To find out which database is the best for the prototype, tests will be made to test the different kind of databases. \\
+
+
+\subsection{Req analysis}
+This section of the thesis will discuss the requirements analysis. There are over 120 requirements created by CERN. It is impossible to use every requirement in the prototype, due to scale of the requirements and due to time constraints that are set. An analysis is needed in order to check which requirements are nescessary to add to the protoype and which requirements can be left out.  \\
+Inside the requirement document were some vague terms that weren't explained. The terms were follow-ups, on call intervention, announcements, and an EOS report. Iets over de features die er staan, maar onduidelijk zijn. \\
+To solve the vague requirements and unknown wishes, a former shifter by the name of Pascal Buschoten has been interviewed. The full transscript can be found in the attachments. The interview with Pascal clarified a couple of terms like the on call intervention and the end of shift reports with templates. On call Interventions are emergency issues with a detector, a particle collider or anoter system that need to be solved as soon as possible. These issues need to be fixed within a very short amount of time. Currently, there is not a formal template availiable for the EOS reports  and because of that, all the reports do not follow the same structure. With a template, it is better to evaluate all the EOS reports).\\
+A criteria for the prototype was given by Dr. Teitsma. This criteria was that all the requirements related to the Subsystem Run Coördinator must be added to the prototype. This criteria was crucial for the requirement analysis. \\
+The technique that will be used is the Analytic Hierarchy Process technique.(bron van pakistaanse artikel die dit voor het eerst beschrijft). "In AHP, initially whole requirements are recognized and then criteria under which these requirements will be preferred. In AHP we pair wise analyzing  between  the  probable  pairs  of  the  hierarchy. 
+Now users can recognize the possible relationship between 
+the hierarchies. We then pair wise analyze them and users can select its preferences from the scale which ranges from 
+1 to 9."(Javed Ali Khan, Izaz Ur Rehman, Yawar Hayat Khan, Iftikhar Javed Khan, Salman Rash, 2015). One of the main advantages of using this technique is that ""(Bron pakistaanse artikel). The second software requirements analysis technique that will be used for the software is the Hierachy Analytic Hierachy Process technique(bron van artikel die dit voor het eerst beschrijft). HAHP is a technique that creates so called planes of requirements in order to simplify the requirement analysis process. A plane is a group of requirements that are grouped together if they share a similarity. These planes can, for example, align to a user of the system or a feature that will be implemented into the final product. For this requirement analysis, the planes will consists of features since this will be more important for the prototype than the users themselfs. \\
+Lastly, time will be an important factor for the requirement analysis. The time will be estimated using the story points technique. This technique consists of giving  points to requirements in order to organize the effort and scale of a requirement. The range of these points are:  zero, zero point five, one, two, three, five, eight, thirteen, 20, 40 and 100. \\ \\
+Applying the chosen techniques to the requirements document results in tables with pioritized requirements with scrum points given to the requirements. The requirements are grouped by feature so that it is easier to read. There were numerous requirements that were double. In cases like these, the requirements were the same, but, the requirements were assigned to different roles. These requirements are grouped together to prevent duplicity. \\
+The four most important features will be given and explained due to the amount of requirements. The complete requirements table can be found as an attachment.\\
+
+\subsubsection{Entries}
+These requirements are about the different kind of entries into the system(log entries, on call interventions, run entries etc.). This feature sits at the core of the to be delivered product and therefore has the most requirements attached to it. Due to the amount of requirements that are related to the entries, this section is divided into different sections for readibility. 
+
+\begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
+\hline
+Role & User Story & Piority & Time \\ \hline
+\end{longtable}
+
+
+\subsubsection{Reports}
+A requested feature in the new final product was the automatic creation of reports and templates. This is not availiable in the current product, therefore, there are a couple of requirements referencing towards the creation of templates and reports.
+\begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
+\hline
+Role & User Story & Piority & Time \\ \hline
+\end{longtable}
+
+\subsubsection{Email}
+
+\begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
+\hline
+Role & User Story & Piority & Time \\ \hline
+\end{longtable}
+
+\subsubsection{View}
+In the interview with Pascal, one of the things mentioned were the different kind of views. There were only eleven requirements related to the view, however, they are major differences between the requirements. For instance, some requirements are about showing different kinds of data on the screen while a couple of others are about the 
+
+\begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
+\hline
+Role & User Story & Piority & Time \\ \hline
+\end{longtable}
+
+
+
+
+\subsection{Consequences}
+
+
+\subsection{Prototype}
 
 \newpage
 \section{Results}
-This section of the report will talk about the results of the research. It will answer the previous set-up sub research questions. With these answers, it will be possible to formulate an answer with recommendations for the future.
-\subsection{Preparing for the requirement analysis}
-Before the requirement analysis can be started, is it important to know how to do a requirement analysis. There are multiple techniques availiable to do an analysis. A couple of these techniques are:(technieken + bron). 
-What is also important, is to fully understand the requirements. It is dangerous to make assumption about vague terms, because it could mean something completely different and that can affect the analysis in a negative way. It could also affect the outcome of the analysis and making a sample prototype product more difficult, due to the wrong assumptions in terms of work and the definition of done for a requirement.
-Finally, it is important to look at the time each requirement needs to be completed. If the time is not calculated into the analysis, the possible   prototype could either consists of requirements that take too much time to make or requirements that are done within a short amount of time.
-\\ \\
-It is important to define points of attention for the requirement analysis. These criteria can be used, in combination with the analyzing techniques and the time constraint, to make the analysis go smooth. These criteria are based upon the goals set for the protoype. \\
-The first and main point of attention for the analysis is that there is a pioritization of the different kind of entries into the logbooking system. There are, for instance, announcements, run records, on call intervention logs and the log entries. This is the main aspect of the current system, so it would be logical to add this aswell into the prototype. \\
-The second point of attention are the new features. For instance, features like the commentary sections and the templates for the EOS reports, are not available in the current logbooking system. If these features could be added into the prototype, the users of the logbooking system could give feedback so that, in the future of the development process, this feedback could be taken into account. \\
-The third and final point of attention is simplicity. It is more important to show a couple of features that are bugfree and work as intended rather than a lot of halfworking features.
-\\ \\
-One of the software requirements analysis techniques to pioritize requirements is the Analytic Hierarchy Process technique.(bron van pakistaanse artikel die dit voor het eerst beschrijft). "In AHP,   initially whole requirements are recognized and then criteria under which these requirements will be preferred. In AHP we pair wise analyzing  between  the  probable  pairs  of  the  hierarchy. 
-Now users can recognize the possible relationship between 
-the hierarchies. We then pair wise analyze them and users can select its preferences from the scale which ranges from 
-1 to 9."(Bron van Pakistaanse artikel). One of the main advantages of using this technique is that ""(Bron pakistaanse artikel). This advantage is usefull for analysing the requirements for the ALICE logbooking prototype,  because it ""(citaat bron Pakistaanse artikel). 
-\\
-The second software requirements analysis technique that will be used for the software is the Hierachy Analytic Hierachy Process technique(bron van artikel die dit voor het eerst beschrijft). HAHP is a technique that creates so called planes of requirements in order to simplify the requirement analysis process. A plane is a group of requirements that are grouped together if they share a similarity. These planes can, for example, align to a user of the system or a feature that will be implemented into the final product. For this requirement analysis, the planes will consists of features since this will be more important for the prototype than the users themselfs.
-\\ \\
-Inside the requirement document were some vague terms that weren't explained. The terms were follow-ups, on call intervention, announcements, and an EOS report. Iets over de features die er staan, maar onduidelijk zijn. \\
-To solve the vague requirements and unknown wishes, a former shifter by the name of Pascal Buschoten has been interviewed. The full transscript can be found in the attachments. The interview with Pascal clarified a couple of terms like the on call intervention and the end of shift reports with templates. On call Interventions are emergency issues with a detector, a particle collider or anoter system that need to be solved as soon as possible. These issues need to be fixed within a very short amount of time. Currently, there is not a formal template availiable for the EOS reports  and because of that, all the reports do not follow the same structure. With a template, it is better to evaluate all the EOS reports).
-\\ \\
-Lastly, time will be an important factor for the requirement analysis. The time will be estimated using the story points technique. This technique consists of giving so called points to requirements in order to organize the effort and scale of a requirement.
-\\ \\
-To sum it up, the AHP and the Hierachy AHP techniques will be used to pioritize the user stories, three points of attention for the features are set for the prototype followed with an estimation for every requirement.
+
 
 \newpage
 \section{Conclusion}
@@ -220,9 +190,6 @@ Concluding the report with a conclusion.
 \newpage
 \section{Recommendations}
 Recommendations for future use of the electronic logbooking system.
-\newpage
-
-\section{Subface}
 \newpage
 
 \section{Glossary}
@@ -238,6 +205,9 @@ This section of the report will explain terms that will be used during the repor
 
 \subsection{Interview transscript}
 \includepdf[pages=-]{Transscript.pdf}
+
+\subsection{Tables with pioritized requirements}
+\include{TablesWithRequirements}
 
 
 %"http://www.nispinc.com/yahoo_site_admin/assets/docs/NIST_Special_Publication_800-123.8854633.pdf" \\

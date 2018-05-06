@@ -1,0 +1,59 @@
+\documentclass[paper=a4, fontsize=11pt,twoside]{scrartcl}	% KOMA
+
+\usepackage[a4paper,pdftex]{geometry}	% A4paper margins
+\setlength{\oddsidemargin}{5mm}			% Remove 'twosided' indentation
+\setlength{\evensidemargin}{5mm}
+\setlength\parindent{0pt}
+
+\usepackage[english]{babel}
+\usepackage[protrusion=true,expansion=true]{microtype}	
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{pdflscape}
+\usepackage{tabularx}
+\usepackage{lipsum}
+\usepackage{longtable}
+
+% --------------------------------------------------------------------
+% Definitions (do not change this)
+% --------------------------------------------------------------------
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\begin{document}
+
+\section{Log-Entry}
+
+\subsection{Search}
+\begin{longtable}{ | p{1cm} | p{5cm} | p{8cm} |}
+\hline
+ID & User & User Story \\ \hline
+
+\end{longtable}
+
+\section{Announcements}
+\begin{longtable}{ | p{1cm} | p{5cm} | p{8cm} |}
+\hline
+ID & User & User Story \\ \hline
+1 & Shifter & As a shifter, I want to view announcements \\ \hline
+2& Run co\"ordinator & As a run co\"ordinator, I have to create Logbook entries that cover almost all the Systems(e.g. global announcements or minutes) \\ \hline
+\end{longtable}
+
+\section{Dashboard}
+\begin{longtable}{ | p{1cm} | p{5cm} | p{8cm} |}
+\hline
+ID & User & User Story \\ \hline
+1 & User & As a user, I want to see in a dashboard the metadata associated with an LHC Fill so that I can have a global image of what happend during that LHC Fill. \\ \hline
+2 & User & As a user, I want to be able to customize dashboards so that I only see the fields relevant to me. \\ \hline
+3 & Administrator & As an Administrator, I want to have a dashboard that gives me log-entry related analytics so that I follow the evolution of the repository \\ \hline
+\end{longtable}
+\section{Templates}
+\begin{longtable}{ | p{1cm} | p{5cm} | p{8cm} |}
+\hline
+ID & User & User Story \\ \hline
+1& Shifter & As a shifter, I want to have templates that prefill most of my end-of-shift reports from the availiable metadata so that I don't need to fill in myself what the system already knows. \\ \hline
+2 & Shifter & As a shifter, I would like to have templates that automatically compile and format the data availiable in the system in order to write my end of shift report in a fast and uniform way. Currently in the ALICE logbook I don't like that I need to compile all the information myself and that not all shifters use the same structure. \\ \hline
+3 & Run co\"ordinator & As a runco\"ordinator, I want shifters to use templates so that it is easier and faster to read them \\ \hline
+4 & Subsystem Run Coordinator & As a SRC, I would like to be able to create my own detector specific templates for example On-Call interventions. In this case, I can specify the relevant information which are required from the OnCall shifter for different kind of "standard" events. \\ \hline
+\end{longtable}
+\end{document}

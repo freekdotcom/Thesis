@@ -24,6 +24,7 @@
 \usepackage{blindtext}
 \usepackage{enumitem}
 \usepackage{longtable}
+\graphicspath{{img/}}
 
 
 % --------------------------------------------------------------------
@@ -117,6 +118,9 @@ The testing framework that has been chosen is the Mocha testing framework.
 \subsection{Sublime text 3}
 The development enviroment for developing the prototype is Sublime Text 3.
 
+\subsection{Lucichart}
+Lucichart is used for the creation of the Enitity Relation Diagram's and the Unified Moddeling Language Diagrams.
+
 \newpage
 
 
@@ -124,7 +128,12 @@ The development enviroment for developing the prototype is Sublime Text 3.
 This chapter discusses the methods used to solve the research questions.
 \subsection{Database}
 In this section, different kinds of databases will be compared with each other in order to find out which database would be the best choice for the logbook prototype. \\
-What is also important, is the design of the databasej
+The REST-API will make use of the SAMS authentication API created by CERN. However, this API is not made availiable yet for the back-end of the bookkeeping system prototyp. To still being able to work with users, the database scheme(bron) technique will be used. With the help of this technique, the database can be 'split' into two different databases. This will not affect the later implementation of the SAMS API.
+What is also important, is the design of the database. The database design will be created with the help of an Enitity Relation Diagram(bron). This diagram displays all the entities that are in the database and shows the relation between different entities. Due to 'splitting' the database, two different ERD's will be shown. \\
+\includegraphics[scale=1]{ERDUser}
+
+\includegraphics[scale=0.5]{ERDLogEntry}
+
 The main cirteria for choosing the database is that the database needs to be open-source. Since the logbooking prototype is open-source, using a database that isn't open-source would make the prototype not open-source anymore. To find out which database is the best for the prototype, tests will be made to test the different kind of databases. \\
 
 
@@ -147,6 +156,11 @@ These requirements are about the different kind of entries into the system(log e
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
+Shifter &  A shifter makes an entry into the database consisting of several items. Each entry records the following items: time of creation,which class the creator originates: human, type of entry, general, EOS, DCS, number of run, author of the entry, title of the entry, log entry, follow ups, files and actions & 9 & 8 \\ \hline
+User & As a user, I want to search log entries by different criteria (e.g. title, content, author, creation date,(...) and have the results listed. & 9 & 8 \\ \hline
+Run coördinator, SRC, STC and Shifter& As run coördinator, SRC, STC or as Shifter, I may need to attach files to log entries. These files may contain text or binary information (PNGs, JPGs etc...) (Roberto Divia). & 8 & 8 \\ \hline
+Subsystem expert & As a subsystem expert, I want to attach quality flags to runs so that
+physicists can use them while searching for good data sets for their analysis (Vasco Chibante Barroso). & 8 & 8 \\ \hline
 \end{longtable}
 
 
@@ -155,27 +169,39 @@ A requested feature in the new final product was the automatic creation of repor
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
+Subsystem Run Coördinator & As a SRC I would like to be able to create my own detector specific templates for example On-Call interventions. In this case I can specify the relevant information which are required from the OnCall shifter for different kind of “standard” events (Robert Munzer). & 8 & 20 \\ \hline
+Shifter &  As a shifter, I want to have templates that prefill most of my end-of-shift reports from the available metadata so that I don’t need to fill inmyself what the system already knows (Vasco Chibante Barroso). & 2 & 13 \\ \hline
 \end{longtable}
 
 \subsubsection{Email}
-
+Another requested feature not availiable in the current bookkeeping system is the abillity to send automated emails. This system takes more time to implement, but since this is a new feature, it is of a higher piority. The reason that this is of more importance, is that it is easy to adjust the way the emails are send, how the emails look like and who receives an email. Therefore, with adding it to the prototype, it will be easier to adjust it to the wishes of the users.
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
+ALICE member & As an ALICE member, I would like to receive via email a global summary of each LHC Fill in order to follow ALICE operations without visiting the bookkeeping tools. Currently in the ALICE logbook, I like that I receive via email a document with info on efficiency and EOR Reasons and that on the body of the email there is a summary for
+each fill (Vasco Chibante Barroso). & 8 & 20 \\ \hline
+Subsystem Run Coördinator &  As a subsystem responsible, I want to be notified by email (or other
+channels) of log entries which are related with my subsystem so that I can better follow-up activities without having to constantly visit the product, e.g. EOS report (Robert Munzer) (Vasco Chibante Barroso). & 8 & 13 \\ \hline
+Run coördinator & As run coördinator I may request to receive automatic e-mails concerning all Logbook entries that include all systems (either without distinction or using special selection criterias). The e-mail delivery address will probably be an e-group (single e-mail address <...>@cern.ch)(Roberto Divia). & 6 & 13 \\ \hline
 \end{longtable}
 
-\subsubsection{View}
-In the interview with Pascal, one of the things mentioned were the different kind of views. There were only eleven requirements related to the view, however, they are major differences between the requirements. For instance, some requirements are about showing different kinds of data on the screen while a couple of others are about the 
+\subsubsection{Roles and Authentication}
+There are different kinds of roles and users in the bookkeeping system. It is possible that a user is assigned to multiple subsystems with different roles. Only certain roles can move in and out of subsystems. Since the different roles play an important part in the bookkeeping system, it is mandatory to have them in the prototype.
 
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
+User & As a user, I want to be able to login with my CERN credentials to avoid having to remember a new set of credentials. This should be done by using the CERN authentication method. & 9 & 13 \\ \hline
+Run coördinator, SRC and Administrator &  As run coördinator, SRC or Admin, I must be able to move collaborators to and out of subsystem teams. These action may be conflict the information stored in SAMS (Roberto Divia). & 9 & 13 \\ \hline
+Run coördinator and SRC &  As run coördinator or SRC I need to give ALICE collaborators write or read-only access to the logbook. These rights will be superseeded by equivalent rights given according to the function of the user (e.g. a ALICE collaborator with read-only access will be given write access during the time of his/her duties as a shifter, subsystem run coördinator or system team member) (Roberto Divia).&6&13 \\ \hline
+
 \end{longtable}
 
 
 
 
 \subsection{Consequences}
+This section of the thesis will be about the consequences of the pioritized user stories. Within this section, an Unified Modelling Language diagram(bron naar uml) of the backend will be shown and explained. Based upon this diagram, 'sprints' will be created in order to structure the development process until the demonstration of the prototype, which will take in mid-june, takes place. \\
 
 
 \subsection{Prototype}

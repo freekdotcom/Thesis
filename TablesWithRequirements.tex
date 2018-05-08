@@ -1,5 +1,5 @@
 
-\section{Entries}
+\subsection{Entries}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
@@ -7,7 +7,7 @@ Administrator &  Only administrator may be given the possibility to remove log e
 (and I am not even sure about this) (Roberto Divia). & 1 & 8 \\ \hline
 \end{longtable}
 
-\subsection{Forum}
+\subsubsection{Forum}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
@@ -17,7 +17,7 @@ User &  People can create issues (Pierre vanden Vyvre) & 1 & 13 \\ \hline
 
 \end{longtable}
 
-\subsection{View}
+\subsubsection{View}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
@@ -34,11 +34,11 @@ SRC &  As System Run Coordinator I need ways to interrogate all the runs where t
 \end{longtable}
 
 \newpage
-\subsection{Search}
+\subsubsection{Search}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
-User & As a user, I want to search log entries by different criteria (e.g. title, content, author, creation date,(...) and have the results listed. & 8 & 8 \\ \hline
+User & As a user, I want to search log entries by different criteria (e.g. title, content, author, creation date,(...) and have the results listed. & 9 & 8 \\ \hline
 User &  As a user, I want to list all runs that match a given criteria to create my own run set. & 8 & 8 \\ \hline
 User & As ALICE collaborator I need to check the details of any run: EOR
 reason, statistics, log entries (Roberto Divia). & 6 & 5 \\ \hline
@@ -61,7 +61,7 @@ match a given criteria so that I can build custom logic or applications based on
 
 \end{longtable}
 
-\subsection{Creation}
+\subsubsection{Creation}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
@@ -82,7 +82,7 @@ Observer &  As an observer I want to be able to look at the bookkeeping without
 the chance of adding or manipulating data. & 1 & 5 \\ \hline 
 \end{longtable}
 
-\subsection{Files}
+\subsubsection{Files}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
@@ -91,17 +91,17 @@ Run coördinator, SRC, STC and Shifter& As run coördinator, SRC, STC or as Shif
 
 \end{longtable}
 \newpage
-\subsection{Flags}
+\subsubsection{Flags}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
 Run coördinator and Administrator &  As run coördinator or administrator, I need to be able to update the logbook information for what concerns subsystems, in particular the run quality flag and the EOR reason(s). The question arises if subsystem run coördinators can update information associated to other systems (e.g. EOR
 reasons) as it is the case today (Roberto Divia). & 2 & 8 \\ \hline
 Subsystem expert & As a subsystem expert, I want to attach quality flags to runs so that
-physicists can use them while searching for good data sets for their analysis (Vasco Chibante Barroso). & 2 & 8 \\ \hline
+physicists can use them while searching for good data sets for their analysis (Vasco Chibante Barroso). & 8 & 8 \\ \hline
 \end{longtable}
 
-\subsection{Data Extraction}
+\subsubsection{Data Extraction}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
@@ -111,23 +111,21 @@ SRC &  As subsystem run coördinator I need to be able to update the logbook inf
 \end{longtable}
 \newpage
 
-\section{Reports}
+\subsection{Reports}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
 ALICE collaborator &  As ALICE collaborator I have to create statistics reports such as number of runs, quantity of data, number of events, summaries by trigger
-classes etc... These reports will use selection criterias I will specify
-such as time spans, active systems (e.g. only the runs including my
-particular system), run type etc... & 1 & 20 \\ \hline
+classes etc... These reports will use selection criterias I will specify such as time spans, active systems (e.g. only the runs including my particular system), run type etc... & 1 & 20 \\ \hline
 Shifter &  As a shifter, I want to have templates that prefill most of my end-of-shift reports from the available metadata so that I don’t need to fill inmyself what the system already knows (Vasco Chibante Barroso). & 2 & 13 \\ \hline
 Shifter &  As a Shifter, I would like to have templates that automatically compile and format the data available in the system in order to write my end of shift report in a fast and uniform way. Currently in the ALICE logbook, I don’t like that I need to compile all the information myself and that
 not all shifters use the same structure (Vasco Chibante Barroso). & 2 & 13 \\ \hline
 Run coördinator &  As run coördinator, I want shifters to use templates so that it is easier
 and faster to read them (Vasco Chibante Barroso). & 1 & 13 \\ \hline
-Subsystem Run Coördinator & As a SRC I would like to be able to create my own detector specific templates for example On-Call interventions. In this case I can specify the relevant information which are required from the OnCall shifter for different kind of “standard” events (Robert Munzer). & 1 & 20 \\ \hline
+Subsystem Run Coördinator & As a SRC I would like to be able to create my own detector specific templates for example On-Call interventions. In this case I can specify the relevant information which are required from the OnCall shifter for different kind of “standard” events (Robert Munzer). & 8 & 20 \\ \hline
 \end{longtable}
 \newpage
-\section{Email}
+\subsection{Email}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
@@ -141,7 +139,7 @@ SRC & . The subsystem coördinator wants to be reported when something is going 
 
 \end{longtable}
 \newpage
-\section{Roles and Authentication}
+\subsection{Roles and Authentication}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
@@ -151,7 +149,7 @@ Run coördinator, SRC, Administrator & As run coördinator, SRC or Administrator
 Run coördinator and SRC &  As run coördinator or SRC I need to give ALICE collaborators write or read-only access to the logbook. These rights will be superseeded by equivalent rights given according to the function of the user (e.g. a ALICE collaborator with read-only access will be given write access during the time of his/her duties as a shifter, subsystem run coördinator or system team member) (Roberto Divia).&6&13 \\ \hline
 \end{longtable}
 \newpage
-\section{View with Dash boards}
+\subsection{View with Dash boards}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
@@ -185,7 +183,7 @@ entry related analytics so that I follow the evolution of the repository
 
 \end{longtable}
 
-\section{Statistics}
+\subsection{Statistics}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
@@ -199,7 +197,7 @@ Physics Community &  Each week global and specific statistics about the system a
 
 \end{longtable}
 
-\section{Run}
+\subsection{Run}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
@@ -210,7 +208,7 @@ given criteria so that I can build custom logic or applications based on
 existing data (Vasco Chibante Barroso). & 1 & 8 \\ \hline
 \end{longtable}
 \newpage
-\section{Announcements}
+\subsection{Announcements}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
@@ -219,7 +217,7 @@ Adminis-trator & System administrators can create an announcement. This announce
 ment consists of the following items: time of creation, validity, duration of interruption of the system, author, title of the entry, log entry & 2 & 8 \\ \hline
 \end{longtable}
 
-\section{Other}
+\subsection{Other}
 \begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline

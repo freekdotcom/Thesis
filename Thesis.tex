@@ -92,8 +92,21 @@ This is a student thesis from the Amsterdam University of Applied Sciences from 
 Software for Science is an organization, at the moment lead by Dr. Marten Teitsma, that combines software with science. The organization works with Astron, eScience center and CERN to create software for their scientific experiments. \\
 Conseil Européen pour la Recherche Nucléaire, CERN, is a science research center in Geneve, focused on researching nuclear energy. This happends mostly with particle research, eg, shooting particles against each other in order to find out what energy comes free from one of those runs. CERN achieves this with the help of particle colliders. One of those particle colliders is ALICE. \\
 ALICE, A Large Ion Collider Experiment, has its own bookkeeping system. This system makes sure that the runs ALICE makes are recorded into the bookkeeping system so that researchers, collaborators and other people can look back upon the runs.  \\
-At the moment, ALICE is under maintenance. Subsystems and parts are being renewed. During maintenance, the desire of a new bookeeping system exists. There are three reasons for this. The first reason is that the new system must combine the bookeeping system with AliMonitor, a monitoring system. The second reason is that there are multiple desired functions that are not added to the current system, such as automated report making. The third reason is that most of the technologies and frameworks used to develop the system is outdated due to the fact that development started around 2009.\\
-In order to make the new bookeeping system, the back-end and the front-end are seperated from each other. This was done due to the fact that the scope of the project would become to big. Another reason was that the front-end and back-end of the application will run differently. While the back-end will run on a server, the front-end must run on every computer at CERN. This thesis handles the back-end of the new logbooking system. The front-end will be developed by Naomi Nazar. 
+At the moment, ALICE is under maintenance. During the maintenance, subsystems and parts of ALICE are being renewed. Before the maintenance started, the request for a new bookkeeping system was made. There are three reasons for a new bookkeeping system. The first reason is that the new system must combine the bookeeping system with AliMonitor, a monitoring system. The second reason is that there are multiple desired functions that are not added to the current system, such as automated report making with the help of a template(at the moment, the shifter that has to make a report copies the previous report(bron interview transcriptie). The third reason is that most of the technologies and frameworks used to develop the system is outdated due to the fact that development started around 2009. From 2009 untill now, new featues were added to the system and new tables were created in the database. This caused that the structure of the code is not organized, the database structure was not efficient in handling requests from the client. \\
+Software for Science is planning to deliver the new bookkeeping system in January. At first, they plan to show a prototype of the bookkeeping system in June to CERN workers that are involved with the creation of the prototype. After the protoype, Software for Science hosts a summer school in which interested people can work on expanding the protoype and start on creating new features. Finally, at September of 2018, a semsester at the University of Applied Sciences will be held in order to create the final product. \\
+Due to the size of the project, the little amount of time avaliable for the development, and the many whishes from CERN, 
+considerations for the prototype must be made. This brings the following main research question: \\ \\
+Which requirements can be implemented into the logbook system for ALICE?
+\\ \\
+In order to make a prototype for the new bookeeping system, the back-end and the front-end are seperated from each other. This was done due to the fact that the scope of the project would become to big. Another reason was that the front-end and back-end of the application will run differently. While the back-end will run on a server, the front-end must run on every computer at CERN. This thesis handles the back-end of the new logbooking system. The front-end will be developed by Naomi Nazar. 
+\\ 
+This thesis is split into four parts. Every part resembles a sub research question. An explanation why these sub research questions are importand and how they could help solving the main research question can be found later in the thesis. The sub research questions are as followed: \\
+\begin{enumerate}
+\item What database would fit the prototype?
+\item Which requirements are important for the logbook system for ALICE?
+\item What are the consequences for the development process of the prototype based upon the important requirements and the database choices?
+\item How can the prototype be developed?
+\end{enumerate}
  
 
  
@@ -136,7 +149,7 @@ What is also important, is the design of the database. The database design will 
 
 The main cirteria for choosing the database is that the database needs to be open-source. Since the logbooking prototype is open-source, using a database that isn't open-source would make the prototype not open-source anymore. To find out which database is the best for the prototype, tests will be made to test the different kind of databases. \\
 
-
+\newpage
 \subsection{Req analysis}
 This section of the thesis will discuss the requirements analysis. There are over 120 requirements created by CERN. It is impossible to use every requirement in the prototype, due to scale of the requirements and due to time constraints that are set. An analysis is needed in order to check which requirements are nescessary to add to the protoype and which requirements can be left out.  \\
 Inside the requirement document were some vague terms that weren't explained. The terms were follow-ups, on call intervention, announcements, and an EOS report. Iets over de features die er staan, maar onduidelijk zijn. \\
@@ -199,9 +212,10 @@ Run coördinator and SRC &  As run coördinator or SRC I need to give ALICE coll
 
 
 
-
+\newpage
 \subsection{Consequences}
 This section of the thesis will be about the consequences of the pioritized user stories. Within this section, an Unified Modelling Language diagram(bron naar uml) of the backend will be shown and explained. Based upon this diagram, 'sprints' will be created in order to structure the development process until the demonstration of the prototype, which will take in mid-june, takes place. \\
+
 
 
 \subsection{Prototype}

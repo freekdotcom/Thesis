@@ -21,29 +21,27 @@
 \usepackage[protrusion=true,expansion=true]{microtype}	
 \usepackage{amsmath,amsfonts,amsthm,amssymb}
 \usepackage{graphicx}
+
 \usepackage{blindtext}
 \usepackage{enumitem}
 \usepackage{longtable}
-\graphicspath{{img/}}
-
+\usepackage{titling}\graphicspath{{img/}}
 
 % --------------------------------------------------------------------
 % Definitions (do not change this)
 % --------------------------------------------------------------------
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
 
-\makeatletter							% Title
-\def\printtitle{%						
-    {\centering \@title\par}}
-\makeatother									
-
+%\makeatletter							% Title
+%\def\printtitle{%						
+%    {\centering \@title\par}}
+%\makeatother									
 \makeatletter							% Author
 \def\printauthor{%					
     {\centering \large \@author}}				
 \makeatother							
 
 \title{Logbooking Software for Science}
-
 \author{
 		F.P. van der Meulen, 500713781, (tel)+31 6 17506168\\
 		Amsterdam, 2nd of March 2018\\	
@@ -55,7 +53,6 @@
 		February Semester, 2017-2018\\
 }
 
-			
 
 
 \begin{document}
@@ -63,9 +60,6 @@
 % Maketitle
 % ------------------------------------------------------------------------------
 \thispagestyle{empty}		% Remove page numbering on this page
-
-%\printtitle
-%\printauthor				% Print the author data as defined above
 
 \maketitle
 
@@ -90,17 +84,17 @@ The abstraction of the report.
 \section{Introduction}
 This is a student thesis from the Amsterdam University of Applied Sciences from the HBO-ICT-Game Development study course. This student thesis is made for the organization Software for Sciences. \\
 Software for Science is an organization, at the moment lead by Dr. Marten Teitsma, that combines software with science. The organization works with Astron, eScience center and CERN to create software for their scientific experiments. \\
-Conseil Européen pour la Recherche Nucléaire, CERN, is a science research center in Geneve, focused on researching nuclear energy. This happends mostly with particle research, eg, shooting particles against each other in order to find out what energy comes free from one of those runs. CERN achieves this with the help of particle colliders. One of those particle colliders is ALICE. \\
+Conseil Européen pour la Recherche Nucléaire, CERN, is a science research center in Geneve, focused on researching nuclear energy. This happens mostly with particle research, e.g., shooting particles against each other in order to find out what energy comes free from one of those runs. CERN achieves this with the help of particle colliders. One of those particle colliders is ALICE. \\
 ALICE, A Large Ion Collider Experiment, has its own bookkeeping system. This system makes sure that the runs ALICE makes are recorded into the bookkeeping system so that researchers, collaborators and other people can look back upon the runs.  \\
-At the moment, ALICE is under maintenance. During the maintenance, subsystems and parts of ALICE are being renewed. Before the maintenance started, the request for a new bookkeeping system was made. There are three reasons for a new bookkeeping system. The first reason is that the new system must combine the bookeeping system with AliMonitor, a monitoring system. The second reason is that there are multiple desired functions that are not added to the current system, such as automated report making with the help of a template(at the moment, the shifter that has to make a report copies the previous report(bron interview transcriptie). The third reason is that most of the technologies and frameworks used to develop the system is outdated due to the fact that development started around 2009. From 2009 untill now, new featues were added to the system and new tables were created in the database. This caused that the structure of the code is not organized, the database structure was not efficient in handling requests from the client. \\
-Software for Science is planning to deliver the new bookkeeping system in January. At first, they plan to show a prototype of the bookkeeping system in June to CERN workers that are involved with the creation of the prototype. After the protoype, Software for Science hosts a summer school in which interested people can work on expanding the protoype and start on creating new features. Finally, at September of 2018, a semsester at the University of Applied Sciences will be held in order to create the final product. \\
-Due to the size of the project, the little amount of time avaliable for the development, and the many whishes from CERN, 
+At the moment, ALICE is under maintenance. During the maintenance, subsystems and parts of ALICE are being renewed. Before the maintenance started, the request for a new bookkeeping system was made. There are three reasons for a new bookkeeping system. The first reason is that the new system must combine the bookkeeping system with AliMonitor, a monitoring system. The second reason is that there are multiple desired functions that are not added to the current system, such as automated report making with the help of a template(at the moment, the shifter that has to make a report copies the previous report(bron interview transcriptie). The third reason is that most of the technologies and frameworks used to develop the system is outdated due to the fact that development started around 2009. From 2009 until now, new features were added to the system and new tables were created in the database. This caused that the structure of the code is not organized, the database structure was not efficient in handling requests from the client. \\
+Software for Science is planning to deliver the new bookkeeping system in January. At first, they plan to show a prototype of the bookkeeping system in June to CERN workers that are involved with the creation of the prototype. After the prototype, Software for Science hosts a summer school in which interested people can work on expanding the prototype and start on creating new features. Finally, at September of 2018, a semester at the University of Applied Sciences will be held in order to create the final product. \\
+Due to the size of the project, the little amount of time available for the development, and the many wishes from CERN, 
 considerations for the prototype must be made. This brings the following main research question: \\ \\
 Which requirements can be implemented into the logbook system for ALICE?
 \\ \\
-In order to make a prototype for the new bookeeping system, the back-end and the front-end are seperated from each other. This was done due to the fact that the scope of the project would become to big. Another reason was that the front-end and back-end of the application will run differently. While the back-end will run on a server, the front-end must run on every computer at CERN. This thesis handles the back-end of the new logbooking system. The front-end will be developed by Naomi Nazar. 
+In order to make a prototype for the new bookkeeping system, the back-end and the front-end are separated from each other. This was done due to the fact that the scope of the project would become to big. Another reason was that the front-end and back-end of the application will run differently. While the back-end will run on a server, the front-end must run on every computer at CERN. This thesis handles the back-end of the new bookkeeping system. The front-end will be developed by Naomi Nazar. 
 \\ 
-This thesis is split into four parts. Every part resembles a sub research question. An explanation why these sub research questions are importand and how they could help solving the main research question can be found later in the thesis. The sub research questions are as followed: \\
+This thesis is split into four parts. Every part resembles a sub research question. An explanation why these sub research questions are important and how they could help solving the main research question can be found later in the thesis. The sub research questions are as followed: \\
 \begin{enumerate}
 \item What database would fit the prototype?
 \item Which requirements are important for the logbook system for ALICE?
@@ -113,46 +107,50 @@ This thesis is split into four parts. Every part resembles a sub research questi
 
 \newpage
 \section{Techniques}
-This chapter will talk about the techniques used to create the prototype.
+This chapter will talk about the techniques used to create the prototype. These techniques vary from software frameworks to programming languages to tools used to complete the research.
 
-\subsection{Javascript}
-The main programming language for this research is Javascript. Javascript was one of the hard requirements set by CERN.
+\subsection{JavaScript}
+The main programming language for this research is Node JavaScript. Node JavaScript is a hard set requirement, e.g. the project must use JavaScript on the back and the front end side of the application. The version of Node that is used is version 9.4.0.
 
 \subsection{AliceO2/WebUi framework}
 The preference of CERN is to use CERN's own developed frameworks as much as it is possible to do so. The WebUi framework is a framework to handle HTTP requests made by the client, in this case, the front-end. The base of this framework is the ExpressJs framework. \\
-The ExpressJs framework is a lightweight framework for handling HTTP calls. CERN has expanded this framework with features such as Json Web token support, debug logger systems and support for CERN's own authentication system,
+The ExpressJs(BRON) framework is a lightweight framework for handling HTTP calls. CERN has expanded this framework with features such as Json Web token support, debug logger systems and support for CERN's own authentication system, SAMS. \\
+SAMS will be used later in the application as the main authentication method. The API however, has not been made public yet due to security reasons. 
 
 \subsection{Postgresql}
-The main database that will be used for the prototype is a Postgres database. 
+The main database that will be used for the prototype is a Postgres database(BRON). Postgresql is chosen as the main database because after research and performance tests, this database architecture was the best. This research can be found later in the thesis.
 
 \subsection{Mocha}
-The testing framework that has been chosen is the Mocha testing framework.
+The testing framework that has been chosen is the Mocha(BRON) testing framework. It is important that the entire application is tested. For instance, whenever a new feature is added to the prototype, it is important that the older features are still working as intended. With using tests, this can be prevented and 
 
 \subsection{Sublime text 3}
-The development enviroment for developing the prototype is Sublime Text 3.
+The development environment for developing the prototype is Sublime Text 3 (BRON).
 
 \subsection{Lucichart}
-Lucichart is used for the creation of the Enitity Relation Diagram's and the Unified Moddeling Language Diagrams.
+Lucichart(BRON is used for the creation of the Entity Relation Diagram's and the Unified Modelling Language Diagrams.
 
 \subsection{Scrum}
-Scrum is the 
+Scrum(BRON) is the 
 
 \newpage
 
 
 \section{Methods}
-This chapter discusses the methods used to solve the research questions. The four research questions that were earlier created will be discussed. 
+This chapter discusses the methods used to solve the research questions. The four research questions that were earlier created will be discussed and further explored. At first, the method on how to complete the research questions will be explained, then the outcome of the use of those methods will be discussed and finally a conclusion will be given to the research questions. 
 
+\newpage
 \subsection{Database}
 In this section, different kinds of databases will be compared with each other in order to find out which database would be the best choice for the logbook prototype. \\
-The REST-API will make use of the SAMS authentication API created by CERN. However, this API is not made availiable yet for the back-end of the bookkeeping system prototyp. To still being able to work with users, the database scheme(bron) technique will be used. With the help of this technique, the database can be 'split' into two different databases. This will not affect the later implementation of the SAMS API.
-What is also important, is the design of the database. The database design will be created with the help of an Enitity Relation Diagram(bron). This diagram displays all the entities that are in the database and shows the relation between different entities. Due to 'splitting' the database, two different ERD's will be shown. \\
-\includegraphics[scale=1]{ERDUser}
+The REST-API will make use of the SAMS authentication API created by CERN. However, this API is not made available yet for the back-end of the bookkeeping system prototype. To still being able to work with users, the database scheme(bron) technique will be used. With the help of this technique, the database can be 'split' into two different databases. This will not affect the later implementation of the SAMS API.
+What is also important, is the design of the database. The database design will be created with the help of an Entity Relation Diagram(bron). This diagram displays all the entities that are in the database and shows the relation between different entities. Due to 'splitting' the database, two different ERD's will be shown. These ERD's were made with the Lucichart program and were created based upon a global overview of the requirements \\
+\includegraphics[scale=0.9]{ERDUser}
 
 \includegraphics[scale=0.5]{ERDLogEntry}
 
-The main cirteria for choosing the database is that the database needs to be open-source. Since the logbooking prototype is open-source, using a database that isn't open-source would make the prototype not open-source anymore. To find out which database is the best for the prototype, tests will be made to test the different kind of databases. \\
-The results of the test can be found below: \\
+These Entity Relationship Diagrams are not yet completed. The reason for this has to do with the continued development of the back end. The design is not final, this will be decided later in the development process. 
+
+The main criteria for choosing the database is that the database needs to be open-source. Since the bookkeeping prototype is open-source, using a database that isn't open-source would make the prototype not open-source any more. To find out which database is the best for the prototype, tests will be made to test the different kind of databases. The tests will involve the log entry table, due to the fact that this table will be the most important table of the  back end. \\
+The databases will be test on two different aspects. The first aspect is retrieving information. The front end will do a lot of get http-requests in order to display the information. The database should be able to retrieve these requirements fast enough to prevent loading times in the database. The second aspect that will be tested will be the post-requests. All the log entries need to be stored in the database and it is again important that this happens fast enough. Within these two aspects different sizes will be tested: one, ten, 100 and 1000. The results of the test can be found below: \\
 
 Tabel met de resultaten \\
 
@@ -160,59 +158,59 @@ Tabel met de resultaten \\
 
 \newpage
 \subsection{Req analysis}
-This section of the thesis will discuss the requirements analysis. There are over 120 requirements created by CERN. It is impossible to use every requirement in the prototype, due to scale of the requirements and due to time constraints that are set. An analysis is needed in order to check which requirements are nescessary to add to the protoype and which requirements can be left out.  \\
-Inside the requirement document were some vague terms that weren't explained. The terms were follow-ups, on call intervention, announcements, and an EOS report. Iets over de features die er staan, maar onduidelijk zijn. \\
-To solve the vague requirements and unknown wishes, a former shifter by the name of Pascal Buschoten has been interviewed. The full transscript can be found in the attachments. The interview with Pascal clarified a couple of terms like the on call intervention and the end of shift reports with templates. On call Interventions are emergency issues with a detector, a particle collider or anoter system that need to be solved as soon as possible. These issues need to be fixed within a very short amount of time. Currently, there is not a formal template availiable for the EOS reports  and because of that, all the reports do not follow the same structure. With a template, it is better to evaluate all the EOS reports).\\
-A criteria for the prototype was given by Dr. Teitsma. This criteria was that all the requirements related to the Subsystem Run Coördinator must be added to the prototype. This criteria was crucial for the requirement analysis. \\
-During a meeting at the ninth of may, one of the developers from CERN, Vasco Chibante Barroso, stated that he preferes that the prototype would focus more on the features instead of the roles and the authentication. This complicates the planning of the new features for the prototype. Therefore, there will be a focus on both the features wish from CERN and a focus on the SubSystem Run Coordinator from Dr. Teitsma. \\ 
-The technique that will be used is the Analytic Hierarchy Process technique.(bron van pakistaanse artikel die dit voor het eerst beschrijft). "In AHP, initially whole requirements are recognized and then criteria under which these requirements will be preferred. In AHP we pair wise analyzing  between  the  probable  pairs  of  the  hierarchy. 
+This section of the thesis will discuss the requirements analysis. There are over 120 requirements created by CERN. It is impossible to use every requirement in the prototype, due to scale of the requirements and due to time constraints that are set. An analysis is needed in order to check which requirements are necessary to add to the prototype and which requirements can be left out.  \\
+Inside the requirement document were some vague terms that weren't explained. The terms were follow-ups, on call intervention, announcements, and an EOS report. These vague terms would create confusion when prioritizing the requirements. And that could cause that important features could be skipped. \\
+To solve the vague requirements and unknown wishes, a former shifter by the name of Pascal Buschoten has been interviewed. The full transcript can be found in the attachments. The interview with Pascal clarified a couple of terms like the on call intervention and the end of shift reports with templates. On call Interventions are emergency issues with a detector, a particle collider or another system that need to be solved as soon as possible. These issues need to be fixed within a very short amount of time. Currently, there is not a formal template available for the E.O.S. reports  and because of that, all the reports do not follow the same structure. With a template, it is better to evaluate all the E.O.S. reports).\\
+A criteria for the prototype was given by Dr. Teitsma. This criteria was that all the requirements related to the Subsystem Run Coordinator must be added to the prototype. This criteria was crucial for the requirement analysis. \\
+During a meeting at the ninth of may, one of the developers from CERN, Vasco Chibante Barroso, stated that he prefers that the prototype would focus more on the features instead of the roles and the authentication. This complicates the planning of the new features for the prototype. Therefore, there will be a focus on both the features wish from CERN and a focus on the Sub System Run Coordinator from Dr. Teitsma. \\ 
+The technique that will be used is the Analytic Hierarchy Process technique.(bron van pakistaanse artikel die dit voor het eerst beschrijft). "In A.H.P., initially whole requirements are recognized and then criteria under which these requirements will be preferred. In A.H.P. we pair wise analysing  between  the  probable  pairs  of  the  hierarchy. 
 Now users can recognize the possible relationship between 
-the hierarchies. We then pair wise analyze them and users can select its preferences from the scale which ranges from 
-1 to 9."(Javed Ali Khan, Izaz Ur Rehman, Yawar Hayat Khan, Iftikhar Javed Khan, Salman Rash, 2015). One of the main advantages of using this technique is that ""(Bron pakistaanse artikel). The second software requirements analysis technique that will be used for the software is the Hierachy Analytic Hierachy Process technique(bron van artikel die dit voor het eerst beschrijft). HAHP is a technique that creates so called planes of requirements in order to simplify the requirement analysis process. A plane is a group of requirements that are grouped together if they share a similarity. These planes can, for example, align to a user of the system or a feature that will be implemented into the final product. For this requirement analysis, the planes will consists of features since this will be more important for the prototype than the users themselfs. \\
+the hierarchies. We then pair wise analyse them and users can select its preferences from the scale which ranges from 
+1 to 9."(Javed Ali Khan, Izaz Ur Rehman, Yawar Hayat Khan, Iftikhar Javed Khan, Salman Rash, 2015). One of the main advantages of using this technique is that ""(Bron pakistaanse artikel). The second software requirements analysis technique that will be used for the software is the Hierachy Analytic Hierachy Process technique(bron van artikel die dit voor het eerst beschrijft). H.A.H.P. is a technique that creates so called planes of requirements in order to simplify the requirement analysis process. A plane is a group of requirements that are grouped together if they share a similarity. These planes can, for example, align to a user of the system or a feature that will be implemented into the final product. For this requirement analysis, the planes will consists of features since this will be more important for the prototype than the users themself. \\
 Lastly, time will be an important factor for the requirement analysis. The time will be estimated using the story points technique. This technique consists of giving  points to requirements in order to organize the effort and scale of a requirement. The range of these points are:  zero, zero point five, one, two, three, five, eight, thirteen, 20, 40 and 100. \\ \\
-Applying the chosen techniques to the requirements document results in tables with pioritized requirements with scrum points given to the requirements. The requirements are grouped by feature so that it is easier to read. There were numerous requirements that were double. In cases like these, the requirements were the same, but, the requirements were assigned to different roles. These requirements are grouped together to prevent duplicity. \\
+Applying the chosen techniques to the requirements document results in tables with prioritized requirements with scrum points given to the requirements. The requirements are grouped by feature so that it is easier to read. There were numerous requirements that were double. In cases like these, the requirements were the same, but, the requirements were assigned to different roles. These requirements are grouped together to prevent duplicity. \\
 The four most important features will be given and explained due to the amount of requirements. The complete requirements table can be found as an attachment.\\
 
 \subsubsection{Entries}
-These requirements are about the different kind of entries into the system(log entries, on call interventions, run entries etc.). This feature sits at the core of the to be delivered product and therefore has the most requirements attached to it. Due to the amount of requirements that are related to the entries, this section is divided into different sections for readibility. 
+These requirements are about the different kind of entries into the system(log entries, on call interventions, run entries etc.). This feature sits at the core of the to be delivered product and therefore has the most requirements attached to it. Due to the amount of requirements that are related to the entries, this section is divided into different sections for readability. 
 
-\begin{longtable}{ | p{3cm} | p{8cm} | p{1.5cm} | l |}
+\begin{longtable}{ | p{3cm} | p{8cm} | p{1cm} | l |}
 \hline
-Role & User Story & Piority & Time \\ \hline
+Role & User Story & Priority & Time \\ \hline
 Shifter &  A shifter makes an entry into the database consisting of several items. Each entry records the following items: time of creation,which class the creator originates: human, type of entry, general, EOS, DCS, number of run, author of the entry, title of the entry, log entry, follow ups, files and actions & 9 & 8 \\ \hline
 User & As a user, I want to search log entries by different criteria (e.g. title, content, author, creation date,(...) and have the results listed. & 9 & 8 \\ \hline
-Run coördinator, SRC, STC and Shifter& As run coördinator, SRC, STC or as Shifter, I may need to attach files to log entries. These files may contain text or binary information (PNGs, JPGs etc...) (Roberto Divia). & 8 & 8 \\ \hline
+Run coordinator, S.R.C. , S.T.C. and Shifter& As run coordinator, S.R.C. , S.T.C. or as Shifter, I may need to attach files to log entries. These files may contain text or binary information (PNGs, JPGs etc.) (Roberto Divia). & 8 & 8 \\ \hline
 Subsystem expert & As a subsystem expert, I want to attach quality flags to runs so that
 physicists can use them while searching for good data sets for their analysis (Vasco Chibante Barroso). & 8 & 8 \\ \hline
 \end{longtable}
 
 
 \subsubsection{Reports}
-A requested feature in the new final product was the automatic creation of reports and templates. This is not availiable in the current product, therefore, there are a couple of requirements referencing towards the creation of templates and reports.
-\begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
+A requested feature in the new final product was the automatic creation of reports and templates. This is not available in the current product, therefore, there are a couple of requirements referencing towards the creation of templates and reports.
+\begin{longtable}{ | p{3cm} | p{8cm} | p{1cm} | l |}
 \hline
-Role & User Story & Piority & Time \\ \hline
-Subsystem Run Coördinator & As a SRC I would like to be able to create my own detector specific templates for example On-Call interventions. In this case I can specify the relevant information which are required from the OnCall shifter for different kind of “standard” events (Robert Munzer). & 8 & 20 \\ \hline
+Role & User Story & Priority & Time \\ \hline
+Subsystem Run Coordinator & As a SRC I would like to be able to create my own detector specific templates for example On-Call interventions. In this case I can specify the relevant information which are required from the OnCall shifter for different kind of “standard” events (Robert Munzer). & 8 & 20 \\ \hline
 Shifter &  As a shifter, I want to have templates that prefill most of my end-of-shift reports from the available metadata so that I don’t need to fill inmyself what the system already knows (Vasco Chibante Barroso). & 2 & 13 \\ \hline
 \end{longtable}
 
 \subsubsection{Email}
-Sending emails is availiable in the current system, however, the current way the emails are send are send in a spam related way, eg, a shifter receives an email if another shifter makes an entry from another subsystem. Therefore, the email system needs to be optimized and it should be designed in a way that will not be annoying to the user. The reason that this is of more importance, is that it is easy to adjust the way the emails are send, how the emails look like and who receives an email. Therefore, with adding it to the prototype, it will be easier to adjust it to the wishes of the users.
-\begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
+Sending emails is available in the current system, however, the current way the emails are send are send in a spam related way, e.g., a shifter receives an email if another shifter makes an entry from another subsystem. Therefore, the email system needs to be optimized and it should be designed in a way that will not be annoying to the user. The reason that this is of more importance, is that it is easy to adjust the way the emails are send, how the emails look like and who receives an email. Therefore, with adding it to the prototype, it will be easier to adjust it to the wishes of the users.
+\begin{longtable}{ | p{3cm} | p{8cm} | p{1cm} | l |}
 \hline
-Role & User Story & Piority & Time \\ \hline
+Role & User Story & Priority & Time \\ \hline
 ALICE member & As an ALICE member, I would like to receive via email a global summary of each LHC Fill in order to follow ALICE operations without visiting the bookkeeping tools. Currently in the ALICE logbook, I like that I receive via email a document with info on efficiency and EOR Reasons and that on the body of the email there is a summary for
 each fill (Vasco Chibante Barroso). & 8 & 20 \\ \hline
-Subsystem Run Coördinator &  As a subsystem responsible, I want to be notified by email (or other
+Subsystem Run Coordinator &  As a subsystem responsible, I want to be notified by email (or other
 channels) of log entries which are related with my subsystem so that I can better follow-up activities without having to constantly visit the product, e.g. EOS report (Robert Munzer) (Vasco Chibante Barroso). & 8 & 13 \\ \hline
-Run coördinator & As run coördinator I may request to receive automatic e-mails concerning all Logbook entries that include all systems (either without distinction or using special selection criterias). The e-mail delivery address will probably be an e-group (single e-mail address <...>@cern.ch)(Roberto Divia). & 6 & 13 \\ \hline
+Run coordinator & As run coordinator I may request to receive automatic e-mails concerning all Logbook entries that include all systems (either without distinction or using special selection criterias). The e-mail delivery address will probably be an e-group (single e-mail address <...>@cern.ch)(Roberto Divia). & 6 & 13 \\ \hline
 \end{longtable}
 
 %\subsubsection{\ref{table:hans}}
 \subsubsection{Roles and Authentication}
 There are different kinds of roles and users in the bookkeeping system. It is possible that a user is assigned to multiple subsystems with different roles. Only certain roles can move in and out of subsystems. Since the different roles play an important part in the bookkeeping system, it is mandatory to have them in the prototype.
 
-\begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
+\begin{longtable}{ | p{3cm} | p{8cm} | p{1cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
 User & As a user, I want to be able to login with my CERN credentials to avoid having to remember a new set of credentials. This should be done by using the CERN authentication method. & 9 & 13 \\ \hline
@@ -226,59 +224,95 @@ Run coördinator and SRC &  As run coördinator or SRC I need to give ALICE coll
 
 \newpage
 \subsection{Consequences}
-This section of the thesis will be about the consequences for the development of the prototype after the pioritization of the requirements and the database choice. The wishes of the front-end(being developed by Naomi Nazar) will be taken in account aswell, due to the reason that Naomi has to decide what she wants to show for the prototype on the front-end side. \\
-To help the development of the prototype, agile techniques will be used in order to plan and organize the development process. The technique that will be used for the development of the prototype will be the SCRUM(bron) technique. At the pioritization of the requirements, a time measuerment was given. The time measurement was important, because with the times estimated, it will be possible to create sprints. A sprint is a set time in which a development team works to fullfil the requirements. The length of a sprint varies from one day till two weeks. The recommended length for a sprint is one week, therefore, this lenght will be chosen. Every requirement that was estimated had a time measuerment in story points given. The amount of story points a developer can work on in a week varies. Since the story points are estimated, it will be hard to say how much story points a developer can take in a week. For the prototype, a maximun of 40 story points per sprints will be chosen. \\
-The front-end and the back-end were asked to come up with features that they think should be added to the prototype. Both the front-end and the back-end used the pioritzed requirements as a start, then looked at the amount of time needed to complete the requirements. These are the requirements that have chosen to be added to the prototype. \\
-\begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
+This section of the thesis will be about the consequences for the development of the prototype after the prioritization of the requirements and the database choice. The wishes of the front-end(being developed by Naomi Nazar) will be taken in account as well, due to the reason that Naomi has to decide what she wants to show for the prototype on the front-end side. \\
+To help the development of the prototype, agile techniques will be used in order to plan and organize the development process. The technique that will be used for the development of the prototype will be the SCRUM(bron) technique. At the prioritization of the requirements, a time measurement was given. The time measurement was important, because with the times estimated, it will be possible to create sprints. A sprint is a set time in which a development team works to fulfil the requirements. The length of a sprint varies from one day till two weeks. The recommended length for a sprint is one week, therefore, this length will be chosen. Every requirement that was estimated had a time measurement in story points given. The amount of story points a developer can work on in a week varies. Since the story points are estimated, it will be hard to say how much story points a developer can take in a week. For the prototype, a maximum of 40 story points per sprints will be chosen. \\
+The front-end and the back-end were asked to come up with features that they think should be added to the prototype. Both the front-end and the back-end used the prioritized requirements as a start, then looked at the amount of time needed to complete the requirements. These are the requirements that have chosen to be added to the prototype. \\
+\begin{longtable}{ | p{3cm} | p{8cm} | p{1cm} | l |}
 \hline
-Role & User Story & Piority & Time \\ \hline
-Run coördinator, SRC, STC and Shifter& As run coördinator, SRC, STC or as Shifter, I may need to attach files to log entries. These files may contain text or binary information (PNGs, JPGs etc...) (Roberto Divia). & 8 & 8 \\ \hline
-Shifter &  As a shifter, I want to have templates that prefill most of my end-of-shift reports from the available metadata so that I don’t need to fill inmyself what the system already knows (Vasco Chibante Barroso). & 2 & 13 \\ \hline
+Role & User Story & Priority & Time \\ \hline
+Run coordinator, SRC, STC and Shifter& As run coordinator, SRC, STC or as Shifter, I may need to attach files to log entries. These files may contain text or binary information (PNGs, JPGs etc...) (Roberto Divia). & 8 & 8 \\ \hline
+Shifter &  As a shifter, I want to have templates that prefill most of my end-of-shift reports from the available metadata so that I don’t need to fill in myself what the system already knows (Vasco Chibante Barroso). & 8 & 13 \\ \hline
 Subsystem expert & As a subsystem expert, I want to attach quality flags to runs so that
 physicists can use them while searching for good data sets for their analysis (Vasco Chibante Barroso). & 8 & 8 \\ \hline
 User & As a user, I want to search log entries by different criteria (e.g. title, content, author, creation date,(...) and have the results listed. & 9 & 8 \\ \hline
-Run coördinator &  As run coördinator, I want to attach tags to runs so that I can then use them while searching (Vasco Chibante Barroso). & 4 & 8 \\ \hline
+Run coordinator &  As run coordinator, I want to attach tags to runs so that I can then use them while searching (Vasco Chibante Barroso). & 4 & 8 \\ \hline
 User &  As a user, I want to list all runs that match a given criteria to create my own run set. & 8 & 8 \\ \hline
-Subsystem Run Coördinator &  As a subsystem responsible, I want to be notified by email (or other
-channels) of log entries which are related with my subsystem so that I can better follow-up activities without having to constantly visit the product, e.g. EOS report (Robert Munzer) (Vasco Chibante Barroso). & 8 & 13 \\ \hline
-SRC & As subsystem run coördinator I may request to receive automatic emails concerning all Logbook entries that include the System I am working for (either without distinction or using special selection criterias). The e-mail delivery address will probably be an e-group (single e-mail address <...>@cern.ch) (Roberto Divia). & 8 & 13 \\ \hline
-Run coördinator, SRC and Administrator &  As run coördinator, SRC or Admin, I must be able to move collaborators to and out of subsystem teams. These action may be conflict the information stored in SAMS (Roberto Divia). & 9 & 13 \\ \hline
+Subsystem Run Coordinator &  As a subsystem responsible, I want to be notified by email (or other channels) of log entries which are related with my subsystem so that I can better follow-up activities without having to constantly visit the product, e.g. EOS report (Robert Munzer) (Vasco Chibante Barroso). & 8 & 13 \\ \hline
+SRC & As subsystem run coordinator I may request to receive automatic emails concerning all Logbook entries that include the System I am working for (either without distinction or using special selection criterias). The e-mail delivery address will probably be an e-group (single e-mail address <...>@cern.ch) (Roberto Divia). & 8 & 13 \\ \hline
+Run coordinator, SRC and Administrator &  As run coordinator, S.R.C. or Admin, I must be able to move collaborators to and out of subsystem teams. These action may be conflict the information stored in SAMS (Roberto Divia). & 9 & 13 \\ \hline
 \end{longtable}
 
-Not every requirement with a piority of eight or higher made the list. This is due to the requirement not fitting with the rest of the requirements or that the requirement takes too much time to complete. Another thing that should be notified, is that there is a requirement that has a low piority. This requirement was a wish from the CERN development team. Since this has something to do with the search fields that are going to be added, the front-end and the back-end has decided to add this to the prototype for CERN.   \\
+Not every requirement with a priority of eight or higher made the list. This is due to the requirement not fitting with the rest of the requirements or that the requirement takes too much time to complete. Another thing that should be notified, is that there is a requirement that has a low priority. This requirement was a wish from the CERN development team. Since this has something to do with the search fields that are going to be added, the front-end and the back-end has decided to add this to the prototype for CERN.   \\
 
-There is an additional requirement, however, this requirement is dependent on access of the SAMS API used by CERN. This has not been given at the moment of writing, therefore, this requirement will be added to the list of the other requirements once access to SAMS is availiable. \\
+There is an additional requirement, however, this requirement is dependent on access of the SAMS API used by CERN. This has not been given at the moment of writing, therefore, this requirement will be added to the list of the other requirements once access to SAMS is available. \\
 
-\begin{longtable}{ | p{2cm} | p{8cm} | p{1.5cm} | l |}
+\begin{longtable}{ | p{3cm} | p{8cm} | p{1cm} | l |}
 \hline
 Role & User Story & Piority & Time \\ \hline
-Run coördinator, SRC and Administrator &  As run coördinator, SRC or Admin, I must be able to move collaborators to and out of subsystem teams. These action may be conflict the information stored in SAMS (Roberto Divia). & 9 & 13 \\ \hline
+Run coordinator, S.R.C. and Administrator &  As run coordinator, S.R.C. or Admin, I must be able to move collaborators to and out of subsystem teams. These action may be conflict the information stored in SAMS (Roberto Divia). & 9 & 13 \\ \hline
 \end{longtable}
 
 With the chosen requirements, sprints can be created. With every sprint is an explanation why the requirements were chosen for this sprint. There are a total of four sprints formulated. Every sprint will take a week to complete, as stated earlier.
 
 \subsubsection{Sprint one}
+The first sprint will be about wrapping up the requirements that were not implemented into the demo. Once these features are implemented, the implementation of the search features can start. These features are adding tags, flags, and the search bar to the front end. The back end needs to store the flags and tags, and is also required to handle all the search requests from the front end. This is chosen first, since this is a relative easy thing to implement into the prototype.
+
+\begin{longtable}{ | p{4cm} | p{10cm} |}
+\hline
+Role & User Story \\ \hline
+Run coordinator, SRC, STC and Shifter& As run coordinator, SRC, STC or as Shifter, I may need to attach files to log entries. These files may contain text or binary information (PNGs, JPGs etc...) (Roberto Divia).  \\ \hline
+Shifter &  As a shifter, I want to have templates that prefill most of my end-of-shift reports from the available metadata so that I don't need to fill inmyself what the system already knows (Vasco Chibante Barroso). \\ \hline
+User &  As a user, I want to list all runs that match a given criteria to create my own run set. \\ \hline
+
+\end{longtable}
 
 \subsubsection{Sprint two}
+The second sprint is the start of the implementation of the automated templates. This is a new feature, so it will be important for the prototype that this feature is fully functional. There will be a focus on the front and the back end of the system. The front end will display the templates and the back end will store the entries and the templates. The earlier that this is implemented, the better. The remaining user stories from the first sprint will be taken into account.
+
+\begin{longtable}{ | p{4cm} | p{10cm} |}
+\hline
+Role & User Story \\ \hline
+Run coordinator &  As run coordinator, I want to attach tags to runs so that I can then use them while searching (Vasco Chibante Barroso). \\ \hline
+User &  As a user, I want to list all runs that match a given criteria to create my own run set. \\ \hline
+Subsystem expert & As a subsystem expert, I want to attach quality flags to runs so that
+physicists can use them while searching for good data sets for their analysis (Vasco Chibante Barroso).  \\ \hline
+
+\end{longtable}
 
 \subsubsection{Sprint three}
+The third sprint will be about implementing the email related features into the prototype. There was a lot of negative feedback on the current way the system handles the emails, so with placing this in the third sprint, there is still some time to implement feedback related to the email. The reason why this is pushed back to the third sprint, is that it is still debatable at the moment on how to handle the way the emails are send. This gives more time to look at the architecture of the emails. The remaining user stories from the previous sprint will be taken into account.
+
+\begin{longtable}{ | p{4cm} | p{10cm} |}
+\hline
+Role & User Story \\ \hline
+Subsystem Run Coordinator &  As a subsystem responsible, I want to be notified by email (or other
+channels) of log entries which are related with my subsystem so that I can better follow-up activities without having to constantly visit the product, e.g. EOS report (Robert Munzer) (Vasco Chibante Barroso).  \\ \hline
+SRC & As subsystem run coordinator I may request to receive automatic emails concerning all Logbook entries that include the System I am working for (either without distinction or using special selection criterias). The e-mail delivery address will probably be an e-group (single e-mail address <...>@cern.ch) (Roberto Divia). \\ \hline
+\end{longtable}
 
 \subsubsection{Sprint four}
+The final sprint will only implement that the SRS can drag shifters in and out of the subsystem. The reason for this, is that the back end and the front end can work on fixing bugs and completing the remaining user stories.
 
+\begin{longtable}{ | p{4cm} | p{10cm} |}
+\hline
+Role & User Story \\ \hline
+Run coordinator, S.R.C. and Administrator &  As run coordinator, S.R.C. or Admin, I must be able to move collaborators to and out of subsystem teams. These action may be conflict the information stored in SAMS (Roberto Divia). \\ \hline
+\end{longtable}
 
+\newpage
 \subsection{Prototype}
 This section of the thesis will talk about the development process of the prototype.
 
 \newpage
 \section{Results}
-This section of the report will discuss the results, which are in this case the prototype. An UML diagram of the final prototype will be shown, aswell code examples of the prototype.
+This section of the report will discuss the results, which are in this case the prototype. An U.M.L. diagram of the final prototype will be shown, as well code examples of the prototype.
 
 \newpage
 \section{Conclusion}
 Concluding the report with a conclusion.
 \newpage
 \section{Recommendations}
-Recommendations for future use of the electronic logbooking system.
+Recommendations for future use of the electronic bookkeeping system.
 \newpage
 
 \section{Glossary}
@@ -287,9 +321,8 @@ This section of the report will explain terms that will be used during the repor
 
 \newpage
 
-\section{Resource List}
 \bibliographystyle{plain}
-\bibliography{mybib}
+\bibliography{mybib} 
 \newpage
 
 \section{Attachments}

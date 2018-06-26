@@ -67,6 +67,11 @@
 \thispagestyle{empty}		% Remove page numbering on this page
 
 \maketitle
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{alice}
+\end{figure}
+
 \thispagestyle{empty}
 
 \newpage 
@@ -80,10 +85,11 @@
 \tableofcontents
 
 \newpage
-\section{Preface}
+\section*{Preface}
+I would like to thank the following persons: \\
 
-
-\section{Abstraction}
+\newpage
+\section*{Abstraction}
 The abstraction of the report.
 \newpage
 \section{Introduction}
@@ -94,13 +100,12 @@ ALICE, A Large Ion Collider Experiment, has its own bookkeeping system. This sys
 
 \subsection{The assignment}
 In December of 2018, ALICE is going under maintenance. CERN calls it a long shutdown. During the maintenance, subsystems and parts of ALICE are being renewed. Before the maintenance started, the request for a new bookkeeping system was made. There are three reasons for a new bookkeeping system. The first reason is that the new system must combine the bookkeeping system with AliMonitor, a monitoring system. The second reason is that there are multiple desired functions that are not added to the current system, such as automated report making with the help of a template(at the moment, the shifter that has to make a report copies the previous report. The third reason is that most of the technologies and frameworks used to develop the system is outdated due to the fact that development started around 2009. From 2009 until now, new features were added to the system and new tables were created in the database. This caused that the structure of the code is not organized, the database structure was not efficient in handling requests from the client. \\
-Software for Science is planning to deliver the new bookkeeping system in January. At first, they plan to show a prototype of the bookkeeping system in June to CERN software developers and users that are involved with the current bookkeeping system. The reason why a prototype needs to be created is that Software for Science wants to learn more about creating a bookkeeping system. With the prototype, possible flaws can be early detected and dealt with. \\
+Software for Science is planning to deliver the new bookkeeping system in January. At first, they plan to show a prototype of the bookkeeping system in June to CERN software developers and users that are involved with the current bookkeeping system. The reason why a prototype needs to be created is that Software for Science wants to learn more about creating a bookkeeping system. With the prototype, it will be easier to detect possible flaws when creating the actual bookkeeping system. \\
 After the prototype, Software for Science hosts a summer school, a special program for developers and students that are interested in developing software for scientific research. At the summer school, new features are added to the prototype. Finally, at September of 2018, a semester at the University of Applied Sciences will be held in order to create the final product. \\ \\ 
-Due to the size of the project, the little amount of time available for the development, and the many wishes from CERN, 
-not every requirement and feature can be implemented into the prototype. Furthermore, it is important that possible flaws with the chosen requirements can be detected as early as possible. Based upon the current situation, the following research question can be formulated: \\ \\
+Due to the size of the project, the little amount of time available for the development, and the many requirements that CERN has given for the actual product, not every requirement and feature can be implemented into the prototype. Furthermore, it is important that possible flaws with the chosen requirements can be detected as early as possible. Based upon the current situation, the following research question can be formulated: \\ \\
 Which requirements can be implemented into the logbook system for ALICE?
 \\ \\
-In order to make a prototype for the new bookkeeping system, the back end and the front end are separated from each other. This was done due to the fact that the scope of the project would become too big and thus there would be less requirements implemented into the prototype. Another reason was that the front end and back end of the application will run differently. While the back end will run on a server, the front end must run on every computer at CERN in June. This thesis handles the back end of the new bookkeeping system. The front end will be developed by Naomi Nazar. 
+In order to make a prototype for the new bookkeeping system, the back end and the front end are separated from each other. This was done due to the fact that the scope of the project would become too big and thus there would be less requirements implemented into the prototype. Another reason was that the front end and back end of the application will run differently. While the back end will run on a server, the front end must run on every computer at CERN in June. This thesis handles the back end of the new bookkeeping system. The front end will be developed by Naomi Nazar.
 \\ 
 This thesis is split into four parts. Every part resembles a sub research question. An explanation why these sub research questions are important and how they could help solving the main research question can be found later in the thesis. The sub research questions are as followed: \\
 \begin{enumerate}
@@ -109,7 +114,8 @@ This thesis is split into four parts. Every part resembles a sub research questi
 \item How can the prototype be developed?
 \item How to test the prototype?
 \end{enumerate}
-Based upon the research questions, a bookkeeping prototype can be created. The prototype will be demonstrated to the developers at CERN. This prototype will be delivered with the thesis. 
+The second research question will be completed with the help of the front-end since the front-end needs to design and create the look of the prototype. \\
+Based upon the research questions, a bookkeeping prototype can be created. The prototype will be demonstrated to the developers at CERN. The prototype will be delivered with the thesis. 
 
  
 
@@ -167,11 +173,11 @@ This chapter discusses the methods used to solve the research questions. The fou
 
 \newpage
 \subsection{Req analysis}
-This section of the thesis will discuss the requirements analysis. There are over 120 requirements created by CERN. It is impossible to use every requirement in the prototype, due to scale of the requirements and due to time constraints that are set. An analysis is needed in order to check which requirements are necessary to add to the prototype and which requirements can be left out.  \\
+This section of the thesis will discuss the requirements analysis. There are over 120 requirements created by CERN, these can be found as an attachment. It is impossible to use every requirement in the prototype, due to scale of the requirements and due to time constraints that are set. An analysis is needed in order to check which requirements are necessary to add to the prototype and which requirements can be left out.  \\
 Inside the requirement document were some vague terms that weren't explained. The terms were follow-ups, on call intervention, announcements, and an EOS report. These vague terms would create confusion when prioritizing the requirements. And that could cause that important features could be skipped. \\
-To solve the vague requirements and unknown wishes, a former shifter by the name of Pascal Buschoten has been interviewed. The full transcript can be found in the attachments. The interview with Pascal clarified a couple of terms like the on call intervention and the end of shift reports with templates. On call Interventions are emergency issues with a detector, a particle collider or another system that need to be solved as soon as possible. These issues need to be fixed within a very short amount of time. Currently, there is not a formal template available for the E.O.S. reports  and because of that, all the reports do not follow the same structure. With a template, it is better to evaluate all the E.O.S. reports).\\
-A criteria for the prototype was given by Dr. Teitsma. This criteria was that all the requirements related to the Subsystem Run Coordinator must be added to the prototype. This criteria was crucial for the requirement analysis. \\
-During a meeting at the ninth of may, one of the developers from CERN, Vasco Chibante Barroso, stated that he prefers that the prototype would focus more on the features instead of the roles and the authentication. This complicates the planning of the new features for the prototype. Therefore, there will be a focus on both the features wish from CERN and a focus on the Sub System Run Coordinator from Dr. Teitsma. \\ 
+To solve the vague requirements and unknown wishes, a former shifter by the name of Pascal Buschoten has been interviewed. The full transcript can be found in the attachments. The interview with Pascal clarified  terms like the on call intervention and the end of shift reports with templates. On call Interventions are emergency issues with a detector, a particle collider or another system that need to be solved as soon as possible. These issues need to be fixed within a very short amount of time. Currently, there is not a formal template available for the E.O.S., End Of Shift, reports  and because of that, all the reports do not follow the same structure. With a template, it is better to evaluate all the E.O.S. reports).\\
+Software for Science has given a criteria for the prototype. This criteria was that all the requirements related to the Subsystem Run Coordinator must be added to the prototype. This criteria was crucial for the requirement analysis. \\
+During a meeting at the ninth of may, one of the developers from CERN, Vasco Chibante Barroso, stated that he prefers that the prototype would focus more on the features instead of the roles and the authentication. This complicates the planning of the new features for the prototype. Therefore, there will be a focus on both the features that CERN requested and a focus on the Sub System Run Coordinator requirements that Software for Science has asked for. \\ 
 The technique that will be used is the Analytic Hierarchy Process technique.[9] "In A.H.P., initially whole requirements are recognized and then criteria under which these requirements will be preferred. In A.H.P. we pair wise analysing  between  the  probable  pairs  of  the  hierarchy. 
 Now users can recognize the possible relationship between 
 the hierarchies. We then pair wise analyse them and users can select its preferences from the scale which ranges from 
@@ -181,7 +187,7 @@ Applying the chosen techniques to the requirements document results in tables wi
 
 \newpage
 \subsection{Consequences}
-This section of the thesis will be about the consequences for the development of the prototype after the prioritization of the requirements and the database choice. The wishes of the front end(being developed by Naomi Nazar) will be taken in account as well, due to the reason that Naomi has to decide what she wants to show for the prototype on the front end side. \\
+This section of the thesis will be about choosing which requirements can be used to develop the prototype. Now that the requirements are prioritized according to the criteria that has been set up earlier(the criteria were from CERN, S.F.S and time), it is time to choose which requirements can be added to the prototype. At first, the requirements with a priority of eight and nine, the second highest and the highest, will be filtered out of the 120 requirements that were prioritized. Once the requirements are removed from the list, a selection of the requirements will be made with the help of the front-end developer, Naomi Nazar. The front-end needs to know which requirements will be implemented into the prototype so that the front-end can start working on these requirements, therefore, a cooperation with the front-end is mandatory. The results from this selection will be a list of requirements that will be implemented into the prototype. With the list will be an explanation for each requirement why this requirement was picked by both the front-end and the back-end. \\
 To help the development of the prototype, agile techniques will be used in order to plan and organize the development process. The technique that will be used for the development of the prototype will be the SCRUM technique. At the prioritization of the requirements, a time measurement was given. The time measurement was important, because with the times estimated, it will be possible to create sprints. A sprint is a set time in which a development team works to fulfil the requirements. The length of a sprint varies from one day till two weeks. The recommended length for a sprint is one week, therefore, this length will be chosen. Every requirement that was estimated had a time measurement in story points given. The amount of story points a developer can work on in a week varies. Since the story points are estimated, it will be hard to say how much story points a developer can take in a week. For the prototype, a maximum of 40 story points per sprints will be chosen. \\
 The front end and the back end were asked to come up with features that they think should be added to the prototype. Both the front end and the back end used the prioritized requirements as a start, then looked at the amount of time needed to complete the requirements. 
 
@@ -228,11 +234,11 @@ This section of the report will discuss the results, which are in this case the 
 Applying the analysis methods on the requirements results into requirements that have gained a priority rating and an estimated time to complete. Due to the size of the requirements, four sections of the analysed requirements will be shown in the results. The rest of the analysed requirements can be found as an attachment.\\
 
 \subsubsection{Entries}
-These requirements are about the different kind of entries into the system(log entries, on call interventions, run entries etc.). This feature sits at the core of the to be delivered product and therefore has the most requirements attached to it. Due to the amount of requirements that are related to the entries, the section in the requirements document is divided into different sections for readability. A maximum of four requirements will be displayed
+These requirements are about the different kind of entries into the system(log entries, on call interventions, run entries etc.). The rest of these requirements can be found as an attachment This feature sits at the core of the to be delivered product and therefore has the most requirements attached to it. Due to the amount of requirements that are related to the entries, the section in the requirements document is divided into different sections for readability.
 
 \begin{longtable}{ | p{3cm} | p{8cm} | p{1cm} | l |}
 \hline
-Role & User Story & Priority & Time \\ \hline
+Role & User Story & Priority & Estimated time \\ \hline
 Shifter &  A shifter makes an entry into the database consisting of several items. Each entry records the following items: time of creation,which class the creator originates: human, type of entry, general, EOS, DCS, number of run, author of the entry, title of the entry, log entry, follow ups, files and actions & 9 & 8 \\ \hline
 User & As a user, I want to search log entries by different criteria (e.g. title, content, author, creation date,(...) and have the results listed. & 9 & 8 \\ \hline
 Run coordinator, S.R.C. , S.T.C. and Shifter& As run coordinator, S.R.C. , S.T.C. or as Shifter, I may need to attach files to log entries. These files may contain text or binary information (PNGs, JPGs etc.) (Roberto Divia). & 8 & 8 \\ \hline
@@ -242,7 +248,7 @@ physicists can use them while searching for good data sets for their analysis (V
 
 
 \subsubsection{Reports}
-A requested feature in the new final product was the automatic creation of reports and templates. This is not available in the current product, therefore, there are a couple of requirements referencing towards the creation of templates and reports.
+A requested feature in the new final product was the automatic creation of reports and templates. This is not available in the current product, therefore, there are requirements referencing towards the creation of templates and reports.
 \begin{longtable}{ | p{3cm} | p{8cm} | p{1cm} | l |}
 \hline
 Role & User Story & Priority & Time \\ \hline
@@ -251,7 +257,7 @@ Shifter &  As a shifter, I want to have templates that prefill most of my end-of
 \end{longtable}
 
 \subsubsection{Email}
-Sending emails is available in the current system, however, the current way the emails are send are send in a spam related way, e.g., a shifter receives an email if another shifter makes an entry from another subsystem. Therefore, the email system needs to be optimized and it should be designed in a way that will not be annoying to the user. The reason that this is of more importance, is that it is easy to adjust the way the emails are send, how the emails look like and who receives an email. That why, with adding it to the prototype, it will be easier to adjust it to the wishes of the users.
+Sending emails is available in the current system, however, the current way the emails are send are sent in a spam related way, e.g., a shifter receives an email if another shifter makes an entry from another subsystem. Therefore, the email system needs to be optimized and it should be designed in a way that will not be annoying to the user. The reason that this is of more importance, is that it is easy to adjust the way the emails are sent, how the emails look like and who receives an email. That why, with adding it to the prototype, it will be easier to adjust it to the wishes of the users.
 \begin{longtable}{ | p{3cm} | p{8cm} | p{1cm} | l |}
 \hline
 Role & User Story & Priority & Time \\ \hline
@@ -276,7 +282,7 @@ Run coördinator and SRC &  As run coördinator or SRC I need to give ALICE coll
 \label{table:hans}
 \end{longtable}
 
-After the vague terms were made clear, the prioritization of the requirements could start based upon the wishes from CERN and Software for Science, the amount of time estimated to complete a requirement and feature. This was done with the help of the AHP technique. The results were prioritized requirements, ordered by feature. 
+After the terms that were vaguely written or had terms in that were not explained elsewhere were made clear thanks to the interview with Pascal, the prioritization of the requirements could start based upon the wishes from CERN and Software for Science, the amount of time estimated to complete a requirement and feature. This was done with the help of the AHP technique. The results were prioritized requirements, ordered by feature. 
 \newpage
 
 \subsection{Consequences}

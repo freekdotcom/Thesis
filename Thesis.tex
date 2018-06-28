@@ -16,6 +16,7 @@
 \usepackage[a4paper,pdftex]{geometry}	% A4paper margins
 \setlength{\oddsidemargin}{5mm}			% Remove 'twosided' indentation
 \setlength{\evensidemargin}{5mm}
+\setlength{\parindent}{0pt}
 \usepackage{pdfpages}
 \usepackage[english]{babel}
 \usepackage{listing}
@@ -223,15 +224,24 @@ With using the REST API, another possible problem could occur. The data will be 
 This section of the report will be about the creation of test cases for the prototype. These test cases will be important for later development of the bookkeeping system, because with setting up test cases this early will identify possible flaws with the actual product.
 %Test de prototype met de test cases. Zelfde testen uitvoert ook vanaf het werkelijke product. The prototype consists of the requirements that were chosen earlier. It would be possible to create
 Furthermore, it will be easier to create test cases for the final product when there are test cases already available. At first, it is important to identify which requirements of the prototype should be tested and in what ways it should be tested. After the identification of what to test is done, a test case template will be created. This is done to organize the way the software should be tested. Finally, to execute the test cases, pre programmed tests will be made so that the software stays tested. The results will be test cases that cover most of the software accompanied with programmed tests. \\
-One of the mandatory things to test are that the requirements are correctly implemented into the prototype. These requirements could be the standard of a test. With every requirement, multiple tests can be thought of. For example, with creating a log entry, test could be about that creating the log entry is successful. It is also possible that a user did not fill in all the required fields of a log entry or that the user tries to add code that enables the user to hack the server and so on. Therefore, it is important that a list of possible scenario's is made. These scenario's consists of a single sentence that gives enough information about the scenario and the goal of the test. These scenario's can be found as an attachment. There double scenario's within the document. For instance, one of the recurring scenario's was with the token not being provided or that the token is not from the server itself. These scenario's are removed and written only once. \\
-
-
-
-
+One of the mandatory things to test are that the requirements are correctly implemented into the prototype. These requirements could be the standard of a test. With every requirement, multiple tests can be thought of. For example, with creating a log entry, test could be about that creating the log entry is successful. It is also possible that a user did not fill in all the required fields of a log entry or that the user tries to add code that enables the user to hack the server and so on. Therefore, it is important that a list of possible scenario's is made. These scenario's consists of a single sentence that gives enough information about the scenario and the goal of the test. These scenario's can be found as an attachment. There are redundant scenario's within the document. For instance, one of the recurring scenario's was with the token not being provided or that the token is not from the server itself. These scenario's are removed and written only once, since these scenario's could harm the quality of the test case(13). \\
+A test case should have a reasonable probability of catching an error and should not be too simple or too complex. (13). The goal of a test is to make sure that a existing piece of software stays functional. One of the things that the developer wants to notice is, when adding new functionality to the software, if the older functions still work and don't give a error. Therefore, it is important to write a test  that should give an error. The test should not take too much time to complete or be too complex. Since the product is a prototype, the complexity of tests should be simple, since the prototype itself is not that complex.  As a result, the list of possible tests can be further reduced. With a focus on test that are not too complex, not too time consuming and with an error in mind, the list of possible test scenario's can be further reduced.  The test case should contain steps on how to reproduce steps. For example, to test if a file gets successfully uploaded, a different tester should be able to follow the steps that are needed to come to that outcome. Finally, it is important to identify how the system setup is running before executing the test. For instance, when creating a log entry, it is important that the user is already logged into the system. Considering all things, a test case template can be created. This template will be used to create the test cases for the prototype. This template can be found as an attachment in the appendix. \\
+The test cases will be implemented into the prototype with the help of programmed tests. It is important that, with every change to the prototype, the current functionality is tested. This can be done easily with the help of Travis CI. Travis CI is a continues integrated testing tool [5]. It is used to test commits that a developer makes to the git repository. It will run all the tests that are available and sends an email whenever tests that were made earlier fails. This tool is used for maintaining the quality of the prototype. The second tool that will be used to create the test is Mocha[14]. Mocha is a framework used to create tests in nodejs. This framework was one of the requirements set by CERN. A test with the mocha framework will look like this:
+\begin{lstlisting}[frame=single]
+describe('name of the test'){
+  it('should perform the test like this, (done) => {
+    runcode();
+    assert(thatthismatch());
+    done();
+  }
+}
+\end{lstlisting} 
+The done keyword identifies that the test has completed running. With mocha, it is also possible to identify what the preconditions are for either every test or for a single test. This will be used to create the preconditions for every test if that will be needed.\\
+With the identification of what to test, the creation of the test case template and the technologies used for testing, it will be possible to test the prototype.
 \newpage
 \section{Results}
 This section of the report will discuss the results, which are in this case the prototype. An U.M.L. diagram of the final prototype will be shown, and code snippets that are in the prototype will be shown, there will also be a section related to the requirements that are implemented.
-
+\newpage
 \subsection{Requirements analysis}
 Applying the analysis methods on the requirements results into requirements that have gained a priority rating and an estimated time to complete. Due to the size of the requirements, four sections of the analysed requirements will be shown in the results. The rest of the analysed requirements can be found as an attachment.\\
 
@@ -314,25 +324,85 @@ Run coordinator, S.R.C. and Administrator &  As run coordinator, S.R.C. or Admin
 With the help from the prioritized requirements, some requirements were chosen(with the front end) to be featured in the prototype. 
 \newpage
 \subsection{Prototype}
+The prototype has been developed. At first, the Entity Relationship Diagrams of the prototype will be shown, followed by a class diagram of the actual product. With the class diagram, examples of the implemented design patterns will be given. Finally, there will be a section which requirements did not made the final product and why they did not made it.
 \begin{figure}[H]
+\centering
 \includegraphics[scale=0.5]{erd_user}
 \caption{The Entity Relationship Diagram of the user schema}
 \end{figure}
-The user schema was build with simplicity in mind. The user authentication process is custom made. For the real product, CERN's own authentication process called OAuth will be used. Since this is temporary, it was decided to make this as simple as it was possible, since this is something that will disappear once the OAuth is working. 
-
+\noindent
+The user schema was build with simplicity in mind. The user authentication process is custom made. For the real product, CERN's own authentication process called OAuth will be used. Since this is temporary, it was decided to make this as simple as it was possible, since this is something that will disappear once the OAuth is working. The first iteration had the user bound to the subsystem, however, one of the requirements were changed to the fact that a shifter could be part of multiple subsystems. Therefore, this connections has been removed.
 \begin{figure}[H]
 \includegraphics[scale=0.4]{erd_log_entry}
 \caption{The Entity Relationship Diagram of the log entry schema}
 \end{figure}
-The goal of designing the log entry schema was to keep it as simple as possible. One of the first iterations was a table for each kind of log entry(End of Shift report, On Call Intervention etc.), however, after receiving the feedback that the database design could combine the different types of log entries into one table, this iteration was chosen. With this design, it will be much easier to extend the log entry table where needed. The file paths are separated from the log entries, since with this design, it will be easier to add multiple files to one log entry. The run records can be easily attached to one log entry. These records are not with every log entry type, so separating this makes the log entry table much easier to read and expand upon.
-
+\noindent
+The goal of designing the log entry schema was to keep it as simple as possible. One of the first iterations was a table for each kind of log entry(End of Shift report, On Call Intervention etc.), however, after receiving the feedback that the database design could combine the different types of log entries into one table, this iteration was chosen. With this design, it will be much easier to extend the log entry table where needed. The file paths are separated from the log entries, since with this design, it will be easier to add multiple files to one log entry. The run records can be easily attached to one log entry. These records are not with every log entry type, so separating this makes the log entry table much easier to read and expand upon. 
 
 \begin{figure}[H]
 \includegraphics[scale=0.35]{class_diagram}
 \caption{The class diagram of the prototype}
 \end{figure}
-The class diagram contains the two chosen design patterns and the requirements that were chosen to be implemented into the prototype. \\
-With the two ERD's and the Class diagram, the prototype could be created.
+\noindent
+The class diagram contains the two chosen design patterns and the requirements that were chosen to be implemented into the prototype. The two design patterns are implemented, along with the required functionality that has been picked earlier.\\
+As seen earlier, not all the requirements could be made into the prototype. These requirements will be displayed into an table with the reason why they could not be made into the prototype.
+\begin{longtable}{ | p{3cm} | p{7cm} | p{3cm}|}
+\hline
+Role & User Story & Reason \\ \hline
+Subsystem expert & As a subsystem expert, I want to attach quality flags to runs so that physicists can use them while searching for good data sets for their analysis (Vasco Chibante Barroso).& Due to time constraints and the front end needed more time for polishing. \\ \hline
+User & As a user, I want to search log entries by different criteria (e.g. title, content, author, creation date,(...) and have the results listed. & Due to time constraints and the front end needed more time for polishing \\ \hline
+User &  As a user, I want to list all runs that match a given criteria to create my own run set.& Due to time constraints and the front end needed more time for polishing \\ \hline
+Subsystem Run Coordinator &  As a subsystem responsible, I want to be notified by email (or other channels) of log entries which are related with my subsystem so that I can better follow-up activities without having to constantly visit the product, e.g. EOS report (Robert Munzer) (Vasco Chibante Barroso). & This was deemed to big due to the fact that a server must be made and an entire new piece of software must be added for the server. \\ \hline
+SRC & As subsystem run coordinator I may request to receive automatic emails concerning all Logbook entries that include the System I am working for (either without distinction or using special selection criterias). The e-mail delivery address will probably be an e-group (single e-mail address <...>@cern.ch) (Roberto Divia). & This was deemed to big due to the fact that a server must be made and an entire new piece of software must be added for the server. \\ \hline
+\end{longtable}
+The design patterns Singelton and MVC could be implemented into the prototype. The view part of the MVC design pattern is not implemented into the prototype. The reason for this was, that the front-end could not work with the way the data that came out of the view. This was done late in the development process and would mean significant changes in the code from the front-end. After discussing this with the front-end, this resulted into removing the view part. The singleton can be found below. This is the singleton class of the database:
+\begin{lstlisting}[frame=single]
+/*
+ * Copyright (C) 2018 Amsterdam University 
+ * of Applied Sciences (AUAS)
+ *
+ * This software is distributed under the therms of the
+ * GNU General Public Licence version 3 (GPL) version 3,
+ * copied verbatim in the file "LICENSE"
+ *
+ */
+
+const Database = (() => {
+  'use strict';
+  let instance;
+
+  /**
+   * Initializes the database
+   * @return {database} Returns the database singleton
+   */
+  function privateInit() {
+    const pg = require('pg');
+    const Config = require('./../configuration_files/Config.js')
+    .Config;
+    const config = Config.getInstance();
+    const client = new pg
+    .Client(config.getDatabaseConfiguration());
+    client.connect();
+    return {
+
+      getClient: function() {
+        return client;
+      }
+    };
+  }
+  return {
+    getInstance: () => {
+      if (!instance) {
+        instance = privateInit();
+      }
+      return instance;
+    }
+  };
+})();
+module.exports = {Database};
+\end{lstlisting} 
+
+Combining different technologies and frameworks, design patterns and the list of chosen requirements, a prototype could be made. Not all requirements and a part of the design pattern could be implemented in the prototype. This had to do either with time constraints or the use of special technology which would take too much time to complete.
 
 \newpage
 \subsection{Test cases}
@@ -353,6 +423,7 @@ This section of the report will explain terms that will be used during the repor
 \item Client = The computer that the users uses to e.g. look at websites.
 \item Server = A computer or device that provides functionality to other clients
 \item JsonWebToken = JSON Web Token is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
+\item Continues integrated testing = Testing the product where multiple developers work in the same repository
 \end{enumerate}
 
 
@@ -370,7 +441,8 @@ This section of the report will explain terms that will be used during the repor
 (10): Karlsson, J., Wohlin, C., and Regnell, B. (1998). An evaluation of methods for prioritizing software requirements. Information and Software Technology, 39(14-15), 939-947. doi:10.1016/s0950-5849(97)00053-0 \\
 (11): Teitsma, M., Dr. (2018, March 29). Requirements Bookkeeping application ALICE [Pdf]. \\
 (12): Online Diagram Software and Visual Solution. (2018, May 01). Retrieved May 16, 2018, from https://www.lucidchart.com/
-
+(13): Testing Computer Software, (1993, January). Retrieved June 20, 2019 \\
+(14): Mocha, (n.d.) Retrieved June 27, 2018, from https://mochajs.org/ 
 
 
 
@@ -390,7 +462,8 @@ This section of the report will explain terms that will be used during the repor
 \subsection{Tables with pioritized requirements}
 \include{TablesWithRequirements}
 
-
+\subsection{Test case template}
+\include{testcasetemplate}
 %"http://www.nispinc.com/yahoo_site_admin/assets/docs/NIST_Special_Publication_800-123.8854633.pdf" \\
 
 %"http://westminsterresearch.wmin.ac.uk/7167/1/Ghosheh_Black_Qaddour_2008_as_published.pdf"\\

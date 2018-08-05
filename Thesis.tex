@@ -179,10 +179,24 @@ Kees Rijsenbrij for helping me with setting up my thesis. Your advise has helped
 
 \newpage
 \section*{Abstract}
-The abstract of the report.
+This thesis internship took place at Software for Science. Software for Science works alongside scientific organizations to create load balancing software, monitoring system software for these scientific organizations. \\ One of the scientific organizations, CERN, wants a new bookkeeping system to replace the one that is currently in use. Combining the many whishes from CERN, the learning possibilities for Software for Science and the limited amount of time available, must create a prototype. Therefore, this thesis investigates which requirements can be made into the prototype. \\ \\
+Applying the chosen techniques to the requirements document results in tables with prioritized requirements with scrum points given to the requirements. The requirements are grouped by feature so that it is easier to read. There were numerous requirements that were double. The cause of this was that different users have the same requirement. These requirements are grouped together to prevent duplicity. \\
+After applying this method on the list of prioritized requirements, over 50 requirements could be left out of the prioritized requirements list. With the smaller list, it will be more manageable to choose which requirements from the priority list can be implemented into the prototype. \\
+After choosing the frameworks and programming languages, the design patterns that could be implemented and the structure of the code, it is possible to create the back end of the prototype.    \\
+With the identification of what to test, the creation of the test case template and the technologies used for testing, it will be possible to verify if the prototype is working as intended. \\ \\
+After the terms that were vaguely written or had terms in that were not explained elsewhere were made clear thanks to the interview with Pascal, the prioritization of the requirements could start based upon the wishes from CERN and Software for Science, the amount of time estimated to complete a requirement and feature. This was done with the help of the AHP technique. The results were prioritized requirements, ordered by feature. \\ 
+With the help from the prioritized requirements, the front-end, CERN and S.F.S, requirements could be chosen to be featured in the prototype with one requirement that depends on a piece of software from CERN. \\
+Combining different technologies and frameworks, design patterns and the list of chosen requirements, a prototype could be made. Not all requirements and a part of the design pattern could be implemented in the prototype. This had to do either with time constraints or the use of special technology which would take too much time to complete. \\
+The test cases were created based upon a list of possible scenarios that were created. Based on the test cases, test were programmed to verify the test cases. The result is that the tests have verified that the prototype is working as intended.  \\ \\
+The requirements that were implemented were requirements about creating log entries. These requirements were chosen based upon analysing which requirements matched, or came close to matching, the predefined criteria by CERN and Software for Science. \\
+
+
+
+
+
 \newpage
 \section{Introduction}
-This is a student thesis from the Amsterdam University of Applied Sciences from the HBO-ICT-Game Development study course.  \\
+This is a student thesis from the Amsterdam University of Applied Sciences from the HBO-ICT-Game Development study course. The thesis took place at Software for Science. \\
 Software for Science is an organization, lead by Dr. Marten Teitsma, that is involved with scientific experiments. They create software for multiple scientific experiments, such as software for load balancing, monitoring systems and data for scientific organizations. Software for Science is created as an organization from the Amsterdam University of Applied Sciences. Software for Science works together with scientific organizations such as Astron(the Netherlands Institute for Radio Astronomy), eScience center(the Dutch national center of excellence for the development and application of research software to advance academic research) and CERN(Conseil Européen pour la Recherche Nucléaire). \\
 CERN is a scientific research center in Geneva, Switzerland, focused on researching nuclear energy. CERN works mostly with particle colliders, e.g., shooting particles against each other in order to find out what energy comes free from one of those runs. CERN works with multiple particle colliders to create new particles, or to research events that has happened in the past. One of those particle colliders is ALICE. \\
 ALICE, A Large Ion Collider Experiment, has its own bookkeeping system. This system makes sure that the runs ALICE makes are recorded into the bookkeeping system so that researchers, collaborators with CERN and other people can look back upon the runs. This also includes reports whenever a shifter, a scientist or student that looks at a run from ALICE, has completed their shift and need to write down what the shifter did during their shift. Other kind of reports are the reports about incidents with ALICE, reports about filling the gas etcetera. In December of 2018, ALICE is going under maintenance. CERN calls it a long shutdown. During the maintenance, subsystems and parts of ALICE are being renewed. Before the maintenance started, the request for a new bookkeeping system was made. \\
@@ -255,7 +269,8 @@ Applying the chosen techniques to the requirements document results in tables wi
 \subsection{Consequences}
 This section of the thesis will be about choosing which requirements can be used to develop the prototype. Now that the requirements are prioritized according to the criteria that has been set up earlier(the criteria were from CERN(focus on multiple roles), S.F.S(focus on the subsystem run coordinator) and estimated amount of time to complete the requirement), it is time to choose which requirements can be added to the prototype. \\ \\ 
 At first, the list of prioritized requirements will be used to choose requirements that would fit the prototype. Once the requirements are removed from the list, a selection of the requirements will be made with the help of the front-end developer, Naomi Nazar. The front-end needs to know which requirements will be implemented into the prototype so that the front-end can start working on these requirements, therefore, a cooperation with the front-end is mandatory. The results from this selection will be a list of requirements that will be implemented into the prototype. With the list will be an explanation for each requirement why this requirement was picked by both the front-end and the back-end. \\ \\
-The requirements that have a priority of eight or nine will be instantly picked from the requirements list. Since these requirements have the closets match to the criteria set by CERN, S.F.S and are achievable within the available amount of time, these requirements are the most likeable to implement them in the prototype. Since the rest of the requirements either don't match or could match one criteria, but the other criteria not, they will not be implemented into the prototype. After applying this method on the list of prioritized requirements, over 50 requirements could be left out of the prioritized requirements list. With the smaller list, it will be more manageable to choose which requirements from the priority list can be implemented into the prototype. \\
+The requirements that have a priority of eight or nine will be instantly picked from the requirements list. Since these requirements have the closets match to the criteria set by CERN, S.F.S and are achievable within the available amount of time, these requirements are the most likeable to implement them in the prototype. Since the rest of the requirements either don't match or could match one criteria, but the other criteria not, they will not be implemented into the prototype. \\
+After applying this method on the list of prioritized requirements, over 50 requirements could be left out of the prioritized requirements list. With the smaller list, it will be more manageable to choose which requirements from the priority list can be implemented into the prototype. \\
 
 
 %To help the development of the prototype, agile techniques will be used in order to plan and organize the development process. The technique that will be used for the development of the prototype will be the SCRUM technique. At the prioritization of the requirements, a time measurement was given. The time measurement was important, because with the times estimated, it will be possible to create sprints. A sprint is a set time in which a development team works to fulfil the requirements. The length of a sprint varies from one day till two weeks. The recommended length for a sprint is one week, therefore, this length will be chosen. Every requirement that was estimated had a time measurement in story points given. The amount of story points a developer can work on in a week varies. Since the story points are estimated, it will be hard to say how much story points a developer can take in a week. For the prototype, a maximum of 40 story points per sprints will be chosen. \\
@@ -484,36 +499,91 @@ module.exports = {Database};
 Combining different technologies and frameworks, design patterns and the list of chosen requirements, a prototype could be made. Not all requirements and a part of the design pattern could be implemented in the prototype. This had to do either with time constraints or the use of special technology which would take too much time to complete.
 \newpage
 \subsection{Test cases}
-Once the prototype was created, test cases were needed to verify that the prototype was actually working. After creating an test case template, different scenario's were chosen to create tests for. With the test cases, it was possible to create automated tests with the help of Mocha[14]. Mocha is a tool to create different kinds of tests like unit tests(small, simple tests to test a small piece of code) and integration tests(larger and more complex tests to test entire features). These test cases can be found as an attachment, due to the amount of test cases created. One test case is shown below:
+Once the prototype was created, test cases were needed to verify that the prototype was actually working. After creating an test case template, different scenario's were chosen to create tests for. With the test cases, it was possible to create automated tests with the help of Mocha[14]. Mocha is a tool to create different kinds of tests like unit tests(small, simple tests to test a small piece of code) and integration tests(larger and more complex tests to test entire features). These test cases can be found as an attachment under section NUMMER, due to the amount of test cases created. Two test cases along with code and an explanation will be shown.
+The first test case is shown below:
 \subsubsection{Test case 1}
 \textbf{System}:  ALICE Bookkeeping prototype \\
-\textbf{Test Case Name}:  Get corrupted file from system
+\textbf{Test Case Name}:  Get non existing log entry
 \textbf{Subsystem}:  Http-requests
 \textbf{Designed by}:  Frederick van der Meulen\\
 \textbf{Design date}: 30/05/2018 \\
-\textbf{Short description}: Get file from single entry, but the file was corrupted. The user needs to be notified of this corruption \\
-
-Pre-conditions: \\
-\begin{enumerate}
-\item The user added a file to the log entry.
-\item The file got corrupted during adding the file
-\end{enumerate}
+\textbf{Short description}: The user tries to retrieve a log entry that does not exist. \\
 
 \begin{longtable}{ | p{0.8cm} | p{4.5cm} | p{6cm}  | p{1.5cm} |}
 \hline
 Step & Action & Expected System Response & Pass/Fails  \\ \hline
-1 & Click the log entry & The system shows the detailed log entry &  \\ \hline
-2 & Click on the file that the user wants to download & The system receives the GET request &  \\ \hline
-3 & Press download & The file is being downloaded by the client &  \\ \hline
+1 & The user fills into the search bar of the web browser the URL to the non existing log entry. & The system tries to process the request, but fails because the log entry does not exist &  \\ \hline
+2 & The user sees an error message stating that the log entry does not exist & The system sends the error message to the client as a result of not finding the log entry. &  \\ \hline
 \end{longtable}
-This test case focuses on the file retrieval function. Because there is a chance that the process of attaching a file to a log entry could get corrupted, it is important to let the user know that the file has been corrupted. With testing this feature, it is an extra safety measure when something like this could happen. \\ 
+This test case is about the scenario of whenever a user tries to retrieve a log entry that does not exist. It can happen that the user wants to see a log entry quickly, but makes a small mistake. If no error message is given, the user will not be notified about the missing log entry or the system shuts down, because the system can't complete the request. \\ 
 For this test, the following code example was created: \\ \\
+\begin{lstlisting}[language=JavaScript, frame=single]
+it('should return a json with an error message that the log entry does not exist', (done) => {
+  request('http://localhost:' + config.getServerConfiguration().port
+    + '/api/1111?token=' + token, (error, res, body) => {
+    const parsedBody = JSON.parse(body);
+    assert.strictEqual(res.statusCode, 404);
+    assert.strictEqual(parsedBody[0].error_message, 'The entry could not be retrieved');
+    });
+  done();
+});
+
+\end{lstlisting}
+
+The second test case is shown here:
+\subsubsection{Test case 9}
+\textbf{System}:  ALICE Bookkeeping prototype \\
+\textbf{Test Case Name}:  Post log entry
+\textbf{Subsystem}:  Database-request
+\textbf{Designed by}:  Frederick van der Meulen\\
+\textbf{Design date}: 30/05/2018 \\
+\textbf{Short description}: The user creates a log entry. \\
+
+\begin{longtable}{ | p{0.8cm} | p{4.5cm} | p{6cm}  | p{1.5cm} |}
+\hline
+Step & Action & Expected System Response & Pass/Fails  \\ \hline
+1 & The user fills in all the fields that holds information for the log entry and presses submit. & The system receives the request and starts to process it. &  \\ \hline
+2 & The user receives an message that the log entry is successfully posted & The systems sees that all the information is correct and adds the log entry to the database. &  \\ \hline
+\end{longtable}
+
+This test is about creating log entries. Since this is one of the core features of the application, it is important that this feature keeps working, no matter which circumstances the software is being developed. To proper test the database, a test database has been created. 
+Since this test is more complex, due to testing the database, the following code snippet is being used:
+
+\begin{lstlisting}[language=JavaScript, frame=single]
+mockPostLogEntryRequest = mocks.createRequest({
+      method: 'POST',
+      url: '/api/run/:runId/:subsystem/:class/:user',
+      params: {
+        runId: 2,
+        subsystem: 'WTL',
+        class: 'MACHINE',
+        user: 'AlfredFutterkiste'
+      },
+      body: {
+        type: 'EOS',
+        title: 'Test',
+        log_entry_text: 'Testing the tests'
+      }
+    });
+    
+  it('should be able to add a log entry into the system', (done) => {
+    const postEntry = new logEntry.LogEntries(mockPostLogEntryRequest);
+    postEntry.postDataEntry((result) => {
+      expect(result[0]).to.not.be.null;
+      expect(result[0]).to.have.a.property('log_entry_id');
+    }).catch((ex) => log.error(ex));
+    done();
+  });
+
+
+\end{lstlisting}
+
 
 For some test cases, it was discovered that the code was not complete enough. This means that the test could not be made, since the code for the test did not exist. These lines of code were added to complete the test cases. \\
 Some test cases could be combined into one test. For instance, the test case regarding logging into the system and the test case about that a token should always be provided are combined together into one programmed test. \\
 There is one test case that could not be verified. This test case was about different node versions. This is easy to do manually by creating a new Virtual Machine and put a different node version there, but programmatically it was not doable. This was verified manually. \\ \\
 
-The test cases were created based upon a list of possible scenarios that were created. Based on the test cases, test were programmed to verify the test cases. 
+The test cases were created based upon a list of possible scenarios that were created. Based on the test cases, test were programmed to verify the test cases. The result is that the tests have verified that the prototype is working as intended. 
 
 \newpage
 \section{Conclusion}
@@ -527,16 +597,22 @@ When the prototype was completed, test cases were created to verify that the pro
 
 \newpage
 \section{Recommendations}
-During the development of the bookkeeping prototype, findings about different idea's and the use of software were found. Instead of adding these findings with the results, these findings can be found in this chapter. \\ 
+During the development of the bookkeeping prototype, the use of frameworks / modules were sometimes questioned, alongside other possible issues were encountered. Instead of adding these issues with the results , these issues with recommendations on how to prevent them in the future can be found in this chapter. \\ 
+
+
 \subsection{Requirement Analysis}
-The requirement document that was created consisted of many unknown terms, like DAQ, End of Shift report etcetera. For the actual development of the bookkeeping system, it is useful to have either a glossary that describes all these terms or to clarify these requirements at the start of the development. Otherwise, wrong assumptions can be made regarding the implementation of features. \\
+The requirement document that was created consisted of many unknown terms, like DAQ, End of Shift report etcetera. For the actual development of the bookkeeping system, it is useful to have either a glossary that describes all these terms or to clarify these requirements at the start of the development. Otherwise, wrong assumptions can be made regarding the implementation of unclear features. \\
+With the analysis, a lot of duplicate requirements were found. The recommendation is to make sure that these duplicate requirements are either removed, or ordered, otherwise, the same requirement could get a different priority. \\
+
 
 \subsection{Consequences}
-Zorg voor realistische goals, \\
+Make sure that the goals that are being set are realistic. There is always a delay with developing software that must be taken in account. This can be prevented with applying the Scrum method. For instance, with the stand-ups, it is easier to see where something goes wrong and take the appropriate actions where necessary. The retrospectives can make sure that all the issues that were encountered are communicated towards the project leaders and solutions are created for the issues. It would help as well if there was a look at the Sprint backlog once in a while to check the progress of the team so that it will be easier to improve that. \\
+Another thing to take note is that future developers should ask early on for help whenever something like a additional server is needed. This was not done when the email server was needed, and therefore, user stories related to the email could not be completed. This would be a shame if this would happen with the actual development.
 
+\newpage
 \subsection{Prototype}
 When the prototype was created, several different kinds of frameworks and technologies were used. One of these technologies was the WebUI backend framework from CERN. This framework consists of many additional modules, from which only two were used: the logging and the authentication with the JsonWebTokens. The JsonWebtokens was difficult to work with at the back end, since it was hard to retrieve the token due to the fact that CERN did not had their authentication method available for use. The logging module was nice, but offers little additional features above other logging modules. Therefore, it is recommended to discuss whenever WebUI would be useful for the actual development of the bookkeeping system. \\
-When the prototype was being developed, modules and other frameworks have been used. These frameworks and modules reduced the development time of the prototype. It is recommended to use these modules and frameworks, in particular the mkdirp module for organizing the uploaded files for each log entries. Be aware of the duration of support of these modules and frameworks, since it could be a problem when the support suddenly drops while the bookkeeping system is in production.
+When the prototype was being developed, modules and other frameworks have been used. These frameworks and modules reduced the development time of the prototype. It is recommended to use these modules and frameworks, in particular the mkdirp module for organizing the uploaded files for each log entries. Be aware of the duration of support of these modules and frameworks, since it could be a problem when the support suddenly drops while the bookkeeping system is in production. \\
 
 
 \subsection{Test cases}

@@ -133,6 +133,7 @@ captionpos=b
 \centering
 \includegraphics[scale=0.5]{alice}
 \end{figure}
+
 \begin{longtable}{  p{4cm}  p{8cm} }
 Author: & F.P. van der Meulen \\
 Internship Supervisor: & C.J. Rijsenbrij
@@ -180,15 +181,15 @@ Kees Rijsenbrij for helping me with setting up my thesis. Your advise has helped
 \newpage
 \section*{Abstract}
 This thesis internship took place at Software for Science. Software for Science works alongside scientific organizations to create load balancing software, monitoring system software for these scientific organizations. \\ One of the scientific organizations, CERN, wants a new bookkeeping system to replace the one that is currently in use. Combining the many whishes from CERN, the learning possibilities for Software for Science and the limited amount of time available, must create a prototype. Therefore, this thesis investigates which requirements can be made into the prototype. \\ \\
-Applying the chosen techniques to the requirements document results in tables with prioritized requirements with scrum points given to the requirements. The requirements are grouped by feature so that it is easier to read. There were numerous requirements that were double. The cause of this was that different users have the same requirement. These requirements are grouped together to prevent duplicity. \\
-After applying this method on the list of prioritized requirements, over 50 requirements could be left out of the prioritized requirements list. With the smaller list, it will be more manageable to choose which requirements from the priority list can be implemented into the prototype. \\
-After choosing the frameworks and programming languages, the design patterns that could be implemented and the structure of the code, it is possible to create the back end of the prototype.    \\
-With the identification of what to test, the creation of the test case template and the technologies used for testing, it will be possible to verify if the prototype is working as intended. \\ \\
-After the terms that were vaguely written or had terms in that were not explained elsewhere were made clear thanks to the interview with Pascal, the prioritization of the requirements could start based upon the wishes from CERN and Software for Science, the amount of time estimated to complete a requirement and feature. This was done with the help of the AHP technique. The results were prioritized requirements, ordered by feature. \\ 
-With the help from the prioritized requirements, the front-end, CERN and S.F.S, requirements could be chosen to be featured in the prototype with one requirement that depends on a piece of software from CERN. \\
-Combining different technologies and frameworks, design patterns and the list of chosen requirements, a prototype could be made. Not all requirements and a part of the design pattern could be implemented in the prototype. This had to do either with time constraints or the use of special technology which would take too much time to complete. \\
+After reading the requirement documents, it was discovered that there were requirements that were unclear and vague. It was also discovered that there were requirements that were written multiple times in the same document. They need to be grouped together to prevent duplicity. The analysis method that will be used is the A.H.P. and the Hierachy A.H.P. method. This method gives a score to each requirement. \\
+Once the analysis is completed, it is important to remove the lower scored  from the requirements list. Then it is important to pick requirements from the given list. This will be done with the help of the front-end developer Naomi, Software for Science and CERN itself. \\
+When the prototype will be developed, frameworks, modules, design patterns and programming languages will be chosen to realise the prototype. In the end, the design patterns Singleton and the Model View Controller are chosen, the programming language will be JavaScript, the framework will be CERN's own ALICE-webui for creating the server and the modules will be chosen during development. \\
+To prove that the prototype is working as intended, test cases will be created to test the prototype. To verify that these test cases are executed, programmed tests will be made. \\ \\
+The vague and unclear requirements were made clear with the help of interviewing a former shifter, Pascal Boeschoten. The requirements were analysed with the predefined methods and as a result lists of prioritized requirements were created, ordered by feature and the duplicate requirements were grouped together. \\
+With the help from the list of prioritized requirements, the front-end, CERN and S.F.S, requirements could be chosen to be featured in the prototype with one requirement that depends on a piece of software from CERN. \\
+Combining different frameworks, design patterns, modules and the list of chosen requirements, a prototype could be made. Not all requirements and a part of the design pattern could be implemented in the prototype. This had to do either with time constraints or the use of special technology which would take too much time to complete. \\
 The test cases were created based upon a list of possible scenarios that were created. Based on the test cases, test were programmed to verify the test cases. The result is that the tests have verified that the prototype is working as intended.  \\ \\
-The requirements that were implemented were requirements about creating log entries. These requirements were chosen based upon analysing which requirements matched, or came close to matching, the predefined criteria by CERN and Software for Science. \\
+The requirements that were implemented were requirements about creating, reading and retrieving log entries. These requirements were chosen based upon analysing which requirements matched, or came close to matching, the predefined criteria by CERN and Software for Science. \\
 
 
 
@@ -249,7 +250,7 @@ Based upon the results from the research questions, a bookkeeping prototype can 
 
 
 \section{Methods}
-This chapter discusses the methods used to solve the research questions. The four research questions that were earlier created will be discussed, further explained and at the end of each section, a summary will be given on how to approach and resolve every research question. The order of solving the research questions are as written down earlier. At first, a list of requirements will be made based upon earlier set criteria. Then this list will be used to choose the user stories that will be implemented into the prototype. The prototype will be developed and finally, the prototype will be tested to verify that it works. \\
+This chapter discusses the methods used to solve the research questions. The four research questions that were earlier created will be discussed, further explained and at the end of each section, a summary will be given on how to approach and resolve every research question. The order of solving the research questions are as written down earlier. At first, a list of requirements will be made based upon earlier set criteria. Then this list will be used to choose the user stories that will be implemented into the prototype. The prototype will be developed  with the help of predefined programming languages and possible design patterns and finally, the prototype will be tested to verify that it works. \\
 These summaries will be also given at the beginning of each results section, so that is explained how the research question will be answered.
 
 \newpage
@@ -294,7 +295,7 @@ server.get('/test/single/entry', handler function());
 server.post('/test/post/entry', handler function());
 server.get('/test/user/info', handler function());
 \end{lstlisting} 
-The REST API could handle way more http requests than these three. The code could be harder to read. Another problem could be that it will be difficult to modify the code in later stages or add end points that could use the same handler function. To solve these problems, the Model View Controller design pattern can be used. With the MVC pattern, the data that the request wants(Model) can be isolated from the user interfaces(Views) and this data can be managed with the help of the Controller(BRON BOEK). This design pattern can help with organizing the code. For example, all requests that feature the log entry could go into the controller file. To obtain the required data, the specific log entry model could be called and then this data can be rendered according to the required view. The rendering of the view will be different for the prototype, due to the fact that the front-end, Naomi, will handle all the views. Therefore, the view will be more of a way that renders the data in a specific way that the front-end can work with.\\ \\
+The REST API could handle way more http requests than these three. The code could be harder to read. Another problem could be that it will be difficult to modify the code in later stages or add end points that could use the same handler function. To solve these problems, the Model View Controller design pattern can be used. With the MVC pattern, the data that the request wants(Model) can be isolated from the user interfaces(Views) and this data can be managed with the help of the Controller[15]. This design pattern can help with organizing the code. For example, all requests that feature the log entry could go into the controller file. To obtain the required data, the specific log entry model could be called and then this data can be rendered according to the required view. The rendering of the view will be different for the prototype, due to the fact that the front-end, Naomi, will handle all the views. Therefore, the view will be more of a way that renders the data in a specific way that the front-end can work with.\\ \\
 With using the REST API, another possible problem could occur. The data will be stored into the database. The REST API will likely want to retrieve or to write data to the database. This would mean that the database could be called multiple times within a second. Starting up the database and closing it down every time a call takes place would reduce the performance of the database significantly. The database will be also called in multiple places within the prototype. This could be the case with the configuration settings of the prototype as well, since this will be also called in multiple places. The pattern Singleton would solve these problems. The singleton design pattern creates one instance of an object that is instantiated once during initialization. This is useful for the database, since this would mean that the database is instantiated once during the start up of the application and that the database doesn't need to be turned off during run time. \\ \\
 The prototype will be deployed on a server after the visit to CERN. To make the server easy deployable, build scripts will need to be created. The tool Ansible[3] will be used to create build scripts to deploy the backend on a server. The server itself will run on the linux distribution CentOS.   \\ \\
 After choosing the frameworks and programming languages, the design patterns that could be implemented and the structure of the code, it is possible to create the back end of the prototype.   
@@ -422,13 +423,14 @@ The prototype could be developed with choosing which design patterns could be im
 The user schema was created with simplicity in mind. The user authentication process is custom made. For the real product, CERN's own authentication process called OAuth will be used. Since this is temporary, it was decided to make this as simple as it was possible, since this is something that will disappear once the OAuth is working. The first iteration had the user bound to the subsystem, however, one of the requirements were changed to the fact that a shifter could be part of multiple subsystems. Therefore, this connections has been removed and a custom authentication system was created for the prototype. \\
 This authentication system enables the user to login into the application. On the back end of the prototype, once the authentication has succeeded, a JWToken is sent to the front-end, mimicking the real system. To store the password safely into the database, the password was encrypt with the bcrypt[15] module. Bcrypt hashes the password and then the prototype stores the password hashed into the database.
 \begin{figure}[H]
-\includegraphics[scale=0.4]{erd_log_entry}
+\centering
+\includegraphics[scale=0.7]{erd_log_entry}
 \caption{The Entity Relationship Diagram of the log entry schema}
 \end{figure}
 \noindent
 The goal of designing the log entry schema was to keep it as simple as possible. One of the first iterations was a table for each kind of log entry(End of Shift report, On Call Intervention etc.), however, after receiving the feedback that the database design could combine the different types of log entries into one table, this iteration was chosen. With this design, it will be much easier to extend the log entry table where needed. The file paths are separated from the log entries, since with this design, it will be easier to add multiple files to one log entry. The run records can be easily attached to one log entry. These records are not with every log entry type, so separating this makes the log entry table much easier to read and expand upon. \\ \\
 During the development of the prototype, several frameworks and modules other than the WebUI framework have been used to create the prototype. These modules offered functionality that would either reduce the development time of the module or reduce the difficulty of the development. \\
-Another module that was used, is mkdirp[16]. This module creates directories when the program is running. It is used when a file is uploaded on the server, so that the file is stored in a folder for every new log entry. Furthermore, the module PG[17] as an addtional framework for setting up the database and executing queries was used. 
+Another module that was used, is mkdirp[16]. This module creates directories when the program is running. It is used when a file is uploaded on the server, so that the file is stored in a folder for every new log entry. Furthermore, the module PG[17] as an additional framework for setting up the database and executing queries was used. 
 
 
 
@@ -648,7 +650,9 @@ This section of the report will explain terms that will be used during the repor
 (12): Online Diagram Software and Visual Solution. (2018, May 01). Retrieved May 16, 2018, from https://www.lucidchart.com/ \\
 (13): Kaner, Cem. Testing Computer Software. Wiley, 2012.
  Retrieved June 20, 2019 \\
-(14): Mocha, (n.d.) Retrieved June 27, 2018, from https://mochajs.org/ 
+(14): Mocha, (n.d.) Retrieved June 27, 2018, from https://mochajs.org/ \\
+(15): Osmani, A. (2013). Learning JavaScript design patterns. Sebastopol, CA: OReilly Media.
+ 
 
 
 
@@ -660,7 +664,7 @@ This section of the report will explain terms that will be used during the repor
 \newpage
 
 \section{Attachments}
-\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\setcounter{section}{1}
 \subsection{Interview transscript}
 \includepdf[pages=-]{Transscript.pdf}
 

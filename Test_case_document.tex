@@ -1,4 +1,4 @@
-\subsection{The ideas}
+\subsubsection{The ideas}
 
 \subsubsection{Requests}
 
@@ -75,8 +75,6 @@
 \item The server can be upgraded to a different node version
 \end{enumerate}
 
-\subsection{Test cases}
-
 \subsubsection{Test case 1}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Get corrupted file from system
@@ -121,25 +119,6 @@ Step & Action & Expected System Response & Pass/Fails & Comment \\ \hline
 \end{longtable}
 
 \subsubsection{Test case 3}
-\textbf{System}: ALICE Bookkeeping prototype\\
-\textbf{Test Case Name}: Unauthorized request\\
-\textbf{Subsystem}:  \\
-\textbf{Designed by}: Frederick van der Meulen \\
-\textbf{Design date}: 31/05/2018 \\
-\textbf{Short description}: Client tries to perform an Http request for which the client doesn't have the rights for. In this example, a shifter will try to change the users in it's sub system. \\
-
-Pre-conditions: \\
-%\begin{enumerate}
-%\end{enumerate}
-
-\begin{longtable}{ | p{1cm} | p{3cm} | p{6cm} | p{1.5cm} | p{1.5cm} |}
-\hline
-Step & Action & Expected System Response & Pass/Fails & Comment \\ \hline
-1 & Enter the subsystem run coordinator URL & The server receives the GET request from the client, but discovers that the access token is wrong & & \\ \hline
-2 & Receive an error message that you're not allowed to do this. & The system returns an error message to the client & & \\ \hline 
-\end{longtable}
-
-\subsubsection{Test case 4}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Get non existing single log entry \\
 \textbf{Subsystem}:  Http-requests \\
@@ -159,7 +138,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 
 \end{longtable}
 
-\subsubsection{Test case 5}
+\subsubsection{Test case 4}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Get duplicate single log entry \\
 \textbf{Subsystem}:  Http-requests \\
@@ -178,7 +157,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 2 & The user sees an error message stating that the log entry does not exist. & The system sends the error message as the result of not finding the log entry. & Pass \\ \hline
 
 \end{longtable}
-\subsubsection{Test case 6}
+\subsubsection{Test case 5}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Get all entries without any entries into the system. \\
 \textbf{Subsystem}:  Http-requests \\
@@ -197,7 +176,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 2 & The user sees an empty screen. & The system sends an error message that are no entries into the system. & Pass \\ \hline
 
 \end{longtable}
-\subsubsection{Test case 7}
+\subsubsection{Test case 6}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Get file from single entry. \\
 \textbf{Subsystem}:  Http-requests \\
@@ -217,7 +196,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 1 & The users fills in the url for downloading a file. & The system receives the request and processes it & Pass \\ \hline
 2 & The user receives a prompt with downloading a file. & The system sends the file to the computer of the user & Pass
 \end{longtable}
-\subsubsection{Test case 8}
+\subsubsection{Test case 7}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Get file from single entry that has no file. \\
 \textbf{Subsystem}:  Http-requests \\
@@ -236,7 +215,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 2 & The user receives an error that there is no file attached to the log entry. & The system sends the error message to the user that there is no file with the log entry & Pass
 \end{longtable}
 
-\subsubsection{Test case 9}
+\subsubsection{Test case 8}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Post single log entry. \\
 \textbf{Subsystem}:  Http-requests \\
@@ -254,7 +233,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 1 & The users fills in all the fields that holds information for the log entry and presses submit & The system receives the request and starts to process it. & Pass \\ \hline
 2 & The user receives an message that the log entry is successfully posted . & The system marks that all the information is correct and adds the log entry to the database. & Pass
 \end{longtable}
-\subsubsection{Test case 10}
+\subsubsection{Test case 9}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Post single log entry with insufficient values. \\
 \textbf{Subsystem}:  Http-requests \\
@@ -273,7 +252,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 2 & The user receives an message that the log entry is incomplete. & The system marks that some of the information is correct and sends an error message to the user. & Fail
 \end{longtable}
 
-\subsubsection{Test case 11}
+\subsubsection{Test case 10}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Request without a token or a third party token. \\
 \textbf{Subsystem}:  Http-requests \\
@@ -291,7 +270,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 1 & The users fills in a request and presses enter without a token or an invalid token & The system receives the request. &  \\ \hline
 2 & The user receives an error stating that the token is invalid & The system does not recognize the token and sends an error message & Fail \\ \hline
 \end{longtable}
-\subsubsection{Test case 12}
+\subsubsection{Test case 11}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Database connection fails during a request. \\
 \textbf{Subsystem}:  Database \\
@@ -309,7 +288,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 1 & The users fills in a request and presses enter  & The system receives the request. &  \\ \hline
 2 & The user receives an error stating that the database connection timed out & The system can not connect to the database and the system sends an error message to the user. & Fail \\ \hline
 \end{longtable}
-\subsubsection{Test case 13}
+\subsubsection{Test case 12}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Database query fails to succeed. \\
 \textbf{Subsystem}:  Database \\
@@ -328,7 +307,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 2 & The user receives an error stating that something went wrong with the database. & The system can connect to the database, but the query fails and therefore the system sends an error message to the user. & Fail \\ \hline
 \end{longtable}
 
-\subsubsection{Test case 14}
+\subsubsection{Test case 13}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  User logs into the application. \\
 \textbf{Subsystem}:  Login \\
@@ -347,7 +326,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 2 & The user receives the token that belongs to the user. & The system retrieves the email address from the database, then verifies the corresponding password and creates an token based upon the information from the user and sends the token back to the front-end. & Pass \\ \hline
 \end{longtable}
 
-\subsubsection{Test case 15}
+\subsubsection{Test case 14}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  User logs into the application with not matching values. \\
 \textbf{Subsystem}:  Login \\
@@ -365,7 +344,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 1 & The user fills in an email address and some random characters and presses enter. & The system receives the email and the password &  \\ \hline
 2 & The user receives an error message stating that either the email address or the password is not correct. & The system retrieves the email address from the database, then verifies the corresponding password. The email or the password do not match, so an error message is sent to the user.. & Fail \\ \hline
 \end{longtable}
-\subsubsection{Test case 16}
+\subsubsection{Test case 15}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  User logs into the application, but does not receive a token. \\
 \textbf{Subsystem}:  Login \\
@@ -384,7 +363,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 2 & The user receives an error message stating that something went wrong and should try again & The system retrieves the email address from the database, then verifies the corresponding password.  The token could not be generated, and the system sends an error message to the user. & Fail \\ \hline
 \end{longtable}
 
-\subsubsection{Test case 17}
+\subsubsection{Test case 16}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  User logs into the application and receives a token, but the token is of the wrong access level \\
 \textbf{Subsystem}:  Login \\
@@ -403,7 +382,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 2 & The user receives an error message stating that something went wrong and should try again & The system retrieves the email address from the database, then verifies the corresponding password.  The token is generated, but the access level is placed wrong within the token. The system regonizes the access level and sends an error to the user. & Fail \\ \hline
 \end{longtable}
 
-\subsubsection{Test case 18}
+\subsubsection{Test case 17}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  The configuration file is missing \\
 \textbf{Subsystem}:  Configurations \\
@@ -423,7 +402,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
  
 \end{longtable}
 
-\subsubsection{Test case 19}
+\subsubsection{Test case 18}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  The configuration file is incomplete \\
 \textbf{Subsystem}:  Configurations \\
@@ -443,7 +422,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
  
 \end{longtable}
 
-\subsubsection{Test case 20}
+\subsubsection{Test case 19}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Errors are getting logged into the error log  \\
 \textbf{Subsystem}:  Configurations \\
@@ -463,7 +442,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
  
 \end{longtable}
 
-\subsubsection{Test case 21}
+\subsubsection{Test case 20}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  User tries to do a SQL injection  \\
 \textbf{Subsystem}:  User misbehaviour \\
@@ -483,7 +462,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
  
 \end{longtable}
 
-\subsubsection{Test case 22}
+\subsubsection{Test case 21}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  The soon to be attached file to a log entry is of an invalid file type  \\
 \textbf{Subsystem}:  User misbehaviour \\
@@ -502,7 +481,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 2 & The user receives a message that the file could not be added to the log entry. & The system sees that the file does not match the files allowed within the system and returns an error message. & fail\\ \hline
  
 \end{longtable}
-\subsubsection{Test case 23}
+\subsubsection{Test case 22}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  The machine that runs the server on has a different node version than the back end used.  \\
 \textbf{Subsystem}:  Version \\

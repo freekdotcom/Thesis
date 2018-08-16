@@ -115,8 +115,10 @@ captionpos=b
 \def\printauthor{%					
     { \large \@author}}				
 \makeatother							
+\usepackage{titling}
 
-\title{Logbooking Software for Science}
+\setlength{\droptitle}{-10em}   % This is your set screw
+\title{\huge Logbooking Software for Science}
 
 
 
@@ -129,11 +131,13 @@ captionpos=b
 % ------------------------------------------------------------------------------
 \thispagestyle{empty}		% Remove page numbering on this page
 \maketitle
+\vspace{2cm}
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{alice}
 \end{figure}
 
+\vspace{4cm}
 \begin{longtable}{  p{4cm}  p{8cm} }
 Author: & F.P. van der Meulen \\
 Internship Supervisor: & C.J. Rijsenbrij
@@ -147,7 +151,7 @@ StudentNumber: & 500713781 \\
 Phone Number: & +31 6 17506168 \\
 \\
 Place: & Amsterdam, the Netherlands \\
-Date: & July 3rd \\
+Date: & August 16th \\
 \\
 Institution: & Amsterdam University of Applied Sciences \\
 Study course: & HBO-ICT (Game Development) \\
@@ -190,8 +194,10 @@ To prove that the prototype is working as intended, test cases were created to t
 The vague and unclear requirements were made clear with the help of interviewing a former shifter, Pascal Boeschoten. The requirements were analysed and as a result lists of prioritized requirements were created, ordered by feature and the duplicate requirements were grouped together. \\
 With the help of the list of prioritized requirements, the front-end, CERN and S.F.S, requirements could be chosen to be featured in the prototype with an extra requirement that depended on a piece of software from CERN. 
 By combining the different frameworks, design patterns, modules and the list of chosen requirements, a prototype was made. Not all requirements and a planned design pattern could be implemented in the prototype. This had to do either with time constraints(the requirements were bigger than expected) or the use of special technology which would take too much time to complete(setting up an email server). \\
-The test cases were created based upon a list of possible scenarios that were created. The test cases were then verified with creating the  programmed tests. As a result, the tests have verified that the prototype is working as intended.  
-The requirements that were implemented were requirements about creating, reading and retrieving log entries. These requirements were chosen based upon analysing which requirements matched, or came close to matching, the predefined criteria by CERN and Software for Science. 
+The test cases were created based upon a list of possible scenarios that were created. The test cases were then verified with creating the  programmed tests. As a result, the tests have verified that the prototype is working as intended. \\
+The requirements that were implemented into the prototype were requirements about creating log entries, uploading files to log entries and about a user login. 
+ 
+
 
 
 \newpage
@@ -219,7 +225,7 @@ This thesis is split into four parts. Every part consists a sub research questio
 \item \textit{Which test cases verify that the prototype works?}
 \end{enumerate}
 The second research question will be completed with the help of front end developer Naomi since the front end needs to design and create the look of the prototype. \\
-Based upon the results from the research questions, a bookkeeping prototype can be created. The prototype will be demonstrated to the developers at CERN. The prototype will be delivered with the thesis. 
+Based upon the results from the research questions, a bookkeeping prototype can be created. The prototype will be demonstrated to the developers at CERN. The prototype will be delivered with the thesis as a code project. 
 
  
 
@@ -263,7 +269,7 @@ The technique that will be used for the requirement analysis is the Analytic Hie
 Now users can recognize the possible relationship between 
 the hierarchies. We then pair wise analyse them and users can select its preferences from the scale which ranges from 
 one to nine."(Javed Ali Khan et all, 2015). The second software requirements analysis technique that will be used for the software is the Hierachy Analytic Hierachy Process technique[9]. H.A.H.P. is a technique that creates so called planes of requirements in order to simplify the requirement analysis process. A plane is a group of requirements that are grouped together if they share a similarity. These planes can, for example, align to a user of the system or a feature that will be implemented into the final product. For this requirement analysis, the planes will consist of features since this will be more important for the prototype than the users themself. \\ \\
-The last criteria that will be used for the analysis is time. Time is an important factor for the requirement analysis, due to the limited time available. The time will be estimated using the story points technique. This technique comes from the Scrum methodology[BRON] The story point technique consists of giving points to requirements in order to organize the effort and scale of a requirement. The range of these points are:  zero, zero point five, one, two, three, five, eight, 13, 20, 40 and 100. This is the range that will be used for the analysis. \\ \\
+The last criteria that will be used for the analysis is time. Time is an important factor for the requirement analysis, due to the limited time available. The time will be estimated using the story points technique. This technique comes from the Scrum methodology[17] The story point technique consists of giving points to requirements in order to organize the effort and scale of a requirement. The range of these points are:  zero, zero point five, one, two, three, five, eight, 13, 20, 40 and 100. This is the range that will be used for the analysis. \\ \\
 Applying the chosen techniques to the requirements document results in tables with prioritized requirements with scrum points given to the requirements. The requirements are grouped by feature so that it is easier to read. \\
 
 \newpage
@@ -277,7 +283,7 @@ Once the lowly scored requirements are removed from the analysed requirements li
 \subsection{Prototype}
 After identifying which requirements can be implemented into the prototype, the development of the prototype can start. The requirements need special kinds of technologies, e.g., uploading files to the server need special technologies in order to make it work. This section will define which frameworks, modules and technologies will be used for the development of the prototype. \\ \\ 
 The frameworks can make the development process easier in the long term, due to the fact that it will not be necessary to write additional code that has been written before. The code itself will be developed according to a Representational State Transfer, REST in short, API. The REST api was required by SFS to be used for the prototype. It is important to think of the use of design patterns, a reusable piece of code to a given problem within software engineering. Design patterns could harm the performance of a system, therefore, design patterns should be used only when there is either a performance gain possible, the design patterns can improve the reuse ability of the code, or the design pattern can improve the security of the code. Once these important factors are thought out, it will be easier to create a class diagram of the prototype and a Entity Relation Diagram to have a guideline for the development process. These diagrams will be added later as results. \\ \\
-The main programming language for the prototype is Node JavaScript[BRON]. Node JavaScript is a hard set requirement, e.g. the project must use JavaScript on the back and the front end. The version of Node that is used is version 9.4.0. At the start of the development, this was the most recent version of node JavaScript that was used.  \\ \\
+The main programming language for the prototype is Node JavaScript[16]. Node JavaScript is a hard set requirement, e.g. the project must use JavaScript on the back and the front end. The version of Node that is used is version 9.4.0. At the start of the development, this was the most recent version of node JavaScript that was used.  \\ \\
 The preference of CERN is to use CERN's own developed frameworks as much as it is possible to do so. The WebUi framework is a framework to handle HTTP requests made by the client, in this case, the front end. The base of this framework is the ExpressJs framework[1]. The ExpressJs framework is a lightweight framework for handling HTTP calls. CERN has expanded this framework with features such as Json Web token support, debug logger systems and support for CERN's own authentication system, SAMS. The testing framework that has been chosen is the Mocha[4] testing framework. It is important that the entire application is tested. For instance, whenever a new feature is added to the prototype, it is important that the older features are still working as intended. With using tests, there is a better check if a feature still works. Mocha was one of the requirements set by CERN to use as the testing framework. \\
 Scrum[7] is the work management method that is used for the development of the prototype. Both the front end and the back end make use of this work management method. With Scrum, sprints are created to develop features on the according time. \\ 
 Git has been used as the version control system for the prototype and for the thesis. With Git, it was possible to store the code online, making sure it was always available for use on any computer.
@@ -290,8 +296,8 @@ server.post('/test/post/entry', handler function());
 server.get('/test/user/info', handler function());
 \end{lstlisting} 
 The REST API could handle way more http requests than these three. The code could be harder to read. Another problem could be that it will be difficult to modify the code in later stages or add end points that could use the same handler function. To solve these problems, the Model View Controller design pattern can be used. With the MVC pattern, the data that the request wants(Model) can be isolated from the user interfaces(Views) and this data can be managed with the help of the Controller[15]. This design pattern can help with organizing the code. For example, all requests that feature the log entry could go into the controller file. To obtain the required data, the specific log entry model could be called and then this data can be rendered according to the required view. The rendering of the view will be different for the prototype, due to the fact that the front-end, Naomi, will handle all the views. Therefore, the view will be more of a way that renders the data in a specific way that the front-end can work with.\\ \\
-With using the REST API, another possible problem could occur. The data will be stored into the database. The REST API will likely want to retrieve or to write data to the database. This would mean that the database could be called multiple times within a second. Starting up the database and closing it down every time a call takes place would reduce the performance of the database significantly. The database will be also called in multiple places within the prototype. This could be the case with the configuration settings of the prototype as well, since this will be also called in multiple places. The pattern Singleton would solve these problems. The singleton design pattern creates one instance of an object that is instantiated once during initialization. This is useful for the database, since this would mean that the database is instantiated once during the start up of the application and that the database doesn't need to be turned off during run time. \\ \\
-The prototype will be deployed on a server after the visit to CERN. To make the server easy deployable, build scripts will need to be created. The tool Ansible[3] will be used to create build scripts to deploy the backend on a server. The server itself will run on the linux distribution CentOS. This is also the way the prototype will be delivered with the thesis. \\ \\
+With using the REST API, another possible problem could occur. The data will be stored into the database. The REST API will likely want to retrieve or to write data to the database. This would mean that the database could be called multiple times within a second. Starting up the database and closing it down every time a call takes place would reduce the performance of the database significantly. The database will be also called in multiple places within the prototype. This could be the case with the configuration settings of the prototype as well, since this will be also called in multiple places. The pattern Singleton would solve these problems. The singleton design pattern creates one instance of an object that is instantiated once during initialization. This is useful for the database, since this would mean that the database is instantiated once during the start up of the application and that the database doesn't need to be turned off during run time. \\ 
+The prototype will be deployed on a server after the visit to CERN. To make the server easy deployable, build scripts will need to be created. The tool Ansible[3] will be used to create build scripts to deploy the backend on a server. The server itself will run on the linux distribution CentOS. The Ansible tool will be used to deploy the server for the summer school. \\ \\
 After choosing the frameworks and programming languages, the design patterns that could be implemented and the structure of the code, it is possible to create the back end of the prototype.   
 
 \newpage
@@ -300,9 +306,9 @@ This section of the report will be about the creation of test cases for the prot
 Furthermore, it will be easier to create test cases for the final product when there are test cases already available. \\
 At first, it is important to identify which requirements of the prototype should be tested and in what ways it should be tested. After the identification of what to test is done, a test case template will be created. This is done to organize the way the software should be tested. Finally, to execute the test cases, pre programmed tests will be made so that the software stays tested. The results will be test cases that cover most of the software accompanied with programmed tests. \\ \\
 One of the mandatory things to test are that the requirements are correctly implemented into the prototype. With every requirement, multiple tests can be thought of. For example, with creating a log entry, test could be about verifying that it is possible to create a log entry. Tests could be also about a user did not fill in all the required fields of a log entry or that the user tries to add code that enables the user to hack the server and so on.  \\
-Therefore, it is important that a list of possible scenario's is made. These scenario's consists of a single sentence that gives enough information about the scenario and the goal of the test. These scenario's can be found as an attachment under appendix . There are redundant scenario's within the document. For instance, one of the recurring scenario's was with the token not being provided or that the token is not from the server itself. These scenario's are removed and written only once, since these scenario's could harm the quality of the test case[13]. \\ \\
+Therefore, it is important that a list of possible scenario's is made. These scenario's consists of a single sentence that gives enough information about the scenario and the goal of the test. These scenario's can be found as an attachment under section number one point four until one point four point eleven. There are redundant scenario's within the document. For instance, one of the recurring scenario's was with the token not being provided or that the token is not from the server itself. These scenario's are removed and written only once, since these scenario's could harm the quality of the test case[13]. \\ \\
 A test case should have a reasonable probability of catching an error and should not be too simple or too complex. [13]. The goal of a test is to make sure that a existing piece of software stays functional. One of the things that the developer wants to notice is, when adding new functionality to the software, if the older functions still work and don't give a error. Therefore, it is important to write a test  that should give an error. The test should not take too much time to complete or be too complex. Since the product is a prototype, the complexity of tests should be simple, since the prototype itself is not that complex. \\ 
-As a result, the list of possible tests can be further reduced. With a focus on test that are not too complex, not too time consuming and with an error in mind, the list of possible test scenario's can be further reduced.  The test case should contain steps on how to reproduce steps. For example, to test if a file gets successfully uploaded, a different tester should be able to follow the steps that are needed to come to that outcome. Finally, it is important to identify how the system setup is running before executing the test. For instance, when creating a log entry, it is important that the user is already logged into the system. Considering all things, a test case template can be created. This template will be used to create the test cases for the prototype. This template can be found as an attachment in the appendix. \\ \\
+As a result, the list of possible tests can be further reduced. With a focus on test that are not too complex, not too time consuming and with an error in mind, the list of possible test scenario's can be further reduced.  The test case should contain steps on how to reproduce steps. For example, to test if a file gets successfully uploaded, a different tester should be able to follow the steps that are needed to come to that outcome. Finally, it is important to identify how the system setup is running before executing the test. For instance, when creating a log entry, it is important that the user is already logged into the system. Considering all things, a test case template can be created. This template will be used to create the test cases for the prototype. This template can be found as an attachment under section one point three. \\ \\
 The test cases will be implemented into the prototype with the help of programmed tests. These programmed tests will match the system side of the test cases. It is important that, with every change to the prototype, the current functionality is tested. This can be done easily with the help of Travis CI. Travis CI is a continues integrated testing tool [5]. It is used to test commits that a developer makes to the git repository. It will run all the tests that are available and sends an email whenever tests that were made earlier fails. This tool is used for maintaining the quality of the prototype. The second tool that will be used to create the test is Mocha[14]. Mocha is a framework used to create tests in nodejs. This framework was one of the requirements set by CERN. Below is an example of how a test could look like:
 \begin{lstlisting}[language=JavaScript, frame=single]
 describe('name of the test'){
@@ -322,20 +328,19 @@ These results will be about the requirement analysis, which requirements will be
 After that, the results from using the earlier defined method will be given. Finally, the results will have a conclusion of the question. These conclusions will be used to create the definite conclusion of the report.
 \newpage
 \subsection{Requirements analysis}
-This chapter will discuss the results of the requirement analysis. This analysis could begin once an analysis method was chosen, all the requirements were clear enough and all the criteria from CERN and Software for Science were clear. The analysis method that was chosen, is the A.H.P combined with the Hierarchy A.H.P. There were requirements that were vague, so they need to be made clear to make sure that the requirements could receive a wrong rating. Finally, the criteria set for the prototype from CERN and Software for Science, we're clear, so it was possible to conduct an analysis of the actual product. \\ \\
-To solve the vague requirements and unknown wishes, a former shifter by the name of Pascal Boeschoten has been interviewed. The full transcript can be found in the attachments under attachment one. The interview with Pascal clarified  terms like the on call intervention and the end of shift reports with templates. On call Interventions are emergency issues with a detector, a particle collider or another system that need to be solved as soon as possible. These issues need to be fixed within a very short amount of time. Currently, there is not a formal template available for the E.O.S., End Of Shift, reports  and because of that, all the reports do not follow the same structure.\\ \\
+This chapter will discuss the results of the requirement analysis. This analysis could begin once an analysis method was chosen, all the requirements were clear enough and all the criteria from CERN and Software for Science were clear. The analysis method that was chosen, is the A.H.P combined with the Hierarchy A.H.P. There were requirements that were vague, so they need to be made clear to make sure that the requirements could receive a wrong rating. Finally, the criteria set for the prototype from CERN and Software for Science were clear, so it was possible to conduct an analysis of the actual product. \\ \\
+To solve the vague requirements and unknown wishes, a former shifter by the name of Pascal Boeschoten has been interviewed. The full transcript can be found in the attachments under attachment one point one. The interview with Pascal clarified  terms like the on call intervention and the end of shift reports with templates. On call Interventions are emergency issues with a detector, a particle collider or another system that need to be solved as soon as possible. These issues need to be fixed within a very short amount of time. Currently, there is not a formal template available for the E.O.S., End Of Shift, reports  and because of that, all the reports do not follow the same structure.\\ \\
 During a meeting at the ninth of May, one of the developers from CERN, Vasco Chibante Barroso, stated that he prefers that the prototype would focus more on the features instead of the roles and the authentication. This complicates the planning of the new features for the prototype. Therefore, there will be an additional focus on both the features that CERN requested. This will be combined with the criteria set from Software for Science. \\ 
 With the additional criteria and the interview that was conducted with P. Boeschoten, the analysis of the requirements can begin. \\ \\
 
-
-Due to the size of the requirements from the requirements document, four sections of the analysed requirements will be shown in the results. The rest of the analysed requirements can be found as an attachment under attachment two.\\
+Due to the size of the requirements from the requirements document, four sections of the analysed requirements will be shown in the results. The rest of the analysed requirements can be found as an attachment under attachment one point two.\\
 
 \subsubsection{Entries}
 These requirements are about the different kind of entries into the system(log entries, on call interventions, run entries etc.). The rest of these requirements can be found as an attachment. This feature sits at the core of the to be delivered product and therefore has the most requirements attached to it. Due to the amount of requirements that are related to the entries, the section in the requirements document is divided into different sections for readability.
-
-\begin{longtable}{ | p{3cm} | p{8cm} | p{1.5cm} | l |}
+\newpage
+\begin{longtable}{| p{3cm} | p{8cm} | p{1.5cm} | l |}
 \hline
-Role & User Story & Priority & Estimated time \\ \hline
+Role & User Story & Priority & Time \\ \hline
 Shifter &  A shifter makes an entry into the database consisting of several items. Each entry records the following items: time of creation,which class the creator originates: human, type of entry, general, E.O.S., D.C.S., number of run, author of the entry, title of the entry, log entry, follow ups, files and actions & 9 & 8 \\ \hline
 User & As a user, I want to search log entries by different criteria (e.g. title, content, author, creation date,(...) and have the results listed. & 9 & 8 \\ \hline
 Run coordinator, Subsystem Run Coordinator , Subsystem Team Coordinator. and Shifter& As run coordinator, S.R.C. , S.T.C. or as Shifter, I may need to attach files to log entries. These files may contain text or binary information (PNGs, JPGs etc.) (Roberto Divia). & 8 & 8 \\ \hline
@@ -345,7 +350,7 @@ physicists can use them while searching for good data sets for their analysis (V
 
 \subsubsection{Reports}
 A requested feature in the new final product was the automatic creation of reports and templates. This is not available in the current product, therefore, there are requirements referencing towards the creation of templates and reports.
-\begin{longtable}{ | p{3cm} | p{8cm} | p{1.5cm} | l |}
+\begin{longtable}{| p{3cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Priority & Time \\ \hline
 Subsystem Run Coordinator & As a S.R.C. I would like to be able to create my own detector specific templates for example On-Call interventions. In this case I can specify the relevant information which are required from the OnCall shifter for different kind of “standard” events (Robert Munzer). & 8 & 20 \\ \hline
@@ -353,8 +358,8 @@ Shifter &  As a shifter, I want to have templates that prefill most of my end-of
 \end{longtable}
 
 \subsubsection{Email}
-Sending emails is available in the current system, however, the current way the emails are send are sent in a spam related way, e.g., a shifter receives an email if another shifter makes an entry from another subsystem. Therefore, the email system needs to be optimized and it should be designed in a way that will not be annoying to the user. The reason that this is of more importance, is that it is easy to adjust the way the emails are sent, how the emails look like and who receives an email. That why, with adding it to the prototype, it will be easier to adjust it to the wishes of the users.
-\begin{longtable}{ | p{3cm} | p{8cm} | p{1.5cm} | l |}
+Sending emails is available in the current system, however, the current way the emails are send are sent in a spam related way, for example, a shifter receives an email if another shifter makes an entry for another subsystem. Therefore, the email system needs to be optimized and it should be designed in a way that will not be annoying to the user. The reason that this is of importance, is that it is easy to adjust the way the emails are sent, how the emails look like and who receives an email. That why, with adding it to the prototype, it will be easier to adjust it to the wishes of the users.
+\begin{longtable}{| p{3cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Priority & Time \\ \hline
 ALICE member & As an ALICE member, I would like to receive via email a global summary of each LHC Fill in order to follow ALICE operations without visiting the bookkeeping tools. Currently in the ALICE logbook, I like that I receive via email a document with info on efficiency and E.O.R Reasons and that on the body of the email there is a summary for
@@ -364,9 +369,9 @@ channels) of log entries which are related with my subsystem so that I can bette
 Run coordinator & As run coordinator I may request to receive automatic e-mails concerning all Logbook entries that include all systems (either without distinction or using special selection criteria). The e-mail delivery address will probably be an e-group (single e-mail address <...>@cern.ch)(Roberto Divia). & 6 & 13 \\ \hline
 \end{longtable}
 
-%\subsubsection{\ref{table:hans}}
+\newpage
 \subsubsection{Roles and Authentication}
-There are different kinds of roles and users in the bookkeeping system. It is possible that a user is assigned to multiple subsystems with different roles. Only certain roles can move in and out of subsystems. Since the different roles play an important part in the bookkeeping system, it  would be important to have it.
+There are different kinds of roles and users in the bookkeeping system, for example, a role could be a shifter or subsystem run coordinator. It is possible that a user is assigned to multiple subsystems with different roles. Only certain roles can move in and out of subsystems. Since the different roles play an important part in the bookkeeping system, it  would be important to have it in the prototype.
 
 \begin{longtable}{ | p{3cm} | p{8cm} | p{1.5cm} | l |}
 \hline
@@ -374,15 +379,13 @@ Role & User Story & Priority & Time \\ \hline
 User & As a user, I want to be able to login with my CERN credentials to avoid having to remember a new set of credentials. This should be done by using the CERN authentication method. & 9 & 13 \\ \hline
 Run coordinator, Subsystem Run Coordinator and Administrator &  As run coordinator, S.R.C. or Admin, I must be able to move collaborators to and out of subsystem teams. These action may be conflict the information stored in SAMS (Roberto Divia). & 9 & 13 \\ \hline
 Run coordinator and System Run Coordinator &  As run coördinator or S.R.C. I need to give ALICE collaborators write or read-only access to the logbook. These rights will be superseeded by equivalent rights given according to the function of the user (e.g. a ALICE collaborator with read-only access will be given write access during the time of his/her duties as a shifter, subsystem run coördinator or system team member) (Roberto Divia).&6&13 \\ \hline
-
-\label{table:hans}
 \end{longtable}
 
-After the terms that were vaguely written or had terms in that were not explained elsewhere were made clear thanks to the interview with Pascal, the prioritization of the requirements could start based upon the wishes from CERN and Software for Science, the amount of time estimated to complete a requirement and feature. This was done with the help of the AHP technique. The results were prioritized requirements, ordered by feature. 
+After the terms that were vaguely written or had terms in that were not explained elsewhere were made clear with interviewing Pascal Boeschoten, the prioritization of the requirements could start based upon the wishes from CERN and Software for Science and the amount of time estimated to complete a requirement and feature. This was done with the help of the A.H.P. technique combined with the H.A.H.P technique. The results were prioritized requirements, ordered by feature and with the removed duplicates. 
 \newpage
 
 \subsection{Consequences}
-With the list of prioritized requirements, it was possible to select which requirements would be able to be used to develop the prototype. With filtering the list, discussing the filtered list with the front-end and with discussions with Software for Science, the following list of requirements could be created: \\
+With the list of prioritized requirements, it was possible to select which requirements would be able to be used to develop the prototype. With filtering the list, discussing the filtered list with the front end and finally with discussing the list that has been created with the front end with Software for Science, the following list of requirements was created: \\
 \begin{longtable}{ | p{3cm} | p{8cm} | p{1.5cm} | l |}
 \hline
 Role & User Story & Priority & Time \\ \hline
@@ -397,7 +400,7 @@ Subsystem Run Coordinator & As subsystem run coordinator I may request to receiv
 Run coordinator, System Run Coordinator and Administrator &  As run coordinator, S.R.C. or Admin, I must be able to move collaborators to and out of subsystem teams. These action may be conflict the information stored in SAMS (Roberto Divia). & 9 & 13 \\ \hline
 \end{longtable}
 
-These requirements were chosen based upon discussions with the front-end, S.F.S and the prioritized requirements that were made earlier. These requirements have connections between them. The main themes for the prototype would be creating a log entry, searching for log entries and notifying the users of events within the system. All these requirements have a priority of eight or higher and take some time to complete. These requirements could theoretically fit into the prototype. One requirements is unsure if this could be implemented. The reason for this is that the requirement is dependant upon a piece of software from CERN itself: The OAuth. This is a custom made authentication software tool that is used for logging into applications that are from CERN. This requirement can be found below: \\
+These requirements were chosen based upon discussions with the front-end, S.F.S and the prioritized requirements that were made earlier. These requirements have connections between them. The main themes for the prototype would be creating a log entry, searching for log entries and notifying the users of events within the system. All these requirements have a priority of eight or higher and take some time to complete. These requirements could theoretically fit into the prototype. One requirement is unsure if this could be implemented into the prototype. The reason for this is that the requirement is dependant upon a piece of software from CERN itself: The OAuth. This is a custom made authentication software tool that is used for logging into applications that are from CERN. This requirement can be found below: \\
 
 \begin{longtable}{ | p{3cm} | p{8cm} | p{1.5cm} | l |}
 \hline
@@ -405,38 +408,38 @@ Role & User Story & Priority & Time \\ \hline
 Run coordinator, S.R.C. and Administrator &  As run coordinator, S.R.C. or Admin, I must be able to move collaborators to and out of subsystem teams. These action may be conflict the information stored in SAMS (Roberto Divia). & 9 & 13 \\ \hline
 \end{longtable}
 
-With the help from the prioritized requirements, the front-end, CERN and S.F.S, requirements could be chosen to be featured in the prototype with one requirement that depends on a piece of software from CERN.
+With the help from the prioritized requirements, the front-end, CERN and S.F.S, requirements could be chosen to be implemented in the prototype with one requirement that depends on a piece of software from CERN.
 \newpage
 \subsection{Prototype}
+\vspace{-1cm}
 The prototype could be developed with choosing which design patterns could be implemented into the app, which frameworks were chosen for the development process and with the list of prioritized requirements, a prototype could be created.  At first, the Entity Relationship Diagrams of the prototype will be shown, followed by a class diagram of the actual product. With the class diagram, examples of the implemented design patterns will be given. At the end of this section, a table with requirements that could not be implemented in the prototype will be given, alongside an explanation why they could not be implemented.
 \noindent
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{erd_user}
+\includegraphics[scale=1.0]{erd_user}
 \caption{The Entity Relationship Diagram of the user schema}
 \end{figure}
 \noindent
-The user schema was created with simplicity in mind. The user authentication process is custom made. For the real product, CERN's own authentication process called OAuth will be used. Since this is temporary, it was decided to make this as simple as it was possible, since this is something that will disappear once the OAuth is working. The first iteration had the user bound to the subsystem, however, one of the requirements were changed to the fact that a shifter could be part of multiple subsystems. Therefore, this connections has been removed and a custom authentication system was created for the prototype. \\
-This authentication system enables the user to login into the application. On the back end of the prototype, once the authentication has succeeded, a JWToken is sent to the front-end, mimicking the real system. To store the password safely into the database, the password was encrypt with the bcrypt[15] module. Bcrypt hashes the password and then the prototype stores the password hashed into the database.
+The user schema was created with simplicity in mind. The user authentication process is custom made. For the real product, CERN's own authentication process called OAuth will be used. Since this is temporary, it was decided to make this as simple as it was possible, since this is something that will disappear once the OAuth is working. The first iteration of the database scheme had the user bound to the subsystem, however, one of the requirements were changed to the fact that a shifter could be part of multiple subsystems. Therefore, this connections has been removed and a custom authentication system was created for the prototype. \\
+This authentication system enables the user to login into the application. On the back end of the prototype, once the authentication has succeeded, a JWToken is sent to the front-end, mimicking the real system. To store the password safely into the database, the password was encrypt with the bcrypt[15] module. Bcrypt hashes the password with a salt, random data added to the hash, and then the prototype stores the password hashed into the database. The next diagram is the ERD of the log entry schema:
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{erd_log_entry}
+\includegraphics[scale=0.9]{erd_log_entry}
 \caption{The Entity Relationship Diagram of the log entry schema}
 \end{figure}
 \noindent
-The goal of designing the log entry schema was to keep it as simple as possible. One of the first iterations was a table for each kind of log entry(End of Shift report, On Call Intervention etc.), however, after receiving the feedback that the database design could combine the different types of log entries into one table, this iteration was chosen. With this design, it will be much easier to extend the log entry table where needed. The file paths are separated from the log entries, since with this design, it will be easier to add multiple files to one log entry. The run records can be easily attached to one log entry. These records are not with every log entry type, so separating this makes the log entry table much easier to read and expand upon. \\ \\
-During the development of the prototype, several frameworks and modules other than the WebUI framework have been used to create the prototype. These modules offered functionality that would either reduce the development time of the module or reduce the difficulty of the development. \\
-Another module that was used, is mkdirp[16]. This module creates directories when the program is running. It is used when a file is uploaded on the server, so that the file is stored in a folder for every new log entry. Furthermore, the module PG[17] as an additional framework for setting up the database and executing queries was used. 
-
-
-
+The goal of designing the log entry schema was to keep it as simple as possible. One of the first iterations was a table for each kind of log entry (End of Shift report, On Call Intervention etc.), however, after receiving the feedback that the database design could combine the different types of log entries into one table, this iteration was chosen. With this design, it will be much easier to extend the log entry table where needed. The file paths are separated from the log entries, since with this design, it will be easier to add multiple files to one log entry. \\ 
+During the development of the prototype, several frameworks and modules other than the WebUI framework have been used to create the prototype. These modules offered functionality that would either reduce the development time of the module or reduce the difficulty of the development. \\ \\
+One module that was used, is mkdirp[16]. This module creates directories when the program is running. It is used when a file is uploaded on the server, so that the file is stored in a folder for every new log entry. Furthermore, the module PG[17] as an additional framework for setting up the database and executing queries was used. \\ Another module that has been used is the datetime[18] module. This module displays the current time. This is used whenever a log entry is added that this time is added to the log entry. Another module that has been used is the multer[19] module. This module was used to handle the file uploading. Instead of creating this functionality, it was easier to implement this module into the prototype. \\  
+\\The final diagram is the class diagram of the prototype itself:
 \begin{figure}[H]
-\includegraphics[scale=0.35]{class_diagram}
+\includegraphics[scale=0.9]{class_diagram}
 \caption{The class diagram of the prototype}
 \end{figure}
 \noindent
 The class diagram contains the two chosen design patterns and the requirements that were chosen to be implemented into the prototype. The two design patterns are implemented, along with the required functionality that has been picked earlier.\\
 As seen earlier, not all the requirements could be made into the prototype. These requirements will be displayed into an table with the reason why they could not be made into the prototype.
+\newpage
 \begin{longtable}{ | p{3cm} | p{7cm} | p{3cm}|}
 \hline
 Role & User Story & Reason \\ \hline
@@ -446,7 +449,8 @@ Subsystem Run Coordinator &  As a subsystem responsible, I want to be notified b
 System Run Coordinator & As subsystem run coordinator I may request to receive automatic emails concerning all Logbook entries that include the System I am working for (either without distinction or using special selection criteria s). The e-mail delivery address will probably be an e-group (single e-mail address <...>@cern.ch) (Roberto Divia). & This was deemed to big due to the fact that a server must be made and an entire new piece of software must be added for the server. \\ \hline
 Run coordinator, S.R.C. and Administrator &  As run coordinator, S.R.C. or Admin, I must be able to move collaborators to and out of subsystem teams. These action may be conflict the information stored in SAMS (Roberto Divia). & The authentication software was not available on time to be used for the prototype. \\ \hline
 \end{longtable}
-The design patterns Singleton and MVC could be implemented into the prototype. The view part of the MVC design pattern is not implemented into the prototype. The reason for this was, that the front-end could not work with the way the data that came out of the view. This was done late in the development process and would mean significant changes in the code from the front-end. After discussing this with the front-end, this resulted into removing the view part. The singleton can be found below. This is the singleton class of the database:
+The design patterns Singleton and MVC could be implemented into the prototype. The view part of the MVC design pattern is not implemented into the prototype. The reason for this was, that the front-end could not work with the way the data that came out of the view. This was done late in the development process and would mean significant changes in the code from the front-end. After discussing this with the front-end, this resulted into removing the view part. The singleton of the database can be found below: 
+\newpage
 \begin{lstlisting}[language=JavaScript, frame=single]
 /*
  * Copyright (C) 2018 Amsterdam University of Applied Sciences (AUAS)
@@ -497,9 +501,10 @@ module.exports = {Database};
 Combining different technologies and frameworks, design patterns and the list of chosen requirements, a prototype could be made. Not all requirements and a part of the design pattern could be implemented in the prototype. This had to do either with time constraints or the use of special technology which would take too much time to complete.
 \newpage
 \subsection{Test cases}
-Once the prototype was created, test cases were needed to verify that the prototype was actually working. After creating an test case template, different scenario's were chosen to create tests for. With the test cases, it was possible to create automated tests with the help of Mocha[14]. Mocha is a tool to create different kinds of tests like unit tests(small, simple tests to test a small piece of code) and integration tests(larger and more complex tests to test entire features). These test cases can be found as an attachment under section NUMMER, due to the amount of test cases created. Two test cases along with code and an explanation will be shown.
-The first test case is shown below:
-\subsubsection{Test case 1}
+Once the prototype was created, test cases were needed to verify that the prototype was actually working. After creating an test case template, different scenario's were chosen to create tests for. With the test cases, it was possible to create automated tests with the help of Mocha[14]. Mocha is a tool to create different kinds of tests like unit tests(small, simple tests to test a small piece of code) and integration tests(larger and more complex tests to test entire features). These test cases can be found as an attachment under section one point four, due to the amount of test cases created. Two test cases along with code and an explanation will be shown. The tests have been divided into two parts. \\ \\
+The first part of the tests is testing the controller side, the end points, of the prototype, testing if parameters are passed successfully and testing if the token works as it should work. The second part of the tests is about interacting with the database. The models are verified that they are working. Furthermore, the interactions with the database are being tested.  \\ \\
+The first test case, a test about the end points, is shown below:
+\subsubsection{Test case 3}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Get non existing log entry
 \textbf{Subsystem}:  Http-requests
@@ -507,14 +512,20 @@ The first test case is shown below:
 \textbf{Design date}: 30/05/2018 \\
 \textbf{Short description}: The user tries to retrieve a log entry that does not exist. \\
 
+Pre-conditions: 
+\begin{enumerate}
+\item The user is logged into the application
+\end{enumerate}
+
 \begin{longtable}{ | p{0.8cm} | p{4.5cm} | p{6cm}  | p{1.5cm} |}
 \hline
 Step & Action & Expected System Response & Pass/Fails  \\ \hline
 1 & The user fills into the search bar of the web browser the URL to the non existing log entry. & The system tries to process the request, but fails because the log entry does not exist &  \\ \hline
 2 & The user sees an error message stating that the log entry does not exist & The system sends the error message to the client as a result of not finding the log entry. &  \\ \hline
 \end{longtable}
+\newpage
 This test case is about the scenario of whenever a user tries to retrieve a log entry that does not exist. It can happen that the user wants to see a log entry quickly, but makes a small mistake. If no error message is given, the user will not be notified about the missing log entry or the system shuts down, because the system can't complete the request. \\ 
-For this test, the following code example was created: \\ \\
+For this test, the following code was used to make sure that the test case is verified :
 \begin{lstlisting}[language=JavaScript, frame=single]
 it('should return a json with an error message that the log entry does not exist', (done) => {
   request('http://localhost:' + config.getServerConfiguration().port
@@ -528,14 +539,21 @@ it('should return a json with an error message that the log entry does not exist
 
 \end{lstlisting}
 
-The second test case is shown here:
-\subsubsection{Test case 9}
+The second test case is about testing the possibility of creating a log entry. This test case interacts with the database, as described earlier. To prevent that the production database is being tempered with, a test database has been created. This test database is identical to the regular one, but without the risk of losing data that has been stored on the regular database. The test case can be found below:
+
+\subsubsection{Test case 8}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Post log entry
 \textbf{Subsystem}:  Database-request
 \textbf{Designed by}:  Frederick van der Meulen\\
 \textbf{Design date}: 30/05/2018 \\
 \textbf{Short description}: The user creates a log entry. \\
+
+Pre-conditions: 
+\begin{enumerate}
+\item The user is logged into the application.
+\end{enumerate}
+
 
 \begin{longtable}{ | p{0.8cm} | p{4.5cm} | p{6cm}  | p{1.5cm} |}
 \hline
@@ -544,8 +562,8 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 2 & The user receives an message that the log entry is successfully posted & The systems sees that all the information is correct and adds the log entry to the database. &  \\ \hline
 \end{longtable}
 
-This test is about creating log entries. Since this is one of the core features of the application, it is important that this feature keeps working, no matter which circumstances the software is being developed. To proper test the database, a test database has been created. 
-Since this test is more complex, due to testing the database, the following code snippet is being used:
+This test is about creating log entries. Since this is one of the core features of the application, it is important that this feature keeps working, no matter which circumstances the software is being developed. 
+Since this test is more complex, due to testing the database, the following code snippet has been created to verify the test case:
 
 \begin{lstlisting}[language=JavaScript, frame=single]
 mockPostLogEntryRequest = mocks.createRequest({
@@ -579,19 +597,22 @@ mockPostLogEntryRequest = mocks.createRequest({
 
 For some test cases, it was discovered that the code was not complete enough. This means that the test could not be made, since the code for the test did not exist. These lines of code were added to complete the test cases. \\
 Some test cases could be combined into one test. For instance, the test case regarding logging into the system and the test case about that a token should always be provided are combined together into one programmed test. \\
-There is one test case that could not be verified. This test case was about different node versions. This is easy to do manually by creating a new Virtual Machine and put a different node version there, but programmatically it was not doable. This was verified manually. \\ \\
+There are two test cases that could not be verified. The first test case was about different node versions. This is easy to do manually by creating a new Virtual Machine and put a different node version there, but programmatically it was not doable. This was verified manually on a different virtual machine. \\ 
+The second test case was about the configurations file missing. This test case could be possible to implement as a test, however, due to time constraints this test case could not be implemented as a test. This test case is verified manually.\\ \\
 
-The test cases were created based upon a list of possible scenarios that were created. Based on the test cases, test were programmed to verify the test cases. The result is that the tests have verified that the prototype is working as intended. 
+The test cases were created based upon a list of possible scenarios that were created. Based on the test cases, tests were programmed to verify the test cases. The result is that the tests have verified that the prototype is working as intended. 
 
 \newpage
 \section{Conclusion}
 The research question of the thesis was: \\ \\
 \textit{Which requirements can be implemented into the logbook system for ALICE?} \\
 
-The requirements that were implemented were requirements about creating log entries. These requirements were chosen based upon analysing which requirements matched, or came close to matching, the predefined criteria by CERN and Software for Science. \\
-With the analysed requirements, a list of requirements that will be implemented into the prototype was made based upon discussions with the frontend and Software for Science. \\ \\ 
-The requirements that could not be made into the prototype were requirements that would be too big to implement and requirements that could not be made due to time constraints. During the development of the prototype, frameworks, modules and design patterns have been used to improve the quality of the prototype. \\
-When the prototype was completed, test cases were created to verify that the prototype was working. These test cases were implemented as either unit or integration tests in the code. 
+Once the unknown requirements were made clear with interviewing a former shifter, the requirements could be analysed and resulted into a list of prioritized requirements. The list of prioritzed  requirements has been discussed with the front end, which resulted in a smaller list of requirements, which was shrunk down after discussions with Software for Science. \\ The final list of requirements has been used to develop the prototype of the bookkeeping system. During the development of the prototype, several frameworks, modules and design patterns were used to either improve the quality of the prototype or to ease the development of the prototype. Not all requirements could be implemented into the prototype. These requirements had a scope that was to big or could not be made into the prototype due to the limited amount of time available or could not be implemented due to missing software from CERN. Finally, test cases were created with the prototype that were implemented as tests to verify that the prototype was working as intended. \\ \\
+The requirements that were implemented into the prototype were requirements about creating log entries, uploading files to log entries and about a user login. 
+%The requirements that were implemented were requirements about creating log entries. These requirements were chosen based upon analysing which requirements matched, or came close to matching, the predefined criteria by CERN and Software for Science. \\
+%With the analysed requirements, a list of requirements that will be implemented into the prototype was made based upon discussions with the frontend and Software for Science. \\ \\ 
+%The requirements that could not be made into the prototype were requirements that would be too big to implement and requirements that could not be made due to time constraints. During the development of the prototype, frameworks, modules and design patterns have been used to improve the quality of the prototype. \\
+%When the prototype was completed, test cases were created to verify that the prototype was working. These test cases were implemented as either unit or integration tests in the code. 
 
 \newpage
 \section{Recommendations}
@@ -647,16 +668,12 @@ This section of the report will explain terms that will be used during the repor
 (13): Kaner, Cem. Testing Computer Software. Wiley, 2012.
  Retrieved June 20, 2019 \\
 (14): Mocha, (n.d.) Retrieved June 27, 2018, from https://mochajs.org/ \\
-(15): Osmani, A. (2013). Learning JavaScript design patterns. Sebastopol, CA: OReilly Media.
- 
+(15): Osmani, A. (2013). Learning JavaScript design patterns. Sebastopol, CA: OReilly Media. \\
+(16): Foundation, N. (n.d.). Retrieved August 16, 2018, from https://nodejs.org/en/ \\
+(17): The Scrum Guide™. (n.d.). Retrieved August 16, 2018, from https://www.scrumguides.org/scrum-guide.html \\
+(18): Node-datetime. (n.d.). Retrieved August 16, 2018, from https://www.npmjs.com/package/node-datetime \\
+(19): Multer. (n.d.). Retrieved August 16, 2018, from https://www.npmjs.com/package/multer
 
-
-
-
-
-
-
- 
 \newpage
 
 \section{Attachments}
@@ -664,13 +681,10 @@ This section of the report will explain terms that will be used during the repor
 \subsection{Interview transscript}
 \includepdf[pages=-]{Transscript.pdf}
 
-\subsection{Tables with pioritized requirements}
 \include{TablesWithRequirements}
 
-\subsection{Test case template}
 \include{testcasetemplate}
 
-\subsection{Test case document}
 \include{Test_case_document}
 
 

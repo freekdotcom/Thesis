@@ -1,5 +1,4 @@
-\subsubsection{The ideas}
-
+\subsection{Test case document}
 \subsubsection{Requests}
 
 \subsubsection{GET}
@@ -37,8 +36,6 @@
 \item Database query fails to succeed 
 \item The database can be upgraded to a different version 
 \end{enumerate}
-
-
 
 \subsubsection{Login}
 \begin{enumerate}
@@ -81,7 +78,7 @@
 \textbf{Subsystem}:  Http-requests
 \textbf{Designed by}:  Frederick van der Meulen\\
 \textbf{Design date}: 30/05/2018 \\
-\textbf{Short description}: Get file from single entry, but the file was corrupted. The user needs to be notified of this corruption \\
+\textbf{Short description}: Retrieves a file from a single log entry, but the file was corrupted. The user needs to be notified of this corruption \\
 
 Pre-conditions: \\
 \begin{enumerate}
@@ -93,9 +90,11 @@ Pre-conditions: \\
 \hline
 Step & Action & Expected System Response & Pass/Fails & Comment \\ \hline
 1 & Click the log entry & The system shows the detailed log entry & & \\ \hline
-2 & Click on the file that the user wants to download & The system receives the GET request & & \\ \hline
-3 & Press download & The file is being downloaded by the client & & \\ \hline
+2 & Click on the file that the user wants to download & The system receives the GET request and tries to retrieve the file & & \\ \hline
+3 & Press download & Since the file was corrupted, a message displays stating that the file was not downloaded. & & \\ \hline
 \end{longtable}
+
+
 \subsubsection{Test case 2}
 \textbf{System}:   ALICE Bookkeeping prototype\\
 \textbf{Test Case Name}:  POST corrupted file to log\\
@@ -109,7 +108,7 @@ Pre-conditions: \\
 \item The user has the rights to create a log entry
 \item The user has created the file that the user wants to attach to the log entry
 \end{enumerate}
-
+\newpage
 \begin{longtable}{ | p{0.8cm} | p{4.5cm} | p{6cm} | p{1.5cm} | p{1.5cm} |}
 \hline
 Step & Action & Expected System Response & Pass/Fails & Comment \\ \hline
@@ -117,33 +116,33 @@ Step & Action & Expected System Response & Pass/Fails & Comment \\ \hline
 2 & Press the send file button & The server receives the file, however, something in the process goes wrong. & & \\ \hline
 3 & Receive a message that the file got corrupted & Instead of adding the file path to the database, a message that the file got corrupted gets added to the database. & & \\ \hline
 \end{longtable}
-
 \subsubsection{Test case 3}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Get non existing single log entry \\
 \textbf{Subsystem}:  Http-requests \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
+\textbf{Design date}: 31/05/2018 \\
 \textbf{Short description}: The user tries to retrieve the details of a single log entry that does not exist. \\
 
 Pre-conditions: \\
-%\begin{enumerate}
-%\end{enumerate}
+\begin{enumerate}
+\item The user is logged into the application
+\end{enumerate}
 
 \begin{longtable}{ | p{0.8cm} | p{4.5cm} | p{6cm} | p{1.5cm} |}
 \hline
 Step & Action & Expected System Response & Pass/Fails  \\ \hline
-1 & The user fills into the search bar the log entry that does not exist yet. & The system tries to process the request, but fails because the entry does not exist &   \\ \hline
-2 & The user sees an error message stating that the log entry does not exist. & The system sends the error message as the result of not finding the log entry. & Pass \\ \hline
+1 & The user fills into the search bar the log entry that does not exist yet. & The system tries to process the request, but fails because the entry does not exist & Pass  \\ \hline
+2 & The user sees an error message stating that the log entry does not exist. & The system sends the error message as the result of not finding the log entry. & Fails \\ \hline
 
 \end{longtable}
-
+\newpage
 \subsubsection{Test case 4}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Get duplicate single log entry \\
 \textbf{Subsystem}:  Http-requests \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
+\textbf{Design date}:  30/05/2018\\
 \textbf{Short description}: The user tries to retrieve the details of a single log entry , but two log entries have the same id. \\
 
 Pre-conditions: \\
@@ -162,7 +161,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 \textbf{Test Case Name}:  Get all entries without any entries into the system. \\
 \textbf{Subsystem}:  Http-requests \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
+\textbf{Design date}:  30/05/2018\\
 \textbf{Short description}: The user tries to retrieve all the log entries, but there are no entries into the system. \\
 
 Pre-conditions: \\
@@ -181,8 +180,8 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 \textbf{Test Case Name}:  Get file from single entry. \\
 \textbf{Subsystem}:  Http-requests \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
-\textbf{Short description}: The user tries to retrieve a file from a single log entry. \\
+\textbf{Design date}:  31/05/2018\\
+\textbf{Short description}: The user tries to download a file from a single log entry. \\
 
 Pre-conditions: \\
 \begin{enumerate}
@@ -194,15 +193,15 @@ Pre-conditions: \\
 \hline
 Step & Action & Expected System Response & Pass/Fails  \\ \hline
 1 & The users fills in the url for downloading a file. & The system receives the request and processes it & Pass \\ \hline
-2 & The user receives a prompt with downloading a file. & The system sends the file to the computer of the user & Pass
+2 & The user receives a prompt with downloading a file. & The system sends the file to the computer of the user & Pass \\ \hline
 \end{longtable}
 \subsubsection{Test case 7}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Get file from single entry that has no file. \\
 \textbf{Subsystem}:  Http-requests \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
-\textbf{Short description}: The user tries to retrieve a file from a single log entry, but the entry does not have a file attached to it. \\
+\textbf{Design date}:  30/05/2018\\
+\textbf{Short description}: The user tries to retrieve a file from a single log entry, but the entry does not have a file attached to it. \\ 
 
 Pre-conditions: \\
 %\begin{enumerate}
@@ -212,7 +211,7 @@ Pre-conditions: \\
 \hline
 Step & Action & Expected System Response & Pass/Fails  \\ \hline
 1 & The users fills in the url for downloading a file. & The system receives the request and processes it & Pass \\ \hline
-2 & The user receives an error that there is no file attached to the log entry. & The system sends the error message to the user that there is no file with the log entry & Pass
+2 & The user receives an error that there is no file attached to the log entry. & The system sends the error message to the user that there is no file with the log entry & Pass \\ \hline
 \end{longtable}
 
 \subsubsection{Test case 8}
@@ -220,7 +219,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 \textbf{Test Case Name}:  Post single log entry. \\
 \textbf{Subsystem}:  Http-requests \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
+\textbf{Design date}:  31/05/2018\\
 \textbf{Short description}: The user creates a log entry . \\
 
 Pre-conditions: \\
@@ -231,14 +230,14 @@ Pre-conditions: \\
 \hline
 Step & Action & Expected System Response & Pass/Fails  \\ \hline
 1 & The users fills in all the fields that holds information for the log entry and presses submit & The system receives the request and starts to process it. & Pass \\ \hline
-2 & The user receives an message that the log entry is successfully posted . & The system marks that all the information is correct and adds the log entry to the database. & Pass
+2 & The user receives an message that the log entry is successfully posted . & The system marks that all the information is correct and adds the log entry to the database. & Pass \\ \hline
 \end{longtable}
 \subsubsection{Test case 9}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Post single log entry with insufficient values. \\
 \textbf{Subsystem}:  Http-requests \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
+\textbf{Design date}:  30/05/2018\\
 \textbf{Short description}: The user tries creates a log entry, but mandatory fields are missing from the request. \\
 
 Pre-conditions: \\
@@ -249,7 +248,7 @@ Pre-conditions: \\
 \hline
 Step & Action & Expected System Response & Pass/Fails  \\ \hline
 1 & The users fills in some fields, but not the mandatory fields and presses submit & The system receives the request and starts to process it. & Pass \\ \hline
-2 & The user receives an message that the log entry is incomplete. & The system marks that some of the information is correct and sends an error message to the user. & Fail
+2 & The user receives an message that the log entry is incomplete. & The system marks that some of the information is correct and sends an error message to the user. & Fail \\ \hline
 \end{longtable}
 
 \subsubsection{Test case 10}
@@ -257,7 +256,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 \textbf{Test Case Name}:  Request without a token or a third party token. \\
 \textbf{Subsystem}:  Http-requests \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
+\textbf{Design date}:  01/06/2018\\
 \textbf{Short description}: The user tries to do a request without a token or a token that has been created with the help of third party tools \\
 
 Pre-conditions: \\
@@ -275,7 +274,7 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 \textbf{Test Case Name}:  Database connection fails during a request. \\
 \textbf{Subsystem}:  Database \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
+\textbf{Design date}:  01/06/2018\\
 \textbf{Short description}: When the user tries to do a request that involves the database, the database connection fails \\
 
 Pre-conditions: \\
@@ -288,31 +287,13 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 1 & The users fills in a request and presses enter  & The system receives the request. &  \\ \hline
 2 & The user receives an error stating that the database connection timed out & The system can not connect to the database and the system sends an error message to the user. & Fail \\ \hline
 \end{longtable}
+
 \subsubsection{Test case 12}
-\textbf{System}:  ALICE Bookkeeping prototype \\
-\textbf{Test Case Name}:  Database query fails to succeed. \\
-\textbf{Subsystem}:  Database \\
-\textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
-\textbf{Short description}: The user tries to perform a request and the system sees that all the required values are correct, however, the query with the database fails for an unknown reason. \\
-
-Pre-conditions: \\
-%\begin{enumerate}
-%\end{enumerate}
-
-\begin{longtable}{ | p{0.8cm} | p{4.5cm} | p{6cm} | p{1.5cm} |}
-\hline
-Step & Action & Expected System Response & Pass/Fails  \\ \hline
-1 & The users fills in a request and presses enter  & The system receives the request. &  \\ \hline
-2 & The user receives an error stating that something went wrong with the database. & The system can connect to the database, but the query fails and therefore the system sends an error message to the user. & Fail \\ \hline
-\end{longtable}
-
-\subsubsection{Test case 13}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  User logs into the application. \\
 \textbf{Subsystem}:  Login \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
+\textbf{Design date}:  30/05/2018\\
 \textbf{Short description}: The user is logging into the application. \\
 
 Pre-conditions: \\
@@ -325,13 +306,13 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 1 & The user fills in the email and password and presses enter. & The system receives the email and the password &  \\ \hline
 2 & The user receives the token that belongs to the user. & The system retrieves the email address from the database, then verifies the corresponding password and creates an token based upon the information from the user and sends the token back to the front-end. & Pass \\ \hline
 \end{longtable}
-
-\subsubsection{Test case 14}
+\newpage
+\subsubsection{Test case 13}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  User logs into the application with not matching values. \\
 \textbf{Subsystem}:  Login \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
+\textbf{Design date}:  31/05/2018\\
 \textbf{Short description}: The user is logging into the application, but the password and the email address do not match with each other. \\
 
 Pre-conditions: \\
@@ -344,50 +325,32 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 1 & The user fills in an email address and some random characters and presses enter. & The system receives the email and the password &  \\ \hline
 2 & The user receives an error message stating that either the email address or the password is not correct. & The system retrieves the email address from the database, then verifies the corresponding password. The email or the password do not match, so an error message is sent to the user.. & Fail \\ \hline
 \end{longtable}
+\newpage
+\subsubsection{Test case 14}
+\textbf{System}:  ALICE Bookkeeping prototype \\
+\textbf{Test Case Name}:  Parameters progressed . \\
+\textbf{Subsystem}:  Login \\
+\textbf{Designed by}:  F.P. van der Meulen\\
+\textbf{Design date}:  31/05/2018\\
+\textbf{Short description}: The user does a request which involves parameters that are recognized by the system, in this case from the log entries. \\
+
+Pre-conditions: \\
+%\begin{enumerate}
+%\end{enumerate}
+
+\begin{longtable}{ | p{0.8cm} | p{4.5cm} | p{6cm} | p{1.5cm} |}
+\hline
+Step & Action & Expected System Response & Pass/Fails  \\ \hline
+1 & The users fills in the search bar the parameters of special log entries and presses enter. & The system receives the request from the client & Success \\ \hline
+2 & The user receives the log entries that match the parameters & The system sees the parameters and adds these parameters to the database query, which results into log entries that match the parameters. & Success \\ \hline
+\end{longtable}
+
 \subsubsection{Test case 15}
-\textbf{System}:  ALICE Bookkeeping prototype \\
-\textbf{Test Case Name}:  User logs into the application, but does not receive a token. \\
-\textbf{Subsystem}:  Login \\
-\textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
-\textbf{Short description}: The user is logging into the application, however, even though the verification is successful, the user does not receive a token. \\
-
-Pre-conditions: \\
-%\begin{enumerate}
-%\end{enumerate}
-
-\begin{longtable}{ | p{0.8cm} | p{4.5cm} | p{6cm} | p{1.5cm} |}
-\hline
-Step & Action & Expected System Response & Pass/Fails  \\ \hline
-1 & The user fills in an email address and some random characters and presses enter. & The system receives the email and the password &  \\ \hline
-2 & The user receives an error message stating that something went wrong and should try again & The system retrieves the email address from the database, then verifies the corresponding password.  The token could not be generated, and the system sends an error message to the user. & Fail \\ \hline
-\end{longtable}
-
-\subsubsection{Test case 16}
-\textbf{System}:  ALICE Bookkeeping prototype \\
-\textbf{Test Case Name}:  User logs into the application and receives a token, but the token is of the wrong access level \\
-\textbf{Subsystem}:  Login \\
-\textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
-\textbf{Short description}: The user is logging into the application, however, the user receives a token with the wrong access level. \\
-
-Pre-conditions: \\
-%\begin{enumerate}
-%\end{enumerate}
-
-\begin{longtable}{ | p{0.8cm} | p{4.5cm} | p{6cm} | p{1.5cm} |}
-\hline
-Step & Action & Expected System Response & Pass/Fails  \\ \hline
-1 & The user fills in an email address and some random characters and presses enter. & The system receives the email and the password &  \\ \hline
-2 & The user receives an error message stating that something went wrong and should try again & The system retrieves the email address from the database, then verifies the corresponding password.  The token is generated, but the access level is placed wrong within the token. The system regonizes the access level and sends an error to the user. & Fail \\ \hline
-\end{longtable}
-
-\subsubsection{Test case 17}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  The configuration file is missing \\
 \textbf{Subsystem}:  Configurations \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
+\textbf{Design date}:  30/05/2018\\
 \textbf{Short description}: The user starts the webserver, however, there is no configuration file. \\
 
 Pre-conditions: \\
@@ -402,37 +365,16 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
  
 \end{longtable}
 
-\subsubsection{Test case 18}
-\textbf{System}:  ALICE Bookkeeping prototype \\
-\textbf{Test Case Name}:  The configuration file is incomplete \\
-\textbf{Subsystem}:  Configurations \\
-\textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
-\textbf{Short description}: The user starts the web server, however, the configuration file is incomplete. \\
 
-Pre-conditions: \\
-%\begin{enumerate}
-%\end{enumerate}
-
-\begin{longtable}{ | p{0.8cm} | p{4.5cm} | p{6cm} | p{1.5cm} |}
-\hline
-Step & Action & Expected System Response & Pass/Fails  \\ \hline
-1 & The user fills in the command to start the web server. & The system is starting up. &  \\ \hline
-2 & The user receives an error message that the configuration file is missing. & The system can not find configuration compartments and displays an error message & fail\\ \hline
- 
-\end{longtable}
-
-\subsubsection{Test case 19}
+\subsubsection{Test case 16}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  Errors are getting logged into the error log  \\
 \textbf{Subsystem}:  Configurations \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
+\textbf{Design date}:  01/06/2018\\
 \textbf{Short description}: Whenever there is an error within the system, the error gets logged into a special error file. \\
 
 Pre-conditions: \\
-%\begin{enumerate}
-%\end{enumerate}
 
 \begin{longtable}{ | p{0.8cm} | p{4.5cm} | p{6cm} | p{1.5cm} |}
 \hline
@@ -442,12 +384,12 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
  
 \end{longtable}
 
-\subsubsection{Test case 20}
+\subsubsection{Test case 17}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  User tries to do a SQL injection  \\
 \textbf{Subsystem}:  User misbehaviour \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
+\textbf{Design date}:  31/05/2018\\
 \textbf{Short description}: The user tries to do a SQL injection when creating a log entry. \\
 
 Pre-conditions: \\
@@ -462,12 +404,12 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
  
 \end{longtable}
 
-\subsubsection{Test case 21}
+\subsubsection{Test case 18}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  The soon to be attached file to a log entry is of an invalid file type  \\
 \textbf{Subsystem}:  User misbehaviour \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
+\textbf{Design date}:  31/05/2018\\
 \textbf{Short description}: The user tries to attach a file to a log entry, however, the file is of a malicious type (for example, virus). \\
 
 Pre-conditions: \\
@@ -481,12 +423,12 @@ Step & Action & Expected System Response & Pass/Fails  \\ \hline
 2 & The user receives a message that the file could not be added to the log entry. & The system sees that the file does not match the files allowed within the system and returns an error message. & fail\\ \hline
  
 \end{longtable}
-\subsubsection{Test case 22}
+\subsubsection{Test case 19}
 \textbf{System}:  ALICE Bookkeeping prototype \\
 \textbf{Test Case Name}:  The machine that runs the server on has a different node version than the back end used.  \\
 \textbf{Subsystem}:  Version \\
 \textbf{Designed by}:  F.P. van der Meulen\\
-\textbf{Design date}:  \\
+\textbf{Design date}:  01/06/2018\\
 \textbf{Short description}: When the user has either a higher or a lower node version than the node version that was used for creating the back end of the prototype, the server is still capable of running. \\
 
 Pre-conditions: \\
